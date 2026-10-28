@@ -1,0 +1,2316 @@
+{
+ "_comment": "Single source of truth for jobpipe v2 and the unified daily run. SKILL.md and references/*.md describe these rules in words; change the rule here and the words there together, then run the tests.",
+ "version": 2,
+ "profile": {
+  "_comment": "Years by function (SKILL.md experience table). The years gate compares a posting's required years with the row its wording points to, never the ~6-year total.",
+  "function_years": {
+   "finance_modeling": 4,
+   "analytics_consulting": 3,
+   "data_science_ml": 0.25,
+   "risk_credit": 0.25,
+   "trading": 0.5,
+   "engineering": 0,
+   "people_management": 0,
+   "general": 6
+  },
+  "function_keywords": {
+   "finance_modeling": [
+    "financial model",
+    "financial analysis",
+    "investment analys",
+    "valuation",
+    "corporate finance",
+    "fp&a",
+    "underwriting",
+    "real estate",
+    "investment banking",
+    "equity research",
+    "portfolio management",
+    "asset management"
+   ],
+   "analytics_consulting": [
+    "analytics",
+    "analytical",
+    "business intelligence",
+    "data analysis",
+    "analyzing data",
+    "consulting",
+    "strategy",
+    "forecasting",
+    "insights",
+    "reporting",
+    "sql",
+    "quantitative field",
+    "quantitative role",
+    "quantitative analysis",
+    "statistics",
+    "statistical"
+   ],
+   "data_science_ml": [
+    "data science",
+    "machine learning",
+    "ml model",
+    "predictive model",
+    "deploying model",
+    "deep learning",
+    "nlp",
+    "llm",
+    "generative ai",
+    "applied science",
+    "modeling experience",
+    "statistical modeling",
+    "production ml",
+    "production machine learning",
+    "production ai",
+    "deploying ml",
+    "ml systems",
+    "ranking",
+    "recommendation"
+   ],
+   "risk_credit": [
+    "risk management",
+    "credit risk",
+    "model risk",
+    "model validation",
+    "fraud",
+    "market risk",
+    "counterparty",
+    "risk model",
+    "risk analytics",
+    "credit analysis",
+    "lending"
+   ],
+   "trading": [
+    "trading",
+    "derivatives",
+    "fixed income",
+    "capital markets"
+   ],
+   "engineering": [
+    "software engineering",
+    "software engineer",
+    "software development",
+    "swe",
+    "data engineering",
+    "data engineer",
+    "backend",
+    "back-end",
+    "mlops",
+    "devops",
+    "infrastructure",
+    "distributed systems",
+    "etl",
+    "data pipelines",
+    "professional software",
+    "shipping production software",
+    "production software",
+    "site reliability",
+    "cloud architecture",
+    "cloud-native"
+   ],
+   "people_management": [
+    "people management",
+    "managing a team",
+    "managing teams",
+    "direct reports",
+    "leading a team",
+    "team leadership"
+   ]
+  },
+  "skills": {
+   "_comment": "From resumes/*.md only. strong = shown in work or projects; some = coursework / lighter use. Used for the skills pre-score; Claude re-checks against the resume when scoring.",
+   "strong": [
+    "python",
+    "sql",
+    "pandas",
+    "numpy",
+    "scikit-learn",
+    "xgboost",
+    "lightgbm",
+    "machine learning",
+    "statistics",
+    "regression",
+    "classification",
+    "time series",
+    "forecasting",
+    "credit risk",
+    "risk model",
+    "model validation",
+    "feature engineering",
+    "pytorch",
+    "llm",
+    "genai",
+    "generative ai",
+    "rag",
+    "nlp",
+    "financial model",
+    "valuation",
+    "excel",
+    "tableau",
+    "power bi",
+    "a/b test",
+    "hypothesis test",
+    "monte carlo",
+    "optimization",
+    "aws",
+    "spark",
+    "git"
+   ],
+   "some": [
+    "tensorflow",
+    "docker",
+    "kubernetes",
+    "airflow",
+    "snowflake",
+    "databricks",
+    "dbt",
+    "r ",
+    "matlab",
+    "c++",
+    "java",
+    "scala",
+    "gcp",
+    "azure",
+    "fastapi",
+    "flask",
+    "react",
+    "javascript",
+    "typescript",
+    "linux",
+    "bash",
+    "langchain",
+    "vector database",
+    "reinforcement learning",
+    "computer vision",
+    "stochastic",
+    "derivatives pricing"
+   ]
+  },
+  "graduation": {
+   "month": "2026-05",
+   "degree": "MS",
+   "_note": "Roles limited to 'Class of 2027' / graduating after Dec 2026 may not accept a May 2026 graduate: flag, don't drop."
+  }
+ },
+ "salary_floor": 80000,
+ "window_hours": {
+  "daily": 30,
+  "widened": 72,
+  "github_lists": 72,
+  "hn": 168,
+  "proptech": 168,
+  "startup": 72
+ },
+ "repost_after_hours": 96,
+ "sectors": {
+  "_comment": "Eight sectors. 'startups' is not a row value: it is every company with startup=yes, whatever its industry. Sector labels a role; it never limits a query.",
+  "values": [
+   "tech",
+   "ai",
+   "finance",
+   "quant",
+   "consulting",
+   "proptech",
+   "fintech"
+  ],
+  "derived": {
+   "startups": "startup=yes"
+  },
+  "sector_group": {
+   "tech": "Tech / AI",
+   "ai": "Tech / AI",
+   "finance": "Finance & banking",
+   "quant": "Finance & banking",
+   "consulting": "Consulting",
+   "proptech": "Real estate tech",
+   "fintech": "Fintech",
+   "": "Other"
+  },
+  "naics_hint": {
+   "5221": "finance",
+   "5222": "fintech",
+   "5223": "fintech",
+   "5231": "quant",
+   "5239": "quant",
+   "5242": "finance",
+   "5241": "finance",
+   "5511": "finance",
+   "5415": "tech",
+   "5182": "tech",
+   "5112": "tech",
+   "5132": "tech",
+   "5416": "consulting",
+   "5312": "proptech",
+   "5311": "proptech",
+   "5313": "proptech"
+  }
+ },
+ "programs": {
+  "professional": {
+   "tracker": "main",
+   "title_groups": {
+    "data_science": [
+     "data scientist",
+     "data science",
+     "decision scientist",
+     "research scientist",
+     "applied scientist",
+     "statistician",
+     "data generalist",
+     "founding data scientist",
+     "quantitative scientist"
+    ],
+    "data_analytics": [
+     "data analyst",
+     "analytics engineer",
+     "business intelligence",
+     "bi analyst",
+     "bi engineer",
+     "product analyst",
+     "analytics analyst",
+     "insights analyst",
+     "ai operations analyst",
+     "data analytics",
+     "analytics associate",
+     "marketing analyst",
+     "operations analyst, analytics"
+    ],
+    "ml_ai_engineering": [
+     "machine learning",
+     "ml engineer",
+     "mle",
+     "ai engineer",
+     "applied ai",
+     "genai",
+     "llm",
+     "member of technical staff",
+     "software engineer, ml",
+     "software engineer - ml",
+     "software engineer (ml",
+     "software engineer, ai",
+     "software engineer - ai",
+     "software engineer, data",
+     "founding engineer",
+     "founding ml",
+     "ai/ml"
+    ],
+    "consulting_strategy": [
+     "consultant",
+     "strategy & analytics",
+     "strategy and analytics",
+     "strategy & operations",
+     "strategy and operations",
+     "bizops",
+     "business operations",
+     "data strategy",
+     "strategy analyst",
+     "business analyst"
+    ],
+    "risk_quant": [
+     "quantitative",
+     "quant ",
+     "quant,",
+     "quant-",
+     "model risk",
+     "model validation",
+     "credit risk",
+     "risk analyst",
+     "risk analytics",
+     "fraud",
+     "underwriting",
+     "credit analyst",
+     "risk data scientist",
+     "investment risk",
+     "pricing analyst",
+     "investment analyst",
+     "portfolio analyst",
+     "credit strategy",
+     "risk strategy",
+     "risk modeling",
+     "risk modeler",
+     "risk and control",
+     "risk & control",
+     "trading risk",
+     "market risk",
+     "operational risk",
+     "liquidity risk",
+     "counterparty",
+     "hedging",
+     "risk officer"
+    ],
+    "fde_solutions": [
+     "forward deployed",
+     "solutions architect",
+     "solution architect",
+     "solutions engineer",
+     "solution engineer",
+     "deployment engineer",
+     "customer engineer",
+     "deployment strategist"
+    ],
+    "finance_analytics": [
+     "financial analyst",
+     "fp&a",
+     "finance analyst",
+     "investment associate",
+     "treasury analyst",
+     "capital markets analyst",
+     "valuation",
+     "real estate analyst",
+     "acquisitions analyst",
+     "underwriter",
+     "pricing",
+     "monetization",
+     "corporate development",
+     "investment strategy",
+     "strategic intelligence"
+    ]
+   },
+   "track_group": {
+    "data_science": "Data science",
+    "data_analytics": "Data / analytics",
+    "ml_ai_engineering": "ML / AI engineering",
+    "consulting_strategy": "Analytics & consulting",
+    "risk_quant": "Risk & credit analytics",
+    "fde_solutions": "Forward deployed & solutions",
+    "finance_analytics": "Finance & investment analytics",
+    "other": "Data / analytics"
+   },
+   "_finance_analytics_note": "Added Oct 28 2026: she applied to Sr. Financial Analyst, Senior Analyst Pricing & Monetization, MSR Hedging Analyst and similar roles, and financial modeling is her longest function row (~4 yrs). Remove the group to stop searching it."
+  },
+  "newgrad": {
+   "tracker": "newgrad",
+   "_comment": "New-grad program roles for SDE / MLE / AI (+ FDE and quant). A title must carry a new-grad marker, or come from a new-grad list (SimplifyJobs, speedyapply, CareerBuzz, Interstride entry-level filter).",
+   "markers": [
+    "new grad",
+    "new graduate",
+    "new college grad",
+    "university grad",
+    "university graduate",
+    "early career",
+    "early-career",
+    "entry level",
+    "entry-level",
+    "graduate program",
+    "graduate software",
+    "class of 202",
+    "202[6-7] start",
+    "campus",
+    "recent graduate",
+    "software engineer i\\b",
+    "software engineer 1\\b",
+    "software developer i\\b",
+    "sde i\\b",
+    "sde 1\\b",
+    "swe i\\b",
+    "engineer i\\b",
+    "associate software engineer",
+    "junior software engineer",
+    "junior developer",
+    "machine learning engineer i\\b",
+    "ml engineer i\\b",
+    "ai engineer i\\b",
+    "associate machine learning",
+    "associate ai engineer",
+    "associate engineer",
+    "engineer, new grad",
+    "residency",
+    "rotational"
+   ],
+   "families": {
+    "mle": [
+     "machine learning",
+     "ml engineer",
+     "mle",
+     "ml platform",
+     "ml infrastructure",
+     "deep learning",
+     "computer vision",
+     "nlp"
+    ],
+    "ai": [
+     "ai engineer",
+     "applied ai",
+     "artificial intelligence",
+     "genai",
+     "generative ai",
+     "llm",
+     "ai/ml",
+     "ai software",
+     "agent"
+    ],
+    "quant": [
+     "quant",
+     "quantitative",
+     "trading",
+     "trader",
+     "strats"
+    ],
+    "fde": [
+     "forward deployed",
+     "solutions engineer",
+     "deployment engineer"
+    ],
+    "sde": [
+     "software engineer",
+     "software developer",
+     "software development engineer",
+     "sde",
+     "swe",
+     "backend",
+     "back-end",
+     "full stack",
+     "full-stack",
+     "platform engineer",
+     "data engineer",
+     "infrastructure engineer",
+     "developer"
+    ]
+   },
+   "category": {
+    "sde": "SWE/SDE",
+    "mle": "SWE – AI/ML",
+    "ai": "SWE – AI/ML",
+    "quant": "Quant",
+    "fde": "FDE"
+   },
+   "low_fit_words": [
+    "front end",
+    "front-end",
+    "frontend",
+    "mobile",
+    "ios",
+    "android",
+    ".net",
+    "c#",
+    "embedded",
+    "firmware",
+    "test engineer",
+    "qa ",
+    "sdet",
+    "hardware",
+    "fpga",
+    "asic",
+    "verification engineer",
+    "rf ",
+    "silicon",
+    "salesforce developer",
+    "sap "
+   ],
+   "high_fit_words": [
+    "backend",
+    "back-end",
+    "data",
+    "machine learning",
+    "ml",
+    "ai",
+    "platform",
+    "infrastructure",
+    "python",
+    "full stack",
+    "full-stack",
+    "forward deployed",
+    "quant",
+    "trading",
+    "distributed",
+    "cloud",
+    "risk",
+    "fintech",
+    "payments"
+   ]
+  }
+ },
+ "query_families": {
+  "_comment": "What every general website is searched for. 'or' is one boolean query for sites that accept OR (LinkedIn, Indeed); 'each' are short queries for sites that need them (2-3 words). Every family is searched on every site whose 'programs' include it, unless the site lists 'families'.",
+  "professional": {
+   "data_science": {
+    "or": "\"data scientist\" OR \"decision scientist\" OR \"applied scientist\"",
+    "each": [
+     "data scientist"
+    ]
+   },
+   "data_analytics": {
+    "or": "\"data analyst\" OR \"analytics engineer\" OR \"business intelligence\" OR \"AI operations analyst\"",
+    "each": [
+     "data analyst",
+     "analytics engineer"
+    ]
+   },
+   "ml_ai_engineering": {
+    "or": "\"machine learning engineer\" OR \"AI engineer\" OR \"applied AI\" OR \"member of technical staff\"",
+    "each": [
+     "machine learning engineer",
+     "AI engineer"
+    ]
+   },
+   "consulting_strategy": {
+    "or": "\"data consultant\" OR \"analytics consultant\" OR \"AI consultant\" OR \"strategy & analytics\" OR bizops",
+    "each": [
+     "analytics consultant"
+    ]
+   },
+   "risk_quant": {
+    "or": "\"quantitative analyst\" OR \"model validation\" OR \"model risk\" OR \"credit risk\" OR \"risk analytics\" OR \"fraud data scientist\"",
+    "each": [
+     "quantitative analyst",
+     "credit risk",
+     "model validation"
+    ]
+   },
+   "fde_solutions": {
+    "or": "\"forward deployed\" OR \"solutions engineer\" OR \"solutions architect\"",
+    "each": [
+     "forward deployed"
+    ]
+   },
+   "finance_analytics": {
+    "or": "\"financial analyst\" OR \"investment analyst\" OR \"FP&A\" OR \"pricing analyst\" OR \"real estate analyst\"",
+    "each": [
+     "financial analyst",
+     "investment analyst"
+    ]
+   }
+  },
+  "newgrad": {
+   "sde": {
+    "or": "\"new grad\" software engineer OR \"software engineer I\" OR \"entry level software engineer\"",
+    "each": [
+     "new grad software engineer",
+     "software engineer I"
+    ]
+   },
+   "mle": {
+    "or": "\"new grad\" \"machine learning\" OR \"machine learning engineer I\" OR \"entry level machine learning\"",
+    "each": [
+     "new grad machine learning"
+    ]
+   },
+   "ai": {
+    "or": "\"new grad\" \"AI engineer\" OR \"entry level AI engineer\" OR \"AI engineer I\"",
+    "each": [
+     "new grad AI engineer"
+    ]
+   },
+   "quant_fde": {
+    "or": "\"new grad\" quantitative OR \"quant researcher\" OR \"new grad\" \"forward deployed\"",
+    "each": [
+     "new grad quant"
+    ]
+   }
+  }
+ },
+ "sites": [
+  {
+   "name": "Employer feeds",
+   "mode": "api",
+   "programs": [
+    "professional",
+    "newgrad"
+   ],
+   "priority": 0,
+   "note": "Every company in companies.csv with a public board (Greenhouse, Lever, Ashby, SmartRecruiters, Workday, Amazon). jobpipe collect.",
+   "role": "harvest"
+  },
+  {
+   "name": "SimplifyJobs GitHub",
+   "mode": "api",
+   "programs": [
+    "newgrad"
+   ],
+   "priority": 0,
+   "note": "listings.json, new-grad SWE / AI-ML-Data / Quant.",
+   "role": "graduate list"
+  },
+  {
+   "name": "speedyapply",
+   "mode": "api",
+   "programs": [
+    "newgrad"
+   ],
+   "priority": 0,
+   "note": "2027-AI-College-Jobs and 2027-SWE-College-Jobs NEW_GRAD_USA.md (employer apply links + age).",
+   "role": "graduate list"
+  },
+  {
+   "name": "Ask HN",
+   "mode": "api",
+   "programs": [
+    "professional",
+    "newgrad"
+   ],
+   "priority": 0,
+   "note": "current month's Who is hiring thread via hn.algolia.com.",
+   "role": "discovery"
+  },
+  {
+   "name": "LinkedIn",
+   "mode": "browser",
+   "programs": [
+    "professional",
+    "newgrad"
+   ],
+   "priority": 1,
+   "style": "or",
+   "url": {
+    "professional": "https://www.linkedin.com/jobs/search/?keywords={q}&location=United%20States&geoId=103644278&f_TPR=r{seconds}&f_E=2%2C3%2C4&sortBy=DD",
+    "newgrad": "https://www.linkedin.com/jobs/search/?keywords={q}&location=United%20States&geoId=103644278&f_TPR=r{seconds}&f_E=1%2C2&sortBy=DD"
+   },
+   "extractor": "linkedin",
+   "pace_s": 7,
+   "note": "Scroll the list container until no new cards; drop Reposted / Promoted-only; never open pages just to read them.",
+   "enabled": false,
+   "disabled_note": "Off since Oct 28 2026: discovery uses Google Jobs, Indeed, Glassdoor and Wellfound. Set enabled true to search it again.",
+   "role": "discovery"
+  },
+  {
+   "name": "Google Jobs",
+   "mode": "browser",
+   "programs": [
+    "professional",
+    "newgrad"
+   ],
+   "priority": 2,
+   "style": "or",
+   "role": "discovery",
+   "url": "https://www.google.com/search?q={q}+jobs+united+states&ibp=htl;jobs&htichips=date_posted:{gdays}",
+   "extractor": "googlejobs",
+   "pace_s": 6,
+   "note": "Google's job panel aggregates employer and ATS postings with 'via <site>' and an age. The date chip is set by htichips (today / 3days / week); if the URL form changes, open google.com/search?q=<query>+jobs, click 'Jobs' and set 'Date posted'. A consent page or CAPTCHA is a valid blocker."
+  },
+  {
+   "name": "Indeed",
+   "mode": "browser",
+   "programs": [
+    "professional",
+    "newgrad"
+   ],
+   "priority": 3,
+   "style": "or",
+   "url": "https://www.indeed.com/jobs?q={q}&l=United+States&fromage={days}&sort=date",
+   "extractor": "indeed",
+   "pace_s": 6,
+   "note": "Stop on the first HTTP 429 or security check and quote it.",
+   "role": "discovery"
+  },
+  {
+   "name": "Glassdoor",
+   "mode": "browser",
+   "programs": [
+    "professional",
+    "newgrad"
+   ],
+   "priority": 4,
+   "style": "each",
+   "role": "discovery",
+   "url": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword={q}&locT=N&locId=1&fromAge={days}",
+   "extractor": "glassdoor",
+   "pace_s": 6,
+   "note": "Often asks to sign in after a few pages: a sign-in wall is a valid blocker. Read the result list only."
+  },
+  {
+   "name": "Jobright",
+   "mode": "browser",
+   "programs": [
+    "professional",
+    "newgrad"
+   ],
+   "priority": 3,
+   "style": "each",
+   "url": "https://jobright.ai/jobs/search?value={q}&daysAgo={days}&excludeSecurityClearance=true&excludeUsCitizen=true&excludeStaffingAgency=true",
+   "extractor": "jobright",
+   "pace_s": 5,
+   "enabled": false,
+   "disabled_note": "Off since Oct 28 2026: discovery uses Google Jobs, Indeed, Glassdoor and Wellfound. Set enabled true to search it again.",
+   "role": "discovery"
+  },
+  {
+   "name": "Interstride",
+   "mode": "browser",
+   "programs": [
+    "professional",
+    "newgrad"
+   ],
+   "priority": 6,
+   "style": "each",
+   "url": "https://interstride.com/georgiatech/jobs",
+   "extractor": "generic",
+   "pace_s": 5,
+   "families": [
+    "data_science",
+    "data_analytics",
+    "risk_quant",
+    "ml_ai_engineering",
+    "sde",
+    "mle",
+    "ai"
+   ],
+   "note": "Signed in with the GT account in Chrome (never type passwords). Turn on the US + H-1B-sponsor filters and the posted-date filter; type the query into its search. Copy employer H-1B counts into h1b_history.",
+   "role": "graduate"
+  },
+  {
+   "name": "GT CareerBuzz",
+   "mode": "browser",
+   "programs": [
+    "professional",
+    "newgrad"
+   ],
+   "priority": 6,
+   "style": "each",
+   "url": "https://gatech-csm.symplicity.com/students/app/jobs/discover?job_type=3,27",
+   "extractor": "generic",
+   "pace_s": 5,
+   "families": [
+    "data_science",
+    "data_analytics",
+    "risk_quant",
+    "sde",
+    "mle",
+    "ai"
+   ],
+   "note": "Signed in with the GT account. Type the query into the keyword box. Record 'Apply by' as the deadline.",
+   "role": "graduate"
+  },
+  {
+   "name": "HiringCafe",
+   "mode": "browser",
+   "programs": [
+    "professional",
+    "newgrad"
+   ],
+   "priority": 4,
+   "style": "each",
+   "url": "https://hiring.cafe/?searchState={state}",
+   "extractor": "hiringcafe",
+   "pace_s": 5,
+   "note": "Short queries only; age labels are fetch ages (flag 'age from HiringCafe').",
+   "enabled": false,
+   "disabled_note": "Off since Oct 28 2026: discovery uses Google Jobs, Indeed, Glassdoor and Wellfound. Set enabled true to search it again.",
+   "role": "discovery"
+  },
+  {
+   "name": "Simplify Jobs",
+   "mode": "browser",
+   "programs": [
+    "professional",
+    "newgrad"
+   ],
+   "priority": 4,
+   "style": "each",
+   "url": "https://simplify.jobs/jobs?query={q}&experience=Entry%20Level%2FNew%20Grad%3BJunior%3BMid%20Level&sortBy=newest",
+   "extractor": "generic",
+   "pace_s": 5,
+   "enabled": false,
+   "disabled_note": "Off since Oct 28 2026: discovery uses Google Jobs, Indeed, Glassdoor and Wellfound. Set enabled true to search it again.",
+   "role": "discovery"
+  },
+  {
+   "name": "Built In",
+   "mode": "browser",
+   "programs": [
+    "professional"
+   ],
+   "priority": 5,
+   "style": "each",
+   "url": "https://builtin.com/jobs?search={q}&daysSinceUpdated=1",
+   "extractor": "builtin",
+   "pace_s": 5,
+   "note": "If the filtered URL shows 'No job results', drop the date filter and read ages from the cards.",
+   "enabled": false,
+   "disabled_note": "Off since Oct 28 2026: discovery uses Google Jobs, Indeed, Glassdoor and Wellfound. Set enabled true to search it again.",
+   "role": "discovery"
+  },
+  {
+   "name": "TrueUp",
+   "mode": "browser",
+   "programs": [
+    "professional",
+    "newgrad"
+   ],
+   "priority": 5,
+   "style": "each",
+   "url": "https://www.trueup.io/jobs?title={q}&location=United%20States",
+   "extractor": "generic",
+   "pace_s": 5,
+   "families": [
+    "data_science",
+    "data_analytics",
+    "ml_ai_engineering",
+    "fde_solutions",
+    "sde",
+    "mle",
+    "ai"
+   ],
+   "enabled": false,
+   "disabled_note": "Off since Oct 28 2026: discovery uses Google Jobs, Indeed, Glassdoor and Wellfound. Set enabled true to search it again.",
+   "role": "discovery"
+  },
+  {
+   "name": "Levels.fyi",
+   "mode": "browser",
+   "programs": [
+    "professional",
+    "newgrad"
+   ],
+   "priority": 6,
+   "style": "each",
+   "url": "https://www.levels.fyi/jobs?searchText={q}&locations=United%20States",
+   "extractor": "generic",
+   "pace_s": 5,
+   "families": [
+    "data_science",
+    "ml_ai_engineering",
+    "fde_solutions",
+    "sde",
+    "mle",
+    "ai"
+   ],
+   "enabled": false,
+   "disabled_note": "Off since Oct 28 2026: discovery uses Google Jobs, Indeed, Glassdoor and Wellfound. Set enabled true to search it again.",
+   "role": "discovery"
+  },
+  {
+   "name": "eFinancialCareers",
+   "mode": "browser",
+   "programs": [
+    "professional",
+    "newgrad"
+   ],
+   "priority": 6,
+   "style": "each",
+   "url": "https://www.efinancialcareers.com/jobs?q={q}&location=United%20States&countryCode=US&datePosted=ONE_DAY",
+   "extractor": "generic",
+   "pace_s": 5,
+   "families": [
+    "risk_quant",
+    "data_science",
+    "quant_fde",
+    "finance_analytics"
+   ],
+   "enabled": false,
+   "disabled_note": "Off since Oct 28 2026: discovery uses Google Jobs, Indeed, Glassdoor and Wellfound. Set enabled true to search it again.",
+   "role": "discovery"
+  },
+  {
+   "name": "Y Combinator",
+   "mode": "browser",
+   "programs": [
+    "professional",
+    "newgrad"
+   ],
+   "priority": 7,
+   "style": "each",
+   "url": "https://www.ycombinator.com/jobs/search?query={q}",
+   "extractor": "generic",
+   "pace_s": 5,
+   "families": [
+    "data_science",
+    "ml_ai_engineering",
+    "fde_solutions",
+    "ai"
+   ],
+   "enabled": false,
+   "disabled_note": "Off since Oct 28 2026: discovery uses Google Jobs, Indeed, Glassdoor and Wellfound. Set enabled true to search it again.",
+   "role": "discovery"
+  },
+  {
+   "name": "Welcome to the Jungle",
+   "mode": "browser",
+   "programs": [
+    "professional"
+   ],
+   "priority": 7,
+   "style": "each",
+   "url": "https://app.welcometothejungle.com/",
+   "extractor": "generic",
+   "pace_s": 5,
+   "families": [
+    "data_science",
+    "ml_ai_engineering",
+    "risk_quant"
+   ],
+   "note": "Needs sign-in in Chrome; a sign-in page is a valid blocker.",
+   "enabled": false,
+   "disabled_note": "Off since Oct 28 2026: discovery uses Google Jobs, Indeed, Glassdoor and Wellfound. Set enabled true to search it again.",
+   "role": "discovery"
+  },
+  {
+   "name": "Wellfound",
+   "mode": "browser",
+   "programs": [
+    "professional",
+    "newgrad"
+   ],
+   "priority": 5,
+   "style": "each",
+   "url": "https://wellfound.com/role/r/{slug}",
+   "extractor": "wellfound",
+   "pace_s": 5,
+   "note": "Startups. Often shows a security check to automation: quote it and mark the site blocked. Good discovery yield per the conversion-rate table (5.95%).",
+   "role": "discovery"
+  },
+  {
+   "name": "Simplify FAANG+",
+   "mode": "browser",
+   "programs": [
+    "newgrad"
+   ],
+   "priority": 7,
+   "style": "single",
+   "url": "https://simplify.jobs/top-list/FAANG-New-Grad-SWE",
+   "extractor": "generic",
+   "pace_s": 5,
+   "note": "Record 'Closes in ~N days' / 'Opens in ~N days' as deadlines.",
+   "role": "graduate"
+  },
+  {
+   "name": "newgrad-jobs.com",
+   "mode": "browser",
+   "programs": [
+    "newgrad"
+   ],
+   "priority": 8,
+   "style": "single",
+   "url": "https://airtable.com/embed/appxfacPDgUWOvRWa/shr45FBB1GB53RCwo",
+   "extractor": "generic",
+   "pace_s": 5,
+   "note": "No dates or locations: only rows that resolve to an employer posting with a date are kept.",
+   "role": "graduate"
+  },
+  {
+   "name": "Career pages",
+   "mode": "browser",
+   "programs": [
+    "professional",
+    "newgrad"
+   ],
+   "priority": 1,
+   "style": "company",
+   "note": "Every company without a working public feed: open search_url (or careers_url) and search 'data' / 'analyst' / 'machine learning' / 'new grad'. Workday sites: use the JSON search in sources.md from that tab.",
+   "role": "harvest"
+  }
+ ],
+ "blocker_words": [
+  "security check",
+  "captcha",
+  "sign-in",
+  "sign in",
+  "login",
+  "log in",
+  "429",
+  "too many requests",
+  "verify you are human",
+  "access denied",
+  "are you a robot",
+  "computer unreachable",
+  "chrome unreachable",
+  "network blocked",
+  "proxy refused",
+  "connect_rejected"
+ ],
+ "gates": {
+  "seniority_title_exclude": [
+   "principal",
+   "staff",
+   "lead",
+   "director",
+   "head of",
+   "vice president",
+   "vp",
+   "avp",
+   "svp",
+   "evp",
+   "manager",
+   "distinguished",
+   "fellow",
+   "chief",
+   "intern",
+   "internship",
+   "co-op",
+   "coop",
+   "apprentice",
+   "summer analyst",
+   "summer associate"
+  ],
+  "senior_eng_exclude": [
+   "senior software",
+   "sr software",
+   "sr. software",
+   "senior machine learning",
+   "sr machine learning",
+   "sr. machine learning",
+   "senior ml",
+   "sr ml",
+   "sr. ml",
+   "senior data engineer",
+   "sr data engineer",
+   "sr. data engineer",
+   "senior ai engineer",
+   "sr ai engineer",
+   "sr. ai engineer",
+   "senior engineer",
+   "sr engineer",
+   "sr. engineer",
+   "senior backend",
+   "senior full stack",
+   "senior platform engineer",
+   "senior research scientist",
+   "senior bi engineer",
+   "senior business intelligence engineer"
+  ],
+  "senior_eng_note": "'Senior Applied AI Engineer I' (Juniper Square) was applied to: titles ending in level I pass the senior-engineering gate and go to the years check.",
+  "level_exclude_patterns": [
+   "\\b(?:engineer|developer)\\s+(?:iii|iv|v|3|4|5)\\b",
+   "\\b(?:l|level\\s)(?:6|7|8)\\b",
+   "\\bsde\\s?(?:iii|3)\\b"
+  ],
+  "level_exclude_note": "Calibrated on her Oct 24-28 decisions: she applied to Data Scientist III, MLE II, Senior Data Scientist, Sr. Quantitative Finance Analyst and Senior Analyst roles, and skipped Sr MLE, Sr Data Engineer, BIE II (SQL/ETL engineering), MLE 4 and Manager titles. So engineering III+ and senior-engineering titles are gated; Senior Associate / Senior Analyst / Senior Consultant / Senior Data Scientist / Scientist III are scored, not gated.",
+  "years_gate": {
+   "_comment": "Hard exclusion only where her decisions show it: engineering and people-management years. Other functions lose experience points instead (score, not gate).",
+   "hard_functions": [
+    "engineering",
+    "people_management"
+   ],
+   "hard_margin": 1,
+   "soft_points": [
+    [
+     0,
+     20
+    ],
+    [
+     1,
+     16
+    ],
+    [
+     3,
+     10
+    ],
+    [
+     99,
+     4
+    ]
+   ],
+   "_soft_points_note": "[gap_years, points]: gap = asked - has(function row). gap <= 0 -> 20, <= 1 -> 16, <= 3 -> 10 (Stretch flag), more -> 4 ('large years gap' flag). Asks < 2 years -> 20 in any function."
+  },
+  "senior_ok_titles": [
+   "senior associate",
+   "senior analyst",
+   "senior consultant",
+   "sr. associate",
+   "sr associate",
+   "sr. analyst",
+   "sr analyst"
+  ],
+  "newgrad_exclude_title": [
+   "\\bsenior\\b",
+   "\\bsr\\b\\.?",
+   "\\bstaff\\b",
+   "\\bprincipal\\b",
+   "\\blead\\b",
+   "\\bmanager\\b",
+   "\\bii\\b",
+   "\\biii\\b",
+   "\\b2\\b",
+   "\\b3\\b",
+   "\\bintern(?:ship)?\\b",
+   "\\bco-?op\\b",
+   "\\bph\\.?\\s?d\\b",
+   "\\bhardware\\b",
+   "\\bfirmware\\b",
+   "\\bfpga\\b",
+   "\\basic\\b"
+  ],
+  "exclude_patterns": {
+   "no_sponsorship": [
+    "not (?:be )?(?:able to |going to )?(?:offer|provide|support|sponsor) (?:employment )?(?:visa )?sponsorship",
+    "(?:does|do|will|can|cannot|can't) not sponsor",
+    "cannot sponsor",
+    "unable to (?:offer |provide )?sponsor",
+    "without (?:the need for )?(?:current or future |now or in the future )?(?:employer |visa )?sponsorship",
+    "no (?:visa )?sponsorship",
+    "sponsorship (?:is )?not (?:available|offered|provided)",
+    "not eligible for (?:visa )?sponsorship",
+    "must be (?:legally )?authorized to work in the (?:u\\.?s\\.?|united states) without",
+    "will not (?:be )?(?:providing|offering) sponsorship",
+    "not considering candidates who (?:will )?require sponsorship"
+   ],
+   "citizenship": [
+    "u\\.?s\\.? citizens? only",
+    "must be a u\\.?s\\.? citizen",
+    "u\\.?s\\.? citizenship (?:is )?required",
+    "requires? u\\.?s\\.? citizenship",
+    "united states citizenship (?:is )?required",
+    "u\\.?s\\.? person",
+    "green card holders? (?:only|or u\\.?s)"
+   ],
+   "clearance": [
+    "security clearance (?:is )?required",
+    "active (?:secret|top secret|ts/sci|ts) clearance",
+    "ts/sci",
+    "must (?:have|hold|obtain|be able to obtain) (?:an? )?(?:active )?(?:secret|top secret|security) clearance",
+    "clearance eligib",
+    "dod clearance",
+    "public trust clearance"
+   ],
+   "phd_required": [
+    "ph\\.?d\\.? (?:is )?required",
+    "requires? a ph\\.?d",
+    "ph\\.?d\\.? in [a-z ,/&]+ (?:is )?required",
+    "minimum (?:qualifications?:? )?.{0,40}ph\\.?d",
+    "currently (?:enrolled in|pursuing) a ph\\.?d"
+   ]
+  },
+  "phd_preferred_patterns": [
+   "ph\\.?d\\.? (?:is )?preferred",
+   "ph\\.?d\\.? a plus",
+   "preferably a ph\\.?d",
+   "ph\\.?d\\.? (?:or equivalent )?preferred"
+  ],
+  "sponsor_yes_patterns": [
+   "(?:we|will|can|able to) (?:offer|provide|support|sponsor)(?:s)? (?:h-?1b|visa|immigration)",
+   "visa sponsorship (?:is )?(?:available|offered|provided)",
+   "sponsorship (?:is )?available",
+   "open to sponsor",
+   "h-?1b sponsorship"
+  ],
+  "defense_employers": [
+   "lockheed",
+   "raytheon",
+   "rtx",
+   "northrop",
+   "general dynamics",
+   "bae systems",
+   "booz allen",
+   "leidos",
+   "saic",
+   "caci",
+   "l3harris",
+   "anduril",
+   "boeing",
+   "huntington ingalls",
+   "mitre",
+   "peraton",
+   "parsons",
+   "palantir usg",
+   "sandia",
+   "lawrence livermore",
+   "los alamos",
+   "oak ridge",
+   "jhu apl",
+   "johns hopkins applied physics",
+   "mit lincoln",
+   "pae",
+   "amentum",
+   "v2x",
+   "kbr",
+   "mantech",
+   "hii",
+   "sierra nevada",
+   "textron",
+   "elbit",
+   "general atomics",
+   "aerospace corporation",
+   "noblis",
+   "gdit",
+   "nasa jpl",
+   "jet propulsion"
+  ],
+  "staffing_agencies": [
+   "insight global",
+   "teksystems",
+   "robert half",
+   "randstad",
+   "kforce",
+   "apex systems",
+   "cybercoders",
+   "dice",
+   "jobot",
+   "motion recruitment",
+   "harnham",
+   "beacon hill",
+   "collabera",
+   "infosys bpm",
+   "tata consultancy",
+   "wipro",
+   "cognizant technology solutions staffing",
+   "hcl",
+   "mindtree",
+   "capgemini staffing",
+   "akkodis",
+   "aston carter",
+   "actalent",
+   "system one",
+   "kelly services",
+   "adecco",
+   "manpower",
+   "experis",
+   "hays",
+   "michael page",
+   "vaco",
+   "lhh",
+   "talentburst",
+   "ust global",
+   "net2source",
+   "diverse lynx",
+   "synechron staffing"
+  ],
+  "newgrad_exclude_title_note": "Word-bounded regexes (Oct 28: 'sr.' matched 'ISRT', 'intern' matched 'Internal'). Level ranges that start at 1/I ('Level 1, 2, or 3') pass.",
+  "early_program_fellow": "rotation|rotational|emerging talent|early career|new grad|graduate|residen|fellowship program"
+ },
+ "rubric": {
+  "_comment": "Out of 100. Gates first (a gated role is never scored). Add to a tracker at score >= add_threshold. Python pre-scores every role; Claude scores those with pre_score >= claude_threshold and re-checks skills/responsibilities on the posting.",
+  "add_threshold": 50,
+  "claude_threshold": 42,
+  "bands": {
+   "High": 75,
+   "Medium": 60,
+   "Stretch": 50
+  },
+  "_slots": "The five slots match the dashboard's score breakdown (skills_pts, experience_pts, responsibility_pts, qualifications_pts, preferences_pts); new rows also carry score_max so the page can show the new maxima.",
+  "professional": {
+   "skills": 30,
+   "experience": 20,
+   "role_fit": 25,
+   "domain_quals": 10,
+   "preferences": 15
+  },
+  "newgrad": {
+   "skills": 30,
+   "eligibility": 15,
+   "role_fit": 25,
+   "domain_quals": 10,
+   "preferences": 20
+  },
+  "preferences_split": {
+   "professional": {
+    "sponsorship": 10,
+    "logistics": 5
+   },
+   "newgrad": {
+    "sponsorship": 15,
+    "logistics": 5
+   }
+  },
+  "slot_fields": {
+   "skills": "skills_pts",
+   "experience": "experience_pts",
+   "eligibility": "experience_pts",
+   "role_fit": "responsibility_pts",
+   "domain_quals": "qualifications_pts",
+   "preferences": "preferences_pts"
+  },
+  "slot_evidence": {
+   "skills": "ev_skills",
+   "experience": "ev_experience",
+   "eligibility": "ev_experience",
+   "role_fit": "ev_responsibility",
+   "domain_quals": "ev_qualifications",
+   "preferences": "ev_preferences"
+  },
+  "role_fit_professional": {
+   "data_science": 25,
+   "risk_quant": 25,
+   "data_analytics": 20,
+   "ml_ai_engineering": 19,
+   "consulting_strategy": 19,
+   "fde_solutions": 18,
+   "finance_analytics": 22,
+   "other": 14
+  },
+  "role_fit_newgrad": {
+   "mle": 25,
+   "ai": 25,
+   "quant": 23,
+   "fde": 21,
+   "sde": 18
+  },
+  "domain_by_sector": {
+   "fintech": 10,
+   "finance": 10,
+   "quant": 10,
+   "proptech": 9,
+   "consulting": 8,
+   "ai": 7,
+   "tech": 6,
+   "": 5
+  },
+  "domain_words": [
+   "credit",
+   "risk",
+   "fraud",
+   "lending",
+   "payments",
+   "banking",
+   "insurance",
+   "underwriting",
+   "real estate",
+   "mortgage",
+   "trading",
+   "portfolio",
+   "investment",
+   "financial"
+  ],
+  "sponsorship_levels": {
+   "explicit_yes": 1.0,
+   "h1b_100": 0.85,
+   "h1b_10": 0.7,
+   "h1b_1": 0.5,
+   "fair_yes": 0.8,
+   "unknown": 0.35,
+   "h1b_none": 0.2
+  }
+ },
+ "us_location_hints": [
+  "united states",
+  "usa",
+  "u.s.",
+  "remote - us",
+  "remote, us",
+  "remote (us",
+  "us remote",
+  "us-remote",
+  "anywhere in the us",
+  "north america",
+  "nationwide",
+  "multiple locations"
+ ],
+ "non_us_hints": [
+  "london",
+  "toronto",
+  "canada",
+  "india",
+  "bengaluru",
+  "bangalore",
+  "hyderabad",
+  "pune",
+  "chennai",
+  "gurgaon",
+  "gurugram",
+  "noida",
+  "mumbai",
+  "singapore",
+  "dublin",
+  "ireland",
+  "berlin",
+  "munich",
+  "germany",
+  "paris",
+  "france",
+  "amsterdam",
+  "netherlands",
+  "sydney",
+  "melbourne",
+  "australia",
+  "tokyo",
+  "japan",
+  "mexico",
+  "brazil",
+  "são paulo",
+  "sao paulo",
+  "warsaw",
+  "krakow",
+  "poland",
+  "lisbon",
+  "portugal",
+  "spain",
+  "madrid",
+  "barcelona",
+  "tel aviv",
+  "israel",
+  "uk",
+  "united kingdom",
+  "emea",
+  "apac",
+  "latam",
+  "hong kong",
+  "shanghai",
+  "beijing",
+  "shenzhen",
+  "china",
+  "taipei",
+  "taiwan",
+  "seoul",
+  "korea",
+  "philippines",
+  "manila",
+  "argentina",
+  "buenos aires",
+  "colombia",
+  "bogota",
+  "vancouver",
+  "montreal",
+  "ontario",
+  "zurich",
+  "geneva",
+  "switzerland",
+  "stockholm",
+  "sweden",
+  "copenhagen",
+  "oslo",
+  "helsinki",
+  "prague",
+  "budapest",
+  "bucharest",
+  "romania",
+  "kyiv",
+  "dubai",
+  "uae",
+  "riyadh",
+  "cairo",
+  "lagos",
+  "nairobi",
+  "cape town",
+  "johannesburg",
+  "kuala lumpur",
+  "malaysia",
+  "jakarta",
+  "vietnam",
+  "ho chi minh",
+  "bangkok",
+  "costa rica",
+  "chile",
+  "santiago",
+  "lima",
+  "peru",
+  "belgium",
+  "brussels",
+  "luxembourg",
+  "austria",
+  "vienna",
+  "italy",
+  "milan",
+  "edinburgh",
+  "manchester",
+  "belfast",
+  "glasgow",
+  "cambridge, uk",
+  "remote - uk",
+  "remote - canada",
+  "remote - india",
+  "remote, canada"
+ ],
+ "us_states": [
+  "AL",
+  "AK",
+  "AZ",
+  "AR",
+  "CA",
+  "CO",
+  "CT",
+  "DE",
+  "DC",
+  "FL",
+  "GA",
+  "HI",
+  "ID",
+  "IL",
+  "IN",
+  "IA",
+  "KS",
+  "KY",
+  "LA",
+  "ME",
+  "MD",
+  "MA",
+  "MI",
+  "MN",
+  "MS",
+  "MO",
+  "MT",
+  "NE",
+  "NV",
+  "NH",
+  "NJ",
+  "NM",
+  "NY",
+  "NC",
+  "ND",
+  "OH",
+  "OK",
+  "OR",
+  "PA",
+  "RI",
+  "SC",
+  "SD",
+  "TN",
+  "TX",
+  "UT",
+  "VT",
+  "VA",
+  "WA",
+  "WV",
+  "WI",
+  "WY"
+ ],
+ "us_state_names": [
+  "alabama",
+  "alaska",
+  "arizona",
+  "arkansas",
+  "california",
+  "colorado",
+  "connecticut",
+  "delaware",
+  "florida",
+  "georgia",
+  "hawaii",
+  "idaho",
+  "illinois",
+  "indiana",
+  "iowa",
+  "kansas",
+  "kentucky",
+  "louisiana",
+  "maine",
+  "maryland",
+  "massachusetts",
+  "michigan",
+  "minnesota",
+  "mississippi",
+  "missouri",
+  "montana",
+  "nebraska",
+  "nevada",
+  "new hampshire",
+  "new jersey",
+  "new mexico",
+  "new york",
+  "north carolina",
+  "north dakota",
+  "ohio",
+  "oklahoma",
+  "oregon",
+  "pennsylvania",
+  "rhode island",
+  "south carolina",
+  "south dakota",
+  "tennessee",
+  "texas",
+  "utah",
+  "vermont",
+  "virginia",
+  "washington",
+  "west virginia",
+  "wisconsin",
+  "wyoming"
+ ],
+ "us_cities": [
+  "atlanta",
+  "alpharetta",
+  "new york",
+  "nyc",
+  "san francisco",
+  "seattle",
+  "austin",
+  "boston",
+  "chicago",
+  "los angeles",
+  "denver",
+  "dallas",
+  "houston",
+  "charlotte",
+  "miami",
+  "washington",
+  "arlington",
+  "mclean",
+  "richmond",
+  "philadelphia",
+  "pittsburgh",
+  "san jose",
+  "palo alto",
+  "mountain view",
+  "menlo park",
+  "sunnyvale",
+  "redmond",
+  "bellevue",
+  "plano",
+  "jersey city",
+  "salt lake",
+  "phoenix",
+  "minneapolis",
+  "detroit",
+  "columbus",
+  "nashville",
+  "raleigh",
+  "durham",
+  "san diego",
+  "portland",
+  "st. louis",
+  "kansas city",
+  "tampa",
+  "orlando",
+  "irving",
+  "wilmington",
+  "stamford",
+  "greenwich",
+  "hoboken",
+  "brooklyn",
+  "oakland",
+  "santa clara",
+  "cambridge, ma",
+  "somerville",
+  "baltimore",
+  "cincinnati",
+  "cleveland",
+  "indianapolis",
+  "milwaukee",
+  "omaha",
+  "boise",
+  "las vegas",
+  "sacramento",
+  "irvine",
+  "santa monica",
+  "jacksonville",
+  "fort lauderdale",
+  "riverwoods",
+  "tysons",
+  "reston",
+  "herndon",
+  "purchase",
+  "white plains",
+  "newark",
+  "princeton",
+  "lehi",
+  "draper",
+  "scottsdale",
+  "tempe",
+  "fort worth",
+  "frisco",
+  "san antonio",
+  "louisville",
+  "memphis",
+  "birmingham",
+  "boulder",
+  "ann arbor",
+  "madison",
+  "des moines",
+  "chandler",
+  "mclean, va",
+  "bethesda",
+  "rockville",
+  "foster city",
+  "san mateo",
+  "burlingame",
+  "emeryville",
+  "berkeley",
+  "evanston",
+  "deerfield",
+  "northbrook"
+ ],
+ "minimums_legacy": {
+  "_note": "Old per-run query minimums, kept only so `audit --legacy` still reads old source logs. The unified run uses the ledger (every planned item done or blocked).",
+  "all": {
+   "LinkedIn": 24,
+   "HiringCafe": 8,
+   "Indeed": 8,
+   "Jobright": 8,
+   "Built In": 4,
+   "Simplify Jobs": 4,
+   "TrueUp": 4,
+   "Employer feeds": "all"
+  }
+ },
+ "jd_match": {
+  "_comment": "Resume <-> job-description matching (jobpipe.jdmatch). What she HAS is read from resumes/*.md, never from this file. A posting's asks are the lexicon terms found in its text; asks inside requirement lines count double. skills_pts = 30 * (floor + span * match).",
+  "weights": {
+   "coverage": 0.65,
+   "similarity": 0.35
+  },
+  "floor": 0.1,
+  "span": 0.95,
+  "min_asks": 3,
+  "keep_other_title_at": 0.62,
+  "class_weight": {
+   "lang": 1.0,
+   "tool": 1.0,
+   "method": 1.0,
+   "domain": 0.7,
+   "cred": 0.5
+  },
+  "lexicon": {
+   "lang": {
+    "python": [
+     "python"
+    ],
+    "sql": [
+     "sql",
+     "t-sql",
+     "pl/sql",
+     "postgres",
+     "mysql"
+    ],
+    "r": [
+     "\\bR\\b",
+     "rstudio",
+     "tidyverse"
+    ],
+    "java": [
+     "java\\b"
+    ],
+    "c++": [
+     "c\\+\\+",
+     "\\bc/c\\+\\+"
+    ],
+    "c#": [
+     "c#",
+     "\\.net"
+    ],
+    "go": [
+     "golang",
+     "\\bgo\\b(?= |,|/)(?=.{0,40}(?:language|developer|backend|services))"
+    ],
+    "scala": [
+     "scala"
+    ],
+    "javascript": [
+     "javascript",
+     "node\\.js",
+     "nodejs"
+    ],
+    "typescript": [
+     "typescript"
+    ],
+    "julia": [
+     "\\bjulia\\b"
+    ],
+    "matlab": [
+     "matlab"
+    ],
+    "sas": [
+     "\\bsas\\b"
+    ],
+    "vba": [
+     "\\bvba\\b"
+    ],
+    "rust": [
+     "\\brust\\b"
+    ],
+    "kotlin": [
+     "kotlin"
+    ],
+    "swift": [
+     "\\bswift\\b"
+    ],
+    "ruby": [
+     "\\bruby\\b"
+    ],
+    "php": [
+     "\\bphp\\b"
+    ]
+   },
+   "tool": {
+    "pandas": [
+     "pandas"
+    ],
+    "numpy": [
+     "numpy"
+    ],
+    "scipy": [
+     "scipy"
+    ],
+    "scikit-learn": [
+     "scikit-learn",
+     "sklearn",
+     "scikit learn"
+    ],
+    "pytorch": [
+     "pytorch",
+     "torch\\b"
+    ],
+    "tensorflow": [
+     "tensorflow",
+     "keras"
+    ],
+    "xgboost": [
+     "xgboost"
+    ],
+    "lightgbm": [
+     "lightgbm"
+    ],
+    "spark": [
+     "\\bspark\\b",
+     "pyspark"
+    ],
+    "hadoop": [
+     "hadoop",
+     "\\bhive\\b"
+    ],
+    "airflow": [
+     "airflow"
+    ],
+    "dbt": [
+     "\\bdbt\\b"
+    ],
+    "kafka": [
+     "kafka"
+    ],
+    "snowflake": [
+     "snowflake"
+    ],
+    "databricks": [
+     "databricks"
+    ],
+    "bigquery": [
+     "bigquery"
+    ],
+    "redshift": [
+     "redshift"
+    ],
+    "tableau": [
+     "tableau"
+    ],
+    "power bi": [
+     "power bi",
+     "powerbi"
+    ],
+    "looker": [
+     "looker"
+    ],
+    "excel": [
+     "\\bexcel\\b"
+    ],
+    "docker": [
+     "docker",
+     "container"
+    ],
+    "kubernetes": [
+     "kubernetes",
+     "\\bk8s\\b"
+    ],
+    "aws": [
+     "\\baws\\b",
+     "amazon web services",
+     "sagemaker",
+     "\\bs3\\b",
+     "\\bec2\\b"
+    ],
+    "gcp": [
+     "\\bgcp\\b",
+     "google cloud"
+    ],
+    "azure": [
+     "azure"
+    ],
+    "git": [
+     "\\bgit\\b",
+     "github"
+    ],
+    "linux": [
+     "linux",
+     "unix"
+    ],
+    "terraform": [
+     "terraform"
+    ],
+    "faiss": [
+     "faiss",
+     "vector database",
+     "vector store",
+     "pinecone"
+    ],
+    "langchain": [
+     "langchain",
+     "llamaindex"
+    ],
+    "vllm": [
+     "vllm"
+    ],
+    "hugging face": [
+     "hugging ?face"
+    ],
+    "mlflow": [
+     "mlflow"
+    ],
+    "react": [
+     "\\breact\\b"
+    ],
+    "rest api": [
+     "rest api",
+     "restful",
+     "\\bapis?\\b"
+    ]
+   },
+   "method": {
+    "machine learning": [
+     "machine learning",
+     "\\bml\\b"
+    ],
+    "deep learning": [
+     "deep learning",
+     "neural network"
+    ],
+    "nlp": [
+     "\\bnlp\\b",
+     "natural language"
+    ],
+    "computer vision": [
+     "computer vision",
+     "image processing"
+    ],
+    "llm": [
+     "\\bllms?\\b",
+     "large language model",
+     "gpt",
+     "foundation model"
+    ],
+    "rag": [
+     "\\brag\\b",
+     "retrieval[- ]augmented"
+    ],
+    "generative ai": [
+     "generative ai",
+     "genai",
+     "gen ai"
+    ],
+    "transformers": [
+     "transformer"
+    ],
+    "reinforcement learning": [
+     "reinforcement learning",
+     "rlhf",
+     "\\bgrpo\\b"
+    ],
+    "fine-tuning": [
+     "fine-tun",
+     "lora"
+    ],
+    "prompt engineering": [
+     "prompt engineering",
+     "prompting"
+    ],
+    "recommendation": [
+     "recommend(?:er|ation)"
+    ],
+    "time series": [
+     "time[- ]series"
+    ],
+    "forecasting": [
+     "forecast"
+    ],
+    "regression": [
+     "regression",
+     "\\bglm\\b"
+    ],
+    "classification": [
+     "classification",
+     "classifier"
+    ],
+    "clustering": [
+     "cluster(?:ing)?\\b",
+     "k-means"
+    ],
+    "bayesian": [
+     "bayesian"
+    ],
+    "experimentation": [
+     "a/b test",
+     "experiment design",
+     "experimentation",
+     "causal inference"
+    ],
+    "statistics": [
+     "statistic",
+     "hypothesis test",
+     "probability"
+    ],
+    "optimization": [
+     "optimization",
+     "linear programming"
+    ],
+    "monte carlo": [
+     "monte carlo",
+     "simulation"
+    ],
+    "feature engineering": [
+     "feature engineering"
+    ],
+    "model validation": [
+     "model validation",
+     "validat\\w+ models?",
+     "back-?test"
+    ],
+    "model monitoring": [
+     "model monitoring",
+     "monitor(?:ing)? model",
+     "drift",
+     "\\bpsi\\b"
+    ],
+    "interpretability": [
+     "shap",
+     "explainab",
+     "interpretab"
+    ],
+    "stochastic": [
+     "stochastic"
+    ],
+    "econometrics": [
+     "econometric"
+    ],
+    "anomaly detection": [
+     "anomaly detection",
+     "outlier"
+    ],
+    "data visualization": [
+     "visualiz",
+     "dashboard"
+    ],
+    "etl": [
+     "\\betl\\b",
+     "data pipeline",
+     "pipelines?\\b"
+    ],
+    "data warehouse": [
+     "data warehouse",
+     "data lake"
+    ],
+    "distributed systems": [
+     "distributed systems",
+     "microservice",
+     "scalab"
+    ],
+    "ci/cd": [
+     "ci/cd",
+     "continuous integration"
+    ],
+    "frontend": [
+     "front[- ]end",
+     "frontend",
+     "css\\b",
+     "html\\b"
+    ],
+    "mobile": [
+     "\\bios\\b",
+     "android",
+     "mobile app"
+    ],
+    "embedded": [
+     "embedded",
+     "firmware",
+     "rtos"
+    ]
+   },
+   "domain": {
+    "credit risk": [
+     "credit risk",
+     "credit model",
+     "probability of default",
+     "\\bpd\\b.{0,5}\\blgd\\b",
+     "credit scor"
+    ],
+    "market risk": [
+     "market risk",
+     "\\bvar\\b",
+     "value at risk"
+    ],
+    "model risk": [
+     "model risk",
+     "sr 11-7",
+     "sr11-7"
+    ],
+    "stress testing": [
+     "stress test",
+     "ccar",
+     "cecl"
+    ],
+    "fraud": [
+     "fraud"
+    ],
+    "lending": [
+     "lending",
+     "loan",
+     "underwrit"
+    ],
+    "payments": [
+     "payment"
+    ],
+    "valuation": [
+     "valuation",
+     "\\bdcf\\b",
+     "discounted cash flow"
+    ],
+    "financial modeling": [
+     "financial model"
+    ],
+    "portfolio": [
+     "portfolio"
+    ],
+    "derivatives": [
+     "derivative",
+     "options pricing",
+     "fixed income"
+    ],
+    "trading": [
+     "trading"
+    ],
+    "real estate": [
+     "real estate",
+     "\\breit\\b",
+     "cmbs",
+     "mortgage",
+     "rental",
+     "property"
+    ],
+    "insurance": [
+     "insurance",
+     "actuarial",
+     "claims"
+    ],
+    "consumer finance": [
+     "consumer financ",
+     "credit card",
+     "credit bureau"
+    ],
+    "energy": [
+     "energy",
+     "battery",
+     "renewable",
+     "utilities"
+    ],
+    "healthcare": [
+     "healthcare",
+     "clinical",
+     "patient"
+    ],
+    "marketing analytics": [
+     "marketing analytics",
+     "customer analytics",
+     "segmentation"
+    ],
+    "market research": [
+     "market research",
+     "competitive analysis",
+     "market sizing"
+    ]
+   },
+   "cred": {
+    "cfa": [
+     "\\bcfa\\b"
+    ],
+    "acca": [
+     "\\bacca\\b"
+    ],
+    "frm": [
+     "\\bfrm\\b"
+    ],
+    "masters": [
+     "master'?s",
+     "\\bm\\.?s\\.?\\b",
+     "graduate degree"
+    ],
+    "phd": [
+     "ph\\.?d",
+     "doctorate"
+    ]
+   }
+  },
+  "other_title_negative": [
+   "sales",
+   "account executive",
+   "account manager",
+   "business development",
+   "recruit",
+   "talent acquisition",
+   "nurse",
+   "physician",
+   "pharmac",
+   "therapist",
+   "dental",
+   "driver",
+   "warehouse",
+   "technician",
+   "mechanic",
+   "electrician",
+   "attorney",
+   "counsel",
+   "paralegal",
+   "teacher",
+   "tutor",
+   "chef",
+   "cook",
+   "cashier",
+   "retail",
+   "store ",
+   "customer support",
+   "customer service",
+   "customer success",
+   "support specialist",
+   "designer",
+   "ux ",
+   "copywriter",
+   "content writer",
+   "marketing manager",
+   "social media",
+   "human resources",
+   "hr ",
+   "payroll",
+   "administrative",
+   "assistant",
+   "receptionist",
+   "security officer",
+   "facilities",
+   "construction",
+   "welder",
+   "operator",
+   "clerk",
+   "accountant",
+   "bookkeep",
+   "tax ",
+   "auditor",
+   "mechanical engineer",
+   "electrical engineer",
+   "civil engineer",
+   "chemical engineer",
+   "manufacturing",
+   "supply chain",
+   "logistics",
+   "product manager",
+   "program manager",
+   "project manager",
+   "scrum",
+   "office",
+   "intern"
+  ]
+ },
+ "sponsors": {
+  "_comment": "DOL LCA disclosure data (H-1B), built by `sponsors-build`, used for (a) sponsorship evidence in the score and (b) growing companies.csv (`registry-grow`). Files: https://www.dol.gov/sites/dolgov/files/ETA/oflc/pdfs/LCA_Disclosure_Data_FY{fy}_Q{q}.xlsx (quarterly, cumulative within the fiscal year; FY starts Oct 1).",
+  "url_template": "https://www.dol.gov/sites/dolgov/files/ETA/oflc/pdfs/LCA_Disclosure_Data_FY{fy}_Q{q}.xlsx",
+  "soc_groups": {
+   "data_science": [
+    "15-2051",
+    "15-2041",
+    "15-2031",
+    "15-2099",
+    "15-1221"
+   ],
+   "analytics": [
+    "13-1161",
+    "13-1111",
+    "15-1211",
+    "15-1243",
+    "15-1299"
+   ],
+   "finance_risk": [
+    "13-2051",
+    "13-2054",
+    "13-2041",
+    "13-2099",
+    "13-2011",
+    "15-2011"
+   ],
+   "software": [
+    "15-1252",
+    "15-1253",
+    "15-1254"
+   ]
+  },
+  "grow": {
+   "min_lca_target_socs": 10,
+   "min_lca_data_finance": 3,
+   "max_new_per_run": 200,
+   "exclude_h1b_dependent_share": 0.5
+  }
+ },
+ "discovery": {
+  "_comment": "Discovery finds companies the registry does not have yet. A card at a company already in companies.csv is dropped on sight (that company is harvested directly); a good card at an unknown company is pursued, and when its role is added to a tracker the company is added to the registry (registry_additions.csv).",
+  "drop_known_companies": true
+ }
+}
