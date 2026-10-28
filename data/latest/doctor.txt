@@ -1,0 +1,8 @@
+job boards (Greenhouse API)      HTTP 200
+job boards (Ashby API)           HTTP 200
+Workday                          HTTP 0
+GitHub raw                       HTTP 200
+Hacker News API                  HTTP 200
+
+MODE: direct
+Job boards are reachable: run `collect` here.
