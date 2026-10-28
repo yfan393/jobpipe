@@ -594,5 +594,24 @@ class Calibrate(unittest.TestCase):
         self.assertEqual(c["skip_reasons"]["reposted"], 1)
 
 
+
+class CollectWindow(unittest.TestCase):
+    def test_in_window_drops_old_keeps_fresh_and_undated(self):
+        old = (jp.NOW - jp.dt.timedelta(hours=200)).isoformat()
+        fresh = (jp.NOW - jp.dt.timedelta(hours=5)).isoformat()
+        self.assertFalse(jp.in_window({"posted_at": old, "source": "Greenhouse"}, 72))
+        self.assertTrue(jp.in_window({"posted_at": fresh}, 72))
+        self.assertTrue(jp.in_window({"posted_at": ""}, 72))
+        # Ask HN keeps its wider window
+        self.assertTrue(jp.in_window({"posted_at": (jp.NOW - jp.dt.timedelta(hours=120)).isoformat(), "source": "Ask HN"}, 72))
+
+    def test_new_discovery_sites_are_on(self):
+        on = {s["name"] for s in jp.CONFIG["sites"] if s.get("mode") == "browser" and s.get("enabled", True) and s.get("role") == "discovery"}
+        self.assertEqual(on, {"Google Jobs", "Built In", "Indeed", "HiringCafe", "Glassdoor", "Wellfound"})
+        led = jp.build_plan(sites=["Built In", "HiringCafe"])
+        self.assertTrue(any("builtin.com" in i["url"] for i in led["items"]))
+        self.assertTrue(any("hiring.cafe" in i["url"] and "searchQuery" in __import__("urllib.parse").parse.unquote(i["url"]) for i in led["items"]))
+
+
 if __name__ == "__main__":
     unittest.main()

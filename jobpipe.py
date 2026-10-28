@@ -774,8 +774,17 @@ def fetch_hn(window_h=168, story_json=None, comments_json=None):
 
 
 # =========================================================================== collect
-def do_collect(window_h=72, workers=8, enrich=True, only=None, offline=None):
-    """Fetch every machine-readable source. `offline` = {'simplify': path, 'speedyapply': [paths]} for tests."""
+def in_window(j, window_h):
+    """False only for a posting whose date is known and older than its window; a posting with no date is kept
+    (screen and finalize decide)."""
+    age = age_hours(j.get("posted_at"))
+    return age is None or age <= window_for_job(j, window_h)
+
+
+def do_collect(window_h=72, workers=8, enrich=True, only=None, offline=None, prefilter=True):
+    """Fetch every machine-readable source. `offline` = {'simplify': path, 'speedyapply': [paths]} for tests.
+    With `prefilter`, raw.json keeps only postings inside the time window (every board lists ALL open roles, so
+    the unfiltered file is tens of thousands of postings and the repo history would grow every day)."""
     only = set(only or ["feeds", "simplify", "speedyapply", "hn"])
     offline = offline or {}
     jobs, feeds, sources = [], [], {}
@@ -804,7 +813,11 @@ def do_collect(window_h=72, workers=8, enrich=True, only=None, offline=None):
                 st, got = f"error: {type(e).__name__}: {e}", []
             sources[label] = {"status": "ok" if st == 200 else f"failed ({st})", "jobs": len(got)}
             jobs.extend(got)
+    total_open = len(jobs)
+    if prefilter:
+        jobs = [j for j in jobs if in_window(j, window_h)]
     meta = {"generated_at": NOW.isoformat(), "window_hours": window_h, "sources": sources,
+            "postings_seen": total_open, "postings_in_window": len(jobs),
             "feeds_failed": [f for f in feeds if f["status"] not in (200, "no_feed")],
             "no_feed": [f["company"] for f in feeds if f["status"] == "no_feed"]}
     return {"meta": meta, "feeds": feeds, "jobs": jobs}

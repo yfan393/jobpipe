@@ -659,7 +659,7 @@
    "pace_s": 7,
    "note": "Scroll the list container until no new cards; drop Reposted / Promoted-only; never open pages just to read them.",
    "enabled": false,
-   "disabled_note": "Off since Oct 28 2026: discovery uses Google Jobs, Indeed, Glassdoor and Wellfound. Set enabled true to search it again.",
+   "disabled_note": "Off since Oct 28 2026: discovery uses Google Jobs, Built In, Indeed, HiringCafe, Glassdoor and Wellfound. Set enabled true to search it again.",
    "role": "discovery"
   },
   {
@@ -720,7 +720,7 @@
    "extractor": "jobright",
    "pace_s": 5,
    "enabled": false,
-   "disabled_note": "Off since Oct 28 2026: discovery uses Google Jobs, Indeed, Glassdoor and Wellfound. Set enabled true to search it again.",
+   "disabled_note": "Off since Oct 28 2026: discovery uses Google Jobs, Built In, Indeed, HiringCafe, Glassdoor and Wellfound. Set enabled true to search it again.",
    "role": "discovery"
   },
   {
@@ -777,14 +777,13 @@
     "professional",
     "newgrad"
    ],
-   "priority": 4,
+   "priority": 5,
    "style": "each",
    "url": "https://hiring.cafe/?searchState={state}",
    "extractor": "hiringcafe",
    "pace_s": 5,
    "note": "Short queries only; age labels are fetch ages (flag 'age from HiringCafe').",
-   "enabled": false,
-   "disabled_note": "Off since Oct 28 2026: discovery uses Google Jobs, Indeed, Glassdoor and Wellfound. Set enabled true to search it again.",
+   "enabled": true,
    "role": "discovery"
   },
   {
@@ -800,23 +799,23 @@
    "extractor": "generic",
    "pace_s": 5,
    "enabled": false,
-   "disabled_note": "Off since Oct 28 2026: discovery uses Google Jobs, Indeed, Glassdoor and Wellfound. Set enabled true to search it again.",
+   "disabled_note": "Off since Oct 28 2026: discovery uses Google Jobs, Built In, Indeed, HiringCafe, Glassdoor and Wellfound. Set enabled true to search it again.",
    "role": "discovery"
   },
   {
    "name": "Built In",
    "mode": "browser",
    "programs": [
-    "professional"
+    "professional",
+    "newgrad"
    ],
-   "priority": 5,
+   "priority": 4,
    "style": "each",
    "url": "https://builtin.com/jobs?search={q}&daysSinceUpdated=1",
    "extractor": "builtin",
    "pace_s": 5,
    "note": "If the filtered URL shows 'No job results', drop the date filter and read ages from the cards.",
-   "enabled": false,
-   "disabled_note": "Off since Oct 28 2026: discovery uses Google Jobs, Indeed, Glassdoor and Wellfound. Set enabled true to search it again.",
+   "enabled": true,
    "role": "discovery"
   },
   {
@@ -841,7 +840,7 @@
     "ai"
    ],
    "enabled": false,
-   "disabled_note": "Off since Oct 28 2026: discovery uses Google Jobs, Indeed, Glassdoor and Wellfound. Set enabled true to search it again.",
+   "disabled_note": "Off since Oct 28 2026: discovery uses Google Jobs, Built In, Indeed, HiringCafe, Glassdoor and Wellfound. Set enabled true to search it again.",
    "role": "discovery"
   },
   {
@@ -865,7 +864,7 @@
     "ai"
    ],
    "enabled": false,
-   "disabled_note": "Off since Oct 28 2026: discovery uses Google Jobs, Indeed, Glassdoor and Wellfound. Set enabled true to search it again.",
+   "disabled_note": "Off since Oct 28 2026: discovery uses Google Jobs, Built In, Indeed, HiringCafe, Glassdoor and Wellfound. Set enabled true to search it again.",
    "role": "discovery"
   },
   {
@@ -887,7 +886,7 @@
     "finance_analytics"
    ],
    "enabled": false,
-   "disabled_note": "Off since Oct 28 2026: discovery uses Google Jobs, Indeed, Glassdoor and Wellfound. Set enabled true to search it again.",
+   "disabled_note": "Off since Oct 28 2026: discovery uses Google Jobs, Built In, Indeed, HiringCafe, Glassdoor and Wellfound. Set enabled true to search it again.",
    "role": "discovery"
   },
   {
@@ -909,7 +908,7 @@
     "ai"
    ],
    "enabled": false,
-   "disabled_note": "Off since Oct 28 2026: discovery uses Google Jobs, Indeed, Glassdoor and Wellfound. Set enabled true to search it again.",
+   "disabled_note": "Off since Oct 28 2026: discovery uses Google Jobs, Built In, Indeed, HiringCafe, Glassdoor and Wellfound. Set enabled true to search it again.",
    "role": "discovery"
   },
   {
@@ -930,7 +929,7 @@
    ],
    "note": "Needs sign-in in Chrome; a sign-in page is a valid blocker.",
    "enabled": false,
-   "disabled_note": "Off since Oct 28 2026: discovery uses Google Jobs, Indeed, Glassdoor and Wellfound. Set enabled true to search it again.",
+   "disabled_note": "Off since Oct 28 2026: discovery uses Google Jobs, Built In, Indeed, HiringCafe, Glassdoor and Wellfound. Set enabled true to search it again.",
    "role": "discovery"
   },
   {
@@ -940,7 +939,7 @@
     "professional",
     "newgrad"
    ],
-   "priority": 5,
+   "priority": 6,
    "style": "each",
    "url": "https://wellfound.com/role/r/{slug}",
    "extractor": "wellfound",
