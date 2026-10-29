@@ -885,5 +885,21 @@ class RegistryAudit(unittest.TestCase):  # audit Oct 28 2026: registry and feed 
             jp.set_matcher(None)
 
 
+
+class TrackerPages(unittest.TestCase):  # Oct 28 2026: one page file serves both trackers (tracker.md)
+    def test_pages_differ_only_in_title(self):
+        d = jp.SKILL_DIR / "tracker"
+        if not (d / "tracker_professional.html").exists():
+            self.skipTest("tracker pages live in the skill, not the feed repo")
+        p = (d / "tracker_professional.html").read_text(encoding="utf-8").split("\n")
+        n = (d / "tracker_newgrad.html").read_text(encoding="utf-8").split("\n")
+        self.assertEqual(p[0], "<title>Professional Role Tracker</title>")
+        self.assertEqual(n[0], "<title>New-Grad Role Tracker</title>")
+        self.assertEqual(p[1:], n[1:])
+        page = "\n".join(p)
+        for f in jp.USER_FIELDS - {"updated_at", "updated_by", "referral_contact", "referral_date"}:
+            self.assertIn(f, page, f"the page offers no control for her field {f}")
+
+
 if __name__ == "__main__":
     unittest.main()
