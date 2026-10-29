@@ -32,13 +32,13 @@ concurrency:
 
 jobs:
   jobpipe:
-    runs-on: ubuntu-latest
-    timeout-minutes: 60
+    runs-on: ubuntu-24.04   # pinned: ubuntu-latest moves to Ubuntu 26 from Oct 19 2026
+    timeout-minutes: 90
     env:
       JOB: ${{ github.event_name == 'workflow_dispatch' && inputs.job || (github.event.schedule == '30 8 * * 0' && 'registry-check') || (github.event.schedule == '0 7 3 * *' && 'sponsors') || 'collect' }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v5          # Node 24 (v4 targets the deprecated Node 20)
+      - uses: actions/setup-python@v6      # Node 24
         with:
           python-version: "3.12"
 
@@ -66,16 +66,27 @@ jobs:
           python jobpipe.py registry-check > data/registry_report.json || true
           tail -c 3000 data/registry_report.json
 
-      - name: DOL sponsor list and registry growth
+      # Two steps with their own limits, so a slow growth probe can never cost the sponsor list it was built from.
+      - name: DOL sponsor list
         if: env.JOB == 'sponsors'
         continue-on-error: true   # dol.gov can be slow or refuse; last month's sponsors.json stays in place
+        timeout-minutes: 45
         run: |
           pip install --quiet openpyxl
           mkdir -p /tmp/lca data
-          python jobpipe.py sponsors-build --download /tmp/lca --out sponsors.json
+          python jobpipe.py sponsors-build --download /tmp/lca --out sponsors.new.json
+          mv sponsors.new.json sponsors.json   # replace only after a complete build
+
+      - name: Registry growth from DOL sponsors
+        if: env.JOB == 'sponsors' && hashFiles('sponsors.json') != ''
+        continue-on-error: true
+        timeout-minutes: 25       # registry-grow also stops itself after sponsors.grow.time_budget_s
+        run: |
+          mkdir -p data
           python jobpipe.py registry-grow --sponsors sponsors.json --candidates data/registry_candidates.csv | tee data/registry_grow.txt
 
       - name: Commit results
+        if: always()              # keep whatever finished, even after a step failed or timed out
         run: |
           git config user.name "jobpipe-bot"
           git config user.email "jobpipe-bot@users.noreply.github.com"
@@ -83,5 +94,9 @@ jobs:
           [ -f sponsors.json ] && git add sponsors.json
           git add -u
           git diff --cached --quiet || git commit -m "jobpipe ${JOB} $(date -u +%Y-%m-%dT%H:%MZ)"
-          git pull --rebase --quiet || true
-          git push
+          for i in 1 2 3; do
+            if git pull --rebase --quiet && git push; then exit 0; fi
+            git rebase --abort 2>/dev/null || true
+            sleep $((i * 10))
+          done
+          echo "push failed after 3 tries"; exit 1

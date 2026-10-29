@@ -4,6 +4,7 @@ import datetime as dt
 import json
 import os
 import tempfile
+from unittest import mock
 import unittest
 
 import jobpipe as jp
@@ -66,7 +67,7 @@ class Fetchers(unittest.TestCase):
         jp.http = FakeHTTP({"/jobs": {"jobPostings": [{"title": "Model Validation Analyst", "externalPath": "/job/Atlanta/MVA_R555",
                                                        "locationsText": "Atlanta, GA", "postedOn": "Posted 2 Days Ago", "bulletFields": ["R555"]}]},
                             "/job/Atlanta/MVA_R555": {"jobPostingInfo": {"jobDescription": "<p>Python required</p>",
-                                                                         "startDate": (NOW - dt.timedelta(days=3)).date().isoformat(), "jobReqId": "R555"}}})
+                                                                         "startDate": (NOW - dt.timedelta(days=4)).date().isoformat(), "jobReqId": "R555"}}})  # 4 days: a bare date is pinned to 16:00 UTC, so 3 days is < 60 h at some hours
         c = {"company": "Truist", "sector": "finance", "workday_url": "https://truist.wd1.myworkdayjobs.com/Careers", "ats": "workday"}
         st, jobs = jp.fetch_workday(c, queries=["data"])
         self.assertEqual(st, 200)
@@ -117,6 +118,12 @@ class Fetchers(unittest.TestCase):
 
 
 class Ages(unittest.TestCase):
+    def test_company_3m_is_not_an_age(self):  # audit Oct 28 2026 (M4)
+        self.assertIsNone(jp.parse_age("3M · St. Paul, MN"))
+        self.assertEqual(jp.parse_age("3m ago"), 0.05)
+        self.assertEqual(jp.parse_age("Posted 2 Days Ago"), 48)
+        self.assertEqual(jp.parse_age("24h"), 24)
+
     def test_relative_ages(self):
         cases = {"Today": 0, "Just posted": 0, "Posted Today": 0, "Yesterday": 24, "3h": 3, "2d": 48, "1 day ago": 24,
                  "Posted 3 Days Ago": 72, "2 weeks ago": 336, "45 minutes ago": 0.75}
@@ -157,6 +164,16 @@ class Classify(unittest.TestCase):
 
 
 class Gates(unittest.TestCase):
+
+    def test_masters_path_keeps_its_function(self):  # audit Oct 28 2026 (H4)
+        t = "Minimum qualifications: Bachelor's degree and 5+ years of software engineering experience, or Master's degree and 3+ years."
+        ms = jp.year_mentions(t)
+        self.assertEqual([(m["n"], m["degree"], m["funcs"]) for m in ms], [(5, "bachelor", ["engineering"]), (3, "master", ["engineering"])])
+        self.assertIn("engineering", jp.years_analysis(t)["gate"])
+        # a different sentence is not a sibling
+        t2 = "3+ years of software engineering experience. Requirements: 5+ years of professional experience."
+        self.assertEqual(jp.year_mentions(t2)[1]["funcs"], [])
+
     def sen(self, t, prog="professional", text=""):
         return jp.seniority_reason(t, prog, text)
 
@@ -204,6 +221,34 @@ class Gates(unittest.TestCase):
         self.assertIn("non-US location", jp.screen_one(J(location="London, UK"), 30)["exclude_reasons"])
         self.assertTrue(any("pay below floor" in r for r in jp.screen_one(J(pay="$60,000 - $70,000"), 30)["exclude_reasons"]))
 
+    def test_sponsorship_wording(self):  # audit Oct 28 2026 (C1, C2)
+        no = ["We do not offer H-1B sponsorship for this role.", "This role is not eligible for H-1B sponsorship.",
+              "Company does not provide immigration sponsorship.", "We are unable to sponsor or take over sponsorship of an employment visa.",
+              "Visa sponsorship is not available for this position.", "We will not sponsor.", "No H1B sponsorship.",
+              "Candidates must be able to work without employer sponsorship now or in the future."]
+        for d in no:
+            s = jp.screen_one(J(description=DESC_OK + " " + d), 30)
+            self.assertIn("no sponsorship", s["exclude_reasons"], d)
+            self.assertFalse(jp.offers_sponsorship(d), d)
+        for d in ["We welcome applicants with or without sponsorship needs.", "H-1B sponsorship available.",
+                  "Sponsorship is available for exceptional candidates.", "We sponsor H-1B visas for this role."]:
+            s = jp.screen_one(J(description=DESC_OK + " " + d), 30)
+            self.assertNotIn("no sponsorship", s["exclude_reasons"], d)
+        self.assertTrue(jp.offers_sponsorship("H-1B sponsorship available."))
+        self.assertFalse(jp.offers_sponsorship("We welcome applicants with or without sponsorship needs."))  # neutral, not an offer
+        self.assertEqual(jp.sponsorship_level({"description": "We do not offer H-1B sponsorship.", "company": "Zzz Unknown"})[0], "unknown")
+
+    def test_pay_floor_reads_salary_only(self):  # audit Oct 28 2026 (H1)
+        for d in ["We offer up to $50,000 in relocation assistance and a competitive salary.",
+                  "Includes a $5,250 tuition benefit and a $60k equity grant.", "We raised $75M Series B.",
+                  "Sign-on bonus of $25,000 for this role."]:
+            self.assertIsNone(jp.stated_max_pay(d), d)
+        self.assertEqual(jp.stated_max_pay("Base salary range: $120,000 - $150,000. Sign-on bonus up to $25,000."), 150000)
+        self.assertEqual(jp.stated_max_pay("The annual salary for this role is $65,000 to $75,000."), 75000)
+        self.assertEqual(jp.stated_max_pay("$60,000 - $70,000", structured=True), 70000)
+        s = jp.screen_one(J(description=DESC_OK + " Up to $50,000 in relocation assistance."), 30)
+        self.assertFalse(any("pay below floor" in r for r in s["exclude_reasons"]))
+
     def test_repost_memory(self):
         seen = {jp.fingerprint("Acme Pay", "Data Scientist", "Atlanta, GA"): H(24 * 10)}
         s = jp.screen_one(J(), 30, seen)
@@ -250,6 +295,30 @@ class Links(unittest.TestCase):
 
 
 class Dedupe(unittest.TestCase):
+
+    def test_excluded_copy_never_blocks_a_valid_copy(self):  # audit Oct 28 2026 (H2)
+        a = {"company": "Acme", "title": "Data Scientist", "location": "Atlanta, GA", "fp": "x1", "screen": "excluded",
+             "exclude_reasons": ["stale (5.0 days)"]}
+        b = {"company": "Acme", "title": "Data Scientist", "location": "Atlanta, GA", "fp": "x1", "screen": "pass", "req_id": "R999"}
+        out = jp.do_dedupe([a, b], [])
+        self.assertEqual(out[1]["screen"], "pass")
+        self.assertEqual(out[0]["exclude_reasons"], ["stale (5.0 days)"])  # gate reason kept, nothing added
+
+    def test_duplicate_reports_the_real_status(self):  # audit Oct 28 2026 (H5: behaviour kept, status shown)
+        trk = [{"company": "Capital One", "title": "Senior Associate, Data Science", "location": "McLean, VA", "req_id": "R111", "status": "Skipped"}]
+        c = {"company": "Capital One", "title": "Senior Associate, Data Science", "location": "Richmond, VA", "req_id": "R222", "screen": "pass"}
+        r = jp.do_dedupe([c], trk)[0]["exclude_reasons"][0]
+        self.assertIn("company+title", r)
+        self.assertIn("Skipped", r)
+
+    def test_shortlist_keeps_the_employer_copy(self):  # H2 follow-up: same role from a list and from the feed
+        lst = dict(J(source="SimplifyJobs GitHub", source_group="Simplify Jobs"), screen="pass", fp="f1", pre_score=60)
+        feed = dict(J(), screen="pass", fp="f1", pre_score=55)
+        _, sl, _ = jp.build_shortlist([lst, feed], [])
+        self.assertEqual(len(sl), 1)
+        self.assertEqual(sl[0]["source_group"], "Employer job board")
+        self.assertIn("SimplifyJobs GitHub", sl[0].get("also_seen_on", []))
+
     def test_relx_alias_and_req(self):  # Oct 2026: RELX applied twice
         trk = [{"company": "LexisNexis Risk Solutions", "title": "Data Scientist III", "location": "Alpharetta, GA", "status": "Applied", "req_id": ""}]
         out = jp.do_dedupe([{"company": "LexisNexis Risk Solutions (RELX)", "title": "Data Scientist III", "location": "Alpharetta, GA"}], trk)
@@ -390,6 +459,23 @@ class JDMatch(unittest.TestCase):
     ODD = ("Own loss forecasting for the credit card portfolio: segmentation, forecasting models, A/B tests on credit line policy. "
            "Requirements: SQL and Python, statistics, credit risk or consumer finance experience, Tableau dashboards. ") * 2
 
+
+    def test_cheap_gates_skip_the_jd_match(self):  # audit Oct 28 2026 (M5)
+        class Spy:
+            calls = 0
+            def score(self, text):
+                Spy.calls += 1
+                return None
+        jp.set_matcher(Spy())
+        try:
+            jp.screen_one(J(title="Staff Data Scientist", description=DESC_OK), 30)
+            jp.screen_one(J(location="London, UK", description=DESC_OK), 30)
+            self.assertEqual(Spy.calls, 0)
+            jp.screen_one(J(description=DESC_OK), 30)
+            self.assertEqual(Spy.calls, 1)
+        finally:
+            jp.set_matcher(None)
+
     def setUp(self):
         self.res = jp.load_resumes()
         self.m = jp.build_matcher([{"description": t} for t in (self.CREDIT, self.FRONT, self.ODD)], self.res)
@@ -414,6 +500,16 @@ class JDMatch(unittest.TestCase):
 
 
 class ScoringIO(unittest.TestCase):
+
+    def test_unscored_shortlist_roles_are_reported(self):  # audit Oct 28 2026 (M1)
+        sl = [{"fp": "a"}, {"fp": "b"}, {"fp": "c"}]
+        self.assertEqual(jp.unscored_fps(sl, [{"fp": "a", "score": {}}, {"fp": "c", "drop": "no employer posting"}]), ["b"])
+        led = {"items": [{"id": "x", "site": "Employer feeds", "mode": "api", "status": "done"}]}
+        txt, ok = jp.build_report(led, {}, [], [], {}, [], unscored=["b"])
+        self.assertFalse(ok)
+        self.assertIn("INCOMPLETE", txt)
+        self.assertIn("1 shortlisted roles were not scored", txt)
+
     def test_brief_keeps_requirement_lines(self):
         d = ("About us: we love culture and snacks. Requirements: Master's degree and 2+ years of experience in analytics. "
              "Python and SQL required. We will sponsor H-1B visas. Pay range $120,000 - $150,000. Our office has a gym.")
@@ -508,6 +604,28 @@ class Sponsors(unittest.TestCase):
         self.assertEqual((len(added), len(pending)), (0, 1))  # no board found -> candidate, not a daily career page
         self.assertEqual(pending[0]["source"], "dol")
         self.assertEqual(pending[0]["sector"], "fintech")  # NAICS 5222 non-bank lending
+
+    def test_grow_is_bounded_and_name_checked(self):  # Oct 28 2026: the sponsors job hit the 60-min limit
+        self.assertEqual(jp.grow_slugs("Capital One Services LLC"), ["capitalone", "capital-one"])
+        self.assertNotIn("two", jp.grow_slugs("Two Sigma Investments"))  # no first-word guesses
+        sp = {f"emp{i}": {"name": f"Employer Number{i} Inc", "groups": {"data_science": 5, "software": 20}, "dependent_share": 0,
+                          "states": ["GA"], "titles": ["Data Scientist"], "naics": "", "fy": "2026"} for i in range(50)}
+        calls = []
+        def fake_http(url, *a, **k):
+            calls.append(url)
+            if url.endswith("/boards/employernumber3"):
+                return 200, json.dumps({"name": "Employer Number3"}), ""
+            if url.endswith("/boards/employernumber7"):
+                return 200, json.dumps({"name": "Some Other Company"}), ""  # board exists but is not this employer
+            if "/boards/employernumber3/jobs" in url or "/boards/employernumber7/jobs" in url:
+                return 200, json.dumps({"jobs": [{"id": 1}]}), ""
+            return 404, "", ""
+        with mock.patch.object(jp, "http", side_effect=fake_http):
+            added, pending = jp.do_registry_grow(sp, [], max_probe=10, budget_s=60, workers=4)
+        self.assertEqual([a["ats_slug"] for a in added], ["employernumber3"])
+        self.assertEqual(len(added) + len(pending), 50)  # every candidate is kept somewhere
+        self.assertLessEqual(len(calls), 10 * 6 + 2)  # at most 6 probes per probed candidate, plus name checks
+        self.assertTrue(any("not probed this run" in p["notes"] for p in pending))
 
     def test_discovered_company_additions(self):
         rows = [{"company": "Acme Pay"}]
@@ -611,6 +729,84 @@ class CollectWindow(unittest.TestCase):
         led = jp.build_plan(sites=["Built In", "HiringCafe"])
         self.assertTrue(any("builtin.com" in i["url"] for i in led["items"]))
         self.assertTrue(any("hiring.cafe" in i["url"] and "searchQuery" in __import__("urllib.parse").parse.unquote(i["url"]) for i in led["items"]))
+
+
+class RegistryAudit(unittest.TestCase):  # audit Oct 28 2026: registry and feed fixes (H3, H6, M2, M3, M7, L1)
+    FEED = {"company": "Feedco", "ats": "greenhouse", "ats_slug": "feedco", "status": "ok", "sector": "fintech"}
+    PAGE = {"company": "Pageco", "ats": "custom", "careers_url": "https://pageco.com/careers", "status": "no_feed", "sector": "fintech"}
+
+    def idx(self):
+        return {jp.norm_company(r["company"]): r for r in (self.FEED, self.PAGE)}
+
+    def test_guessed_board_is_not_harvested(self):
+        self.assertFalse(jp.has_feed({"ats": "greenhouse", "ats_slug": "oliver", "status": "guess"}))
+        self.assertTrue(jp.has_feed({"ats": "greenhouse", "ats_slug": "oliverwyman", "status": "ok"}))
+
+    def test_registry_check_verifies_a_guess(self):
+        c = {"company": "Oliver Wyman", "ats": "greenhouse", "ats_slug": "oliver", "status": "guess",
+             "notes": "check: guessed greenhouse/oliver (36 jobs) — confirm it is the right company"}
+        def fake(name):
+            def h(url, *a, **k):
+                if url.endswith("/boards/oliver"):
+                    return 200, json.dumps({"name": name}), ""
+                if "/boards/oliver/jobs" in url:
+                    return 200, json.dumps({"jobs": [{"id": 1, "title": "Chef", "content": "Join Oliver's Kitchen today."}]}), ""
+                return 404, "", ""
+            return h
+        with mock.patch.object(jp, "http", side_effect=fake("Oliver's Kitchen")):
+            out, _ = jp.check_company(c)
+        self.assertEqual(out["status"], "guess")
+        self.assertIn("not confirmed", out["notes"])
+        with mock.patch.object(jp, "http", side_effect=fake("Oliver Wyman")):
+            out, _ = jp.check_company(c)
+        self.assertEqual(out["status"], "ok")
+        self.assertIn("verified", out["notes"])
+
+    def test_one_failure_keeps_the_feed(self):
+        c = {"company": "Feedco", "ats": "greenhouse", "ats_slug": "feedco", "status": "ok", "notes": ""}
+        with mock.patch.object(jp, "http", return_value=(0, "timeout", "")):
+            once, _ = jp.check_company(c)
+            self.assertEqual((once["status"], once["ats_slug"]), ("ok", "feedco"))
+            self.assertIn("failed once", once["notes"])
+            twice, _ = jp.check_company(once)
+        self.assertEqual(twice["status"], "broken")
+
+    def test_workday_pages_to_the_end(self):
+        bodies = []
+        def h(url, data=None, **k):
+            bodies.append(data)
+            off = data["offset"]
+            posts = [{"title": f"Data Scientist {i}", "externalPath": f"/job/A/DS_{i}", "locationsText": "Atlanta, GA",
+                      "postedOn": "Posted Today", "bulletFields": [f"R{i}"]} for i in range(off, min(off + 20, 45))]
+            return 200, json.dumps({"total": 45 if off == 0 else 0, "jobPostings": posts}), ""
+        with mock.patch.object(jp, "http", side_effect=h), mock.patch.object(jp.time, "sleep"):
+            st, jobs = jp.fetch_workday({"company": "Truist", "workday_url": "https://truist.wd1.myworkdayjobs.com/Careers"}, queries=["data"])
+        self.assertEqual((st, len(jobs)), (200, 45))  # 3 pages, not just the first 20
+        self.assertEqual([b["offset"] for b in bodies], [0, 20, 40])
+        self.assertLessEqual(len(jp.feed_queries()), 10)
+
+    def test_known_company_only_with_a_working_feed(self):
+        led = jp.build_plan(30, sites=["Google Jobs"], career_pages=False)
+        cards = "Data Scientist ¦ Feedco · Atlanta, GA · 3 hours ago\nData Scientist ¦ Pageco · Atlanta, GA · 3 hours ago\n"
+        with mock.patch.object(jp, "company_index", self.idx), tempfile.TemporaryDirectory() as d:
+            rows = jp.do_ingest(led, led["items"][0]["id"], cards, os.path.join(d, "pool.jsonl"))
+            self.assertEqual(rows[0].get("known_company"), "Feedco")
+            self.assertNotIn("known_company", rows[1])  # career-page company: the card is kept
+            self.assertEqual(rows[1].get("registry_company"), "Pageco")
+            lst = jp.screen_one(J(company="Feedco", source="SimplifyJobs GitHub", source_group="Simplify Jobs"), 30)
+            self.assertIn("known company: harvested directly", lst["exclude_reasons"])
+            lst2 = jp.screen_one(J(company="Pageco", source="SimplifyJobs GitHub", source_group="Simplify Jobs"), 30)
+            self.assertNotIn("known company: harvested directly", lst2["exclude_reasons"])
+
+    def test_registry_additions_respect_aliases(self):
+        reg = [{"company": "RELX", "aliases": "LexisNexis Risk Solutions;LexisNexis"}, {"company": "Acme Pay"}]
+        new = [{"company": "LexisNexis Risk Solutions", "apply_link": "https://relx.wd3.myworkdayjobs.com/x/job/1"},
+               {"company": "Brand New Co", "apply_link": "https://jobs.lever.co/brandnew/123"}]
+        self.assertEqual([r["company"] for r in jp.registry_additions_from_rows(new, reg)], ["Brand New Co"])
+
+    def test_eastern_time_follows_daylight_saving(self):
+        t = dt.datetime(2026, 11, 15, 4, 30, tzinfo=dt.timezone.utc)  # 23:30 EST on Nov 14 (00:30 under a fixed EDT offset)
+        self.assertEqual(t.astimezone(jp.ET).date(), dt.date(2026, 11, 14))
 
 
 if __name__ == "__main__":

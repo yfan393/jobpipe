@@ -1120,17 +1120,19 @@
   ],
   "exclude_patterns": {
    "no_sponsorship": [
-    "not (?:be )?(?:able to |going to )?(?:offer|provide|support|sponsor) (?:employment )?(?:visa )?sponsorship",
-    "(?:does|do|will|can|cannot|can't) not sponsor",
+    "not (?:be )?(?:able to |going to )?(?:offer|provide|support|sponsor)(?:ing)? (?:any |the |an? )?(?:(?:employment|visa|work|immigration|h-?1-?b|employer|employment visa|work visa)[ -])*sponsorship",
+    "(?:does|do|will|can|cannot|can't|won't) not sponsor",
     "cannot sponsor",
-    "unable to (?:offer |provide )?sponsor",
-    "without (?:the need for )?(?:current or future |now or in the future )?(?:employer |visa )?sponsorship",
-    "no (?:visa )?sponsorship",
-    "sponsorship (?:is )?not (?:available|offered|provided)",
-    "not eligible for (?:visa )?sponsorship",
+    "can't sponsor",
+    "won't sponsor",
+    "unable to (?:offer |provide |support )?(?:(?:any |the |an? )?(?:(?:employment|visa|work|immigration|h-?1-?b|employer|employment visa|work visa)[ -])*)?sponsor",
+    "(?<!with or )without (?:the need for |requiring )?(?:current or future |now or in the future |future )?(?:any |the |an? )?(?:(?:employment|visa|work|immigration|h-?1-?b|employer|employment visa|work visa)[ -])*sponsorship",
+    "\\bno (?:any |the |an? )?(?:(?:employment|visa|work|immigration|h-?1-?b|employer|employment visa|work visa)[ -])*sponsorship",
+    "sponsorship (?:is |will )?not (?:be )?(?:available|offered|provided|supported)",
+    "not eligible for (?:any |the |an? )?(?:(?:employment|visa|work|immigration|h-?1-?b|employer|employment visa|work visa)[ -])*sponsorship",
     "must be (?:legally )?authorized to work in the (?:u\\.?s\\.?|united states) without",
-    "will not (?:be )?(?:providing|offering) sponsorship",
-    "not considering candidates who (?:will )?require sponsorship"
+    "will not (?:be )?(?:providing|offering|supporting) (?:any |the |an? )?(?:(?:employment|visa|work|immigration|h-?1-?b|employer|employment visa|work visa)[ -])*sponsorship",
+    "not considering candidates who (?:will )?(?:now or in the future )?require (?:any |the |an? )?(?:(?:employment|visa|work|immigration|h-?1-?b|employer|employment visa|work visa)[ -])*sponsorship"
    ],
    "citizenship": [
     "u\\.?s\\.? citizens? only",
@@ -1165,11 +1167,10 @@
    "ph\\.?d\\.? (?:or equivalent )?preferred"
   ],
   "sponsor_yes_patterns": [
-   "(?:we|will|can|able to) (?:offer|provide|support|sponsor)(?:s)? (?:h-?1b|visa|immigration)",
-   "visa sponsorship (?:is )?(?:available|offered|provided)",
-   "sponsorship (?:is )?available",
-   "open to sponsor",
-   "h-?1b sponsorship"
+   "(?:we|will|can|able to) (?:offer|provide|support|sponsor)(?:s)? (?:h-?1-?b|visa|immigration)",
+   "(?:visa|h-?1-?b|immigration) sponsorship (?:is )?(?:available|offered|provided|supported)",
+   "sponsorship (?:is )?(?:available|offered|provided)",
+   "open to sponsor"
   ],
   "defense_employers": [
    "lockheed",
@@ -1253,7 +1254,8 @@
    "synechron staffing"
   ],
   "newgrad_exclude_title_note": "Word-bounded regexes (Oct 28: 'sr.' matched 'ISRT', 'intern' matched 'Internal'). Level ranges that start at 1/I ('Level 1, 2, or 3') pass.",
-  "early_program_fellow": "rotation|rotational|emerging talent|early career|new grad|graduate|residen|fellowship program"
+  "early_program_fellow": "rotation|rotational|emerging talent|early career|new grad|graduate|residen|fellowship program",
+  "sponsor_yes_negation_window": 40
  },
  "rubric": {
   "_comment": "Out of 100. Gates first (a gated role is never scored). Add to a tracker at score >= add_threshold. Python pre-scores every role; Claude scores those with pre_score >= claude_threshold and re-checks skills/responsibilities on the posting.",
@@ -2269,6 +2271,11 @@
    "intern"
   ]
  },
+ "feed_search": {
+  "_comment": "Search terms for employer ATS that need a query (Workday, Oracle). Broad on purpose: titles are screened afterwards. Workday is paged to the end of each query, up to workday_max_pages x 20 postings.",
+  "queries": ["data", "analyst", "analytics", "machine learning", "AI", "quantitative", "risk", "software engineer", "new grad"],
+  "workday_max_pages": 10
+ },
  "sponsors": {
   "_comment": "DOL LCA disclosure data (H-1B), built by `sponsors-build`, used for (a) sponsorship evidence in the score and (b) growing companies.csv (`registry-grow`). Files: https://www.dol.gov/sites/dolgov/files/ETA/oflc/pdfs/LCA_Disclosure_Data_FY{fy}_Q{q}.xlsx (quarterly, cumulative within the fiscal year; FY starts Oct 1).",
   "url_template": "https://www.dol.gov/sites/dolgov/files/ETA/oflc/pdfs/LCA_Disclosure_Data_FY{fy}_Q{q}.xlsx",
@@ -2301,7 +2308,10 @@
     "15-1254"
    ]
   },
+  "max_files": 1,
   "grow": {
+   "max_candidates_probed": 400,
+   "time_budget_s": 900,
    "min_lca_target_socs": 10,
    "min_lca_data_finance": 3,
    "max_new_per_run": 200,

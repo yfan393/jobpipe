@@ -63,7 +63,12 @@ def _now():
 
 
 NOW = _now()
-TODAY = NOW.astimezone(dt.timezone(dt.timedelta(hours=-4))).date()  # run day in Atlanta (EDT; good enough for labels)
+try:
+    from zoneinfo import ZoneInfo
+    ET = ZoneInfo("America/New_York")
+except Exception:  # no tz database: fixed EDT offset
+    ET = dt.timezone(dt.timedelta(hours=-4))
+TODAY = NOW.astimezone(ET).date()  # run day in Atlanta (EDT / EST)
 RUBRIC = CONFIG["rubric"]
 GATES = CONFIG["gates"]
 
@@ -204,7 +209,13 @@ def parse_age(text):
         return 0.0
     if "yesterday" in t:
         return 24.0
-    m = AGE_RX.search(t)
+    m = None
+    for m_ in AGE_RX.finditer(text.strip()):
+        u = m_.group(3)
+        if len(u) <= 2 and u != u.lower():  # '3M', '5H', '2D': a name or code, not an age ('2 Days' is fine)
+            continue
+        m = m_
+        break
     if not m:
         return None
     n, plus, unit = int(m.group(1)), m.group(2), m.group(3).lower()
@@ -221,9 +232,23 @@ def workday_posted_on(text):
     return d.replace(minute=0, second=0, microsecond=0).isoformat()
 
 
+_RX_CACHE = {}
+
+
+def rx(p, flags=re.I):
+    """Compiled pattern, cached for the life of the process. The re module's own cache holds 512 patterns and
+    jobpipe uses thousands (cities, states, titles, lexicon), so without this every posting recompiled them:
+    96% of screen time on Oct 28 2026."""
+    k = (p, flags)
+    c = _RX_CACHE.get(k)
+    if c is None:
+        c = _RX_CACHE[k] = re.compile(p, flags)
+    return c
+
+
 def rx_any(patterns, text):
     for p in patterns:
-        if re.search(p, text, re.I):
+        if rx(p).search(text):
             return p
     return None
 
@@ -375,8 +400,10 @@ def company_row(name):
 
 
 def has_feed(c):
+    """A board jobpipe harvests. 'guess' boards (a slug guessed from the name) are not harvested until
+    registry-check confirms they belong to this company; until then the company stays a career page."""
     ats = (c.get("ats") or "").lower()
-    if c.get("status") in ("no_feed", "broken"):
+    if c.get("status") in ("no_feed", "broken", "guess"):
         return False
     if ats == "workday":
         return bool(c.get("workday_url"))
@@ -476,6 +503,12 @@ def fetch_smartrecruiters(c):
 WD_RE = re.compile(r"https?://([a-z0-9-]+)\.(wd\d+)\.myworkdayjobs\.com/(?:[a-z]{2}-[A-Z]{2}/)?([A-Za-z0-9_-]+)")
 
 
+def feed_queries():
+    """Search terms for ATS that need one (Workday, Oracle): few and broad, each read to the end (paged).
+    Titles are screened afterwards, so a broad term loses nothing and 17 narrow ones cost more calls."""
+    return CONFIG.get("feed_search", {}).get("queries") or workday_queries()
+
+
 def workday_queries():
     qs = []
     for prog in ("professional", "newgrad"):
@@ -484,22 +517,39 @@ def workday_queries():
     return list(dict.fromkeys(qs))
 
 
-def fetch_workday(c, queries=None, per_query=20):
+def fetch_workday(c, queries=None, per_query=20, max_pages=None):
+    """Workday CXS search. Results are in relevance order and capped at 20 a call, so each query is paged
+    with `offset` until the total is reached or `feed_search.workday_max_pages` (big tenants list hundreds)."""
     m = WD_RE.search(c.get("workday_url") or "")
     if not m:
         return 0, []
     tenant, wd, site = m.groups()
     api = f"https://{tenant}.{wd}.myworkdayjobs.com/wday/cxs/{tenant}/{site}/jobs"
     base = f"https://{tenant}.{wd}.myworkdayjobs.com/{site}"
-    queries = queries or workday_queries()
-    seen, out, st = set(), [], 0
+    queries = queries or feed_queries()
+    max_pages = max_pages or CONFIG.get("feed_search", {}).get("workday_max_pages", 10)
+    seen, out, st, ok_any = set(), [], 0, False
+    pages = []
     for q in queries:
-        st, body, _ = http(api, data={"appliedFacets": {}, "limit": per_query, "offset": 0, "searchText": q})
+        total, offset = None, 0
+        for _ in range(max_pages):
+            st, body, _ = http(api, data={"appliedFacets": {}, "limit": per_query, "offset": offset, "searchText": q})
+            if st != 200:
+                break
+            ok_any = True
+            d = json.loads(body)
+            got = d.get("jobPostings", []) or []
+            total = d.get("total", total) or total
+            pages.append(got)
+            offset += per_query
+            if not got or (total is not None and offset >= total):
+                break
+            time.sleep(0.5)
         if st == 429:
             break
-        if st != 200:
-            continue
-        for j in json.loads(body).get("jobPostings", []):
+        time.sleep(0.8)
+    for got in pages:
+        for j in got:
             path = j.get("externalPath", "")
             if not path or path in seen:
                 continue
@@ -509,8 +559,7 @@ def fetch_workday(c, queries=None, per_query=20):
                            url=base + path, req_id=bullets[0] if bullets else "",
                            posted_at=workday_posted_on(j.get("postedOn", "")), age_text=j.get("postedOn", ""),
                            workday_api=f"https://{tenant}.{wd}.myworkdayjobs.com/wday/cxs/{tenant}/{site}{path}"))
-        time.sleep(0.8)
-    return (200 if out else st), out
+    return (200 if (out or ok_any) else st), out
 
 
 def enrich_workday(j):
@@ -567,7 +616,7 @@ def fetch_oracle(c, queries=None, per_query=25):
     if not host or not site:
         return 0, []
     out, seen, st = [], set(), 0
-    for q in (queries or workday_queries()):
+    for q in (queries or feed_queries()):
         finder = (f"findReqs;siteNumber={site},limit={per_query},keyword=\"{q}\",sortBy=POSTING_DATES_DESC")
         url = (f"https://{host}/hcmRestApi/resources/latest/recruitingCEJobRequisitions?onlyData=true"
                f"&expand=requisitionList.secondaryLocations&finder=" + urllib.parse.quote(finder, safe="=;,"))
@@ -900,20 +949,20 @@ def seniority_reason(title, program="professional", text=""):
     """'' if the title passes the title gate; otherwise the reason."""
     t = " " + title.lower().replace("member of technical staff", "member of technical team") + " "
     for w in INTERN_WORDS:
-        if re.search(r"(?<![a-z])" + re.escape(w) + r"(?![a-z])", t):
+        if rx(r"(?<![a-z])" + re.escape(w) + r"(?![a-z])").search(t):
             return "intern/co-op"
     if program == "newgrad":
         hit = rx_any(GATES["newgrad_exclude_title"], t)
-        if hit and re.fullmatch(r"ii|iii|2|3", re.search(hit, t, re.I).group(0).strip()) and re.search(r"\b(?:1|i)\s*(?:,|/|-|or|to)\s*(?:2|ii)\b", t):
+        if hit and re.fullmatch(r"ii|iii|2|3", rx(hit).search(t).group(0).strip()) and re.search(r"\b(?:1|i)\s*(?:,|/|-|or|to)\s*(?:2|ii)\b", t):
             hit = None  # 'Level 1, 2, or 3' / 'Engineer I/II' include the entry level
         if hit and not re.search(r"\bnew grad\b.*\b(?:ii|2)\b", t):
-            m_ = re.search(hit, t, re.I)
+            m_ = rx(hit).search(t)
             return f"too senior for new grad (title: {(m_.group(0) if m_ else hit).strip()})"
     ok_senior = bool(rx_any(SENIOR_OK_RX, t))
     for w in GATES["seniority_title_exclude"]:
         if w in INTERN_WORDS:
             continue
-        if re.search(r"(?<![a-z])" + re.escape(w) + r"(?![a-z])", t):
+        if rx(r"(?<![a-z])" + re.escape(w) + r"(?![a-z])").search(t):
             if w == "manager" and manager_ic_ok(text):
                 continue
             if w == "lead" and re.search(r"\blead(?:s|ing)? (?:generation|gen)\b", t):
@@ -954,9 +1003,25 @@ def is_us(location):
     return "unknown"
 
 
-def stated_max_pay(text):
+PAY_CONTEXT_RX = re.compile(r"salary|base pay|base compensation|\bbase\b|pay range|pay rate|compensation|annual|per year|"
+                            r"/\s?y(?:ea)?r|\byearly\b|wage|\bpay\b|\bOTE\b", re.I)
+PAY_NOT_RX = re.compile(r"relocation|sign[- ]?on|signing|bonus|equity|stock|rsu|tuition|stipend|401|reimburs|funding|raised|"
+                        r"series [a-e]|revenue|valuation|grant|allowance|referral", re.I)
+
+
+def stated_max_pay(text, structured=False):
+    """Highest stated salary in the text, or None. Free text counts a dollar amount only when pay words are
+    within 80 characters and no non-salary words (relocation, bonus, equity, tuition...) are within 40;
+    `structured` text (an ATS pay field) needs no context."""
     vals = []
-    for m in PAY_RX.finditer(text or ""):
+    t = text or ""
+    for m in PAY_RX.finditer(t):
+        if not structured:
+            near = t[max(0, m.start() - 80): m.end() + 40]
+            before = re.split(r"[.;!?]\s", t[max(0, m.start() - 40): m.start()])[-1]  # this sentence only
+            after = re.split(r"[.;$–]|\s-\s|\bto\b", t[m.end(): m.end() + 30])[0]  # up to the next amount
+            if not PAY_CONTEXT_RX.search(near) or PAY_NOT_RX.search(before + " " + after):
+                continue
         if m.group(2) is not None:
             v = int(m.group(1) + m.group(2))
         else:
@@ -1008,7 +1073,17 @@ def year_mentions(text):
         # with SQL" is engineering, not analytics); the wider window is only a fallback
         primary = re.split(r"\b(?:with|using|including|such as|across|leveraging|utilizing)\b|[,;(]", after)[0][:70]
         funcs = classify_function(primary) or classify_function(after[:120] + " " + before[-40:])
-        out.append({"n": n, "funcs": funcs, "preferred": preferred, "degree": deg, "text": short(t[m.start(): m.end()], 90)})
+        sent = len(re.findall(r"[.;\n](?:\s|$)", t[: m.start()]))
+        out.append({"n": n, "funcs": funcs, "preferred": preferred, "degree": deg, "text": short(t[m.start(): m.end()], 90),
+                    "sent": sent, "inherited": False})
+    # "Bachelor's and 5+ years of software engineering, or Master's and 3+ years": the second mention is the
+    # same function; without this it would read as 3 years of general experience and pass the engineering gate.
+    for i, x in enumerate(out):
+        if x["funcs"]:
+            continue
+        sib = [y for y in out[:i][::-1] + out[i + 1:] if y["sent"] == x["sent"] and y["funcs"]]
+        if sib:
+            x["funcs"], x["inherited"] = list(sib[0]["funcs"]), True
     return out
 
 
@@ -1078,9 +1153,26 @@ def h1b_lookup(company):
     return None
 
 
+NEGATION_RX = re.compile(r"\bnot?\b|n't\b|\bunable\b|\bcannot\b|\bwithout\b|\bnever\b|\bineligible\b", re.I)
+
+
+def offers_sponsorship(text):
+    """True only for a positive statement: a 'no sponsorship' sentence anywhere wins, and a positive match with
+    a negation just before it ('we do not offer H-1B sponsorship') is not an offer."""
+    t = text or ""
+    if rx_any(GATES["exclude_patterns"]["no_sponsorship"], t):
+        return False
+    win = GATES.get("sponsor_yes_negation_window", 40)
+    for p_ in GATES["sponsor_yes_patterns"]:
+        for m in rx(p_).finditer(t):
+            if not NEGATION_RX.search(t[max(0, m.start() - win): m.start()] + " " + m.group(0)):
+                return True
+    return False
+
+
 def sponsorship_level(j):
     text = (j.get("description") or "") + " " + (j.get("sponsorship_note") or "")
-    if rx_any(GATES["sponsor_yes_patterns"], text):
+    if offers_sponsorship(text):
         return "explicit_yes", "posting offers sponsorship"
     sp = sponsor_lookup(j.get("company", ""))
     if sp:
@@ -1147,17 +1239,52 @@ def window_for_job(j, base):
     return w
 
 
+OTHER_NEG_RX = None
+
+
+def cheap_reasons(j, window_h, prog=None):
+    """Gates that need no posting text and no resume match: seniority title, non-US, known company / reposted,
+    stale exact date, and (for off-target titles) the negative title list. Used to skip the JD match and to keep
+    the matcher's corpus to postings that can still pass."""
+    global OTHER_NEG_RX
+    if OTHER_NEG_RX is None:
+        OTHER_NEG_RX = wb(JDM.get("other_title_negative", []))
+    t = j.get("title", "")
+    if prog is None:
+        prog, _ = classify(j)
+    out = []
+    if seniority_reason(t, prog or "professional", (j.get("description") or "")):
+        out.append("seniority")
+    if is_us(j.get("location", "")) == "no":
+        out.append("non-US")
+    if j.get("known_company") or j.get("reposted"):
+        out.append("known/reposted")
+    a = age_hours(j.get("posted_at"))
+    if a is not None and a > window_for_job(j, window_h) and parse_age(j.get("age_text", "")) is None:
+        out.append("stale")
+    if not prog and rx_any(OTHER_NEG_RX, " " + t.lower() + " "):
+        out.append("off-target title")
+    return out
+
+
 def screen_one(j, window_h, seen=None):
     j = dict(j)
     reasons, flags = list(j.get("exclude_reasons") or []), list(j.get("flags") or [])
     t = j.get("title", "")
     text = (j.get("description") or "") + " " + (j.get("snippet") or "")
     prog, fam = classify(j)
+    if not j.get("known_company") and j.get("source") in ("SimplifyJobs GitHub", "speedyapply GitHub") \
+            and CONFIG.get("discovery", {}).get("drop_known_companies", True):
+        cr = company_row(j.get("company", ""))
+        if cr and has_feed(cr):
+            j["known_company"] = cr["company"]  # its feed has the same role with full text and an exact date
+    # Cheap gates first (title, place, date, company): a posting they stop never needs the TF-IDF match.
+    cheap = cheap_reasons(j, window_h, prog)
     m = get_matcher()
-    jm = m.score(j.get("description") or "") if m else None
+    want_jd = not cheap
+    jm = m.score(j.get("description") or "") if (m and want_jd) else None
     j["jd_match"] = jm
-    if not prog and jm and jm["match"] >= JDM.get("keep_other_title_at", 0.62) \
-            and not rx_any(wb(JDM.get("other_title_negative", [])), " " + t.lower() + " "):
+    if not prog and jm and jm["match"] >= JDM.get("keep_other_title_at", 0.62):
         prog, fam = "professional", "other"  # title outside every group, but the posting matches her resume
         flags.append(f"title outside target groups; kept on JD match {jm['match']:.2f}")
     j["program"], j["family"] = prog, fam
@@ -1197,7 +1324,7 @@ def screen_one(j, window_h, seen=None):
         if rx_any(pats, text):
             reasons.append(EXC_LABEL[kind])
     low_c = (j.get("company") or "").lower()
-    if any(re.search(r"(?<![a-z])" + re.escape(d) + r"(?![a-z])", low_c) for d in GATES["defense_employers"]):
+    if any(rx(r"(?<![a-z])" + re.escape(d) + r"(?![a-z])").search(low_c) for d in GATES["defense_employers"]):
         reasons.append("defense / clearance employer")
     if any(s in low_c for s in GATES["staffing_agencies"]):
         flags.append("staffing agency (client may be undisclosed; low priority)")
@@ -1212,7 +1339,7 @@ def screen_one(j, window_h, seen=None):
     j["years_required"] = ya["ask"]
     j["ev_experience_auto"] = ya["ev"]
     j["_exp_pts"] = ya["points"]
-    pay = stated_max_pay((j.get("pay") or "") + " " + text[:5000])
+    pay = stated_max_pay(j.get("pay") or "", structured=True) or stated_max_pay(text[:5000])
     j["pay_max_stated"] = pay
     if pay and pay < CONFIG["salary_floor"]:
         reasons.append(f"pay below floor (${pay:,})")
@@ -1339,8 +1466,8 @@ def build_matcher(jobs, resumes=None):
 
 
 def do_screen(jobs, window_h, seen=None, matcher="auto"):
-    if matcher == "auto":
-        matcher = build_matcher(jobs)
+    if matcher == "auto":  # corpus = postings the cheap gates leave, not the thousands they stop
+        matcher = build_matcher([j for j in jobs if not cheap_reasons(j, window_h)])
     set_matcher(matcher)
     return [screen_one(j, window_h, seen) for j in jobs]
 
@@ -1426,7 +1553,8 @@ class JDMatcher:
         return bisect.bisect_left(cs, cos) / len(cs)
 
     def stats(self):
-        return {"df": {w: c for w, c in self.df.items() if c > 1}, "n": self.n, "cos_sorted": self.cos_sorted[::max(1, len(self.cos_sorted) // 400)]}
+        return {"df": {w: c for w, c in self.df.items() if c > 1}, "n": self.n, "cos_sorted": self.cos_sorted[::max(1, len(self.cos_sorted) // 400)],
+                "date": TODAY.isoformat()}
 
     def score(self, text):
         if not self.resumes or len(text or "") < 200:
@@ -1544,10 +1672,17 @@ def tracker_index(rows):
     return reqs, fps, by_company
 
 
-def do_dedupe(cands, tracker_rows, fuzzy=0.85):
+def do_dedupe(cands, tracker_rows, fuzzy=0.85, within_run_fp=True):
+    """Exclude candidates already in a tracker (req ID, link, fingerprint, fuzzy title) or repeated in this run.
+    Jobs already excluded by a gate are passed through untouched and never block a later copy of the same role.
+    `within_run_fp=False` leaves same-fingerprint copies for the caller to merge (build_shortlist keeps the
+    employer-feed copy)."""
     reqs, fps, by_company = tracker_index(tracker_rows)
     seen_fp, seen_req, out = set(), set(), []
     for j in cands:
+        if j.get("screen") == "excluded":
+            out.append(j)
+            continue
         rid = norm_req(j.get("req_id"))
         nc = norm_company(j.get("company"))
         key = (nc, rid)
@@ -1558,9 +1693,11 @@ def do_dedupe(cands, tracker_rows, fuzzy=0.85):
             dup = f"duplicate (req ID, tracker status {reqs[key] or '?'})"
         elif link and ("link", link) in reqs:
             dup = f"duplicate (same posting link, tracker status {reqs[('link', link)] or '?'})"
-        elif fp in fps or fingerprint(j.get("company"), j.get("title"), "") in fps:
-            dup = f"duplicate (company+title+city, tracker status {fps.get(fp) or '?'})"
-        elif fp in seen_fp or (rid and key in seen_req):
+        elif fp in fps:
+            dup = f"duplicate (company+title+city, tracker status {fps[fp] or '?'})"
+        elif fingerprint(j.get("company"), j.get("title"), "") in fps:
+            dup = f"duplicate (company+title, tracker status {fps[fingerprint(j.get('company'), j.get('title'), '')] or '?'})"
+        elif (within_run_fp and fp in seen_fp) or (rid and key in seen_req):
             dup = "duplicate (within this run)"
         else:
             for t, stt in by_company.get(nc, []):
@@ -1861,8 +1998,10 @@ def do_ingest(ledger, item_id, text, pool_path, site=None, extra=None):
             for k2 in ("sector", "startup", "atlanta", "gt_fair", "fair_sponsor"):
                 row[k2] = cr.get(k2, "")
         role = (site_by_name(site) or {}).get("role", "discovery")
-        if cr and role in ("discovery", "graduate") and CONFIG.get("discovery", {}).get("drop_known_companies", True):
-            row["known_company"] = cr["company"]  # harvested directly from its own board / career page
+        if cr and has_feed(cr) and role in ("discovery", "graduate") and CONFIG.get("discovery", {}).get("drop_known_companies", True):
+            row["known_company"] = cr["company"]  # harvested directly from its own feed
+        elif cr:
+            row["registry_company"] = cr["company"]  # career-page company: the card is kept (the browser visit can miss it)
         if c.get("via"):
             row["via"] = c["via"]
         if extra:
@@ -1879,14 +2018,14 @@ def build_shortlist(screened, tracker_rows, feed_jobs=None, threshold=None):
     pool = linkedin_age_check([dict(j) for j in screened])
     if feed_jobs:
         resolve_to_employer([j for j in pool if j.get("screen") == "pass"], feed_jobs)
-    pool = do_dedupe(pool, tracker_rows)
+    pool = do_dedupe(pool, tracker_rows, within_run_fp=False)
     passed = [j for j in pool if j.get("screen") == "pass"]
     # one row per role: an employer-feed copy beats an aggregator copy of the same fingerprint
     best = {}
     for j in passed:
         k = j["fp"]
         cur = best.get(k)
-        rank = (0 if j.get("source_group") == "Employer job board" else 1, -(j.get("pre_score") or 0))
+        rank = ({"Employer job board": 0, "Company website": 1}.get(j.get("source_group"), 2), -(j.get("pre_score") or 0))
         if not cur or rank < cur[0]:
             if cur:
                 j.setdefault("also_seen_on", []).extend([cur[1].get("source")] + cur[1].get("also_seen_on", []))
@@ -1944,7 +2083,7 @@ def posted_label(j):
     iso_s = j.get("posted_at_ats") or j.get("posted_at")
     if not iso_s:
         return ""
-    d = dt.datetime.fromisoformat(iso_s).astimezone(dt.timezone(dt.timedelta(hours=-4))).date()
+    d = dt.datetime.fromisoformat(iso_s).astimezone(ET).date()
     if j.get("posted_at_ats") or (j.get("source_group") == "Employer job board" and not j.get("age_text")):
         src = "employer page / ATS"
     elif j.get("age_text"):
@@ -2138,6 +2277,12 @@ def merge_scores(shortlist, score_lines):
             out.append(j)
     missing = [fp for fp in by if fp not in {j["fp"] for j in shortlist}]
     return out, missing
+
+
+def unscored_fps(shortlist, score_lines):
+    """Shortlist fingerprints with no line in scores.jsonl (SKILL.md rule 15: score everything that passes)."""
+    have = {r.get("fp") for r in score_lines}
+    return [j["fp"] for j in shortlist if j["fp"] not in have]
 
 
 # =========================================================================== click-to-update trackers (artifact database)
@@ -2399,8 +2544,9 @@ def do_calibrate(rows):
                        "(reposted, too senior, sponsorship, closed) belong in screening, not in the score."}
 
 
-def build_report(ledger, screened_funnel, new_main, new_ng, not_added, leads, collect_meta=None, prefilled=None):
+def build_report(ledger, screened_funnel, new_main, new_ng, not_added, leads, collect_meta=None, prefilled=None, unscored=None):
     ok, arows = do_audit_ledger(ledger)
+    ok = ok and not unscored
     lines = [f"# Daily job run {TODAY.isoformat()}" + ("" if ok else " — INCOMPLETE"), ""]
     lines.append("## Coverage")
     lines.append("| site | done | blocked | todo | results | status |")
@@ -2412,6 +2558,8 @@ def build_report(ledger, screened_funnel, new_main, new_ng, not_added, leads, co
         lines += ["", "Machine sources: " + "; ".join(f"{k}: {v.get('status')} ({v.get('jobs', 0)} jobs)" for k, v in src.items())]
         if collect_meta.get("feeds_failed"):
             lines.append("Feeds that failed: " + ", ".join(f"{f['company']} ({f['status']})" for f in collect_meta["feeds_failed"][:25]))
+    if unscored:
+        lines += ["", f"**{len(unscored)} shortlisted roles were not scored** (rule 15): " + ", ".join(unscored[:20])]
     lines += ["", "## Funnel", ", ".join(f"{k} {v}" for k, v in (screened_funnel or {}).items())]
     if not_added:
         lines.append("Not added after scoring: " + ", ".join(f"{k} {v}" for k, v in not_added.items()))
@@ -2498,7 +2646,9 @@ def build_sponsors(paths):
     agg = {}
     for p_ in paths:
         rows = iter_xlsx_rows(p_) if str(p_).endswith(".xlsx") else csv.DictReader(open(p_, newline="", encoding="utf-8", errors="replace"))
-        for r in rows:
+        for i, r in enumerate(rows, 1):
+            if i % 100_000 == 0:
+                log(f"  {Path(p_).name}: {i:,} rows read, {len(agg):,} employers so far")
             if not str(r.get("CASE_STATUS", "")).lower().startswith("certified"):
                 continue
             if str(r.get("VISA_CLASS", "H-1B")).upper() not in ("H-1B", ""):
@@ -2533,8 +2683,10 @@ def build_sponsors(paths):
     return out
 
 
-def download_lca(outdir, max_files=2):
-    """Newest published LCA disclosure file of the current fiscal year (cumulative) plus the previous year's Q4."""
+def download_lca(outdir, max_files=None):
+    """Newest published LCA disclosure file (quarterly files are cumulative within a fiscal year). One file by
+    default: each is 100+ MB and slow to parse; `sponsors.max_files` = 2 adds the previous year's Q4."""
+    max_files = max_files or SP_CFG.get("max_files", 1)
     outdir = Path(outdir)
     outdir.mkdir(parents=True, exist_ok=True)
     fy_now = NOW.year + (1 if NOW.month >= 10 else 0)
@@ -2606,41 +2758,91 @@ def grow_candidates(sponsors, rows):
     return out
 
 
-def do_registry_grow(sponsors, rows, limit=None, probe_boards=True):
+def grow_slugs(name):
+    """Board slugs to try for a DOL employer name: the full normalized name only (joined and hyphenated).
+    First-word guesses ('capital', 'bank', 'two') are left out: they find other companies' boards."""
+    words = [w for w in re.findall(r"[a-z0-9]+", norm_company(name).replace("&", " and "))
+             if w not in ("the", "and", "of", "company", "services", "usa", "us", "america", "na")]
+    joined = "".join(words)
+    if len(joined) < 4:
+        return []
+    return list(dict.fromkeys([joined, "-".join(words)]))
+
+
+def board_name_matches(ats, slug_, employer):
+    """Greenhouse returns the board's company name: it must share most of the employer's name words.
+    Lever and Ashby expose no name, so only a full-name slug of 5+ characters is trusted there."""
+    if ats != "greenhouse":
+        return len(slug_.replace("-", "")) >= 5
+    st, body, _ = http(f"https://boards-api.greenhouse.io/v1/boards/{slug_}", retries=0, timeout=15)
+    if st != 200:
+        return False
+    try:
+        board = norm_company(json.loads(body).get("name", ""))
+    except Exception:
+        return False
+    a, b = set(board.split()), set(norm_company(employer).split())
+    return bool(a and b) and len(a & b) / len(a | b) >= 0.5
+
+
+def do_registry_grow(sponsors, rows, limit=None, probe_boards=True, max_probe=None, budget_s=None, workers=16):
     """Add top DOL sponsors whose job board answers (cheap to harvest). Sponsors without a findable board go
     to registry_candidates.csv instead of the daily career-page ledger (no browser cost until a human or a
-    discovery find gives a careers URL)."""
-    limit = limit or SP_CFG.get("grow", {}).get("max_new_per_run", 200)
+    discovery find gives a careers URL).
+
+    Bounded so it fits in a CI job: only the top `max_probe` candidates are probed, in parallel, inside a
+    time budget; each is tried on Greenhouse / Ashby / Lever with full-name slugs (at most 6 calls). The
+    rest wait in the candidates file for the next month."""
+    g = SP_CFG.get("grow", {})
+    limit = limit or g.get("max_new_per_run", 200)
+    max_probe = max_probe or g.get("max_candidates_probed", 400)
+    budget_s = budget_s if budget_s is not None else g.get("time_budget_s", 900)
+    cands = grow_candidates(sponsors, rows)
+    to_probe = cands[:max_probe] if probe_boards else []
+    t0 = time.time()
+
+    def find(item):
+        _, _, s_ = item
+        if time.time() - t0 > budget_s:
+            return None, "not probed (time budget)"
+        for a in ("greenhouse", "ashby", "lever"):
+            for slug_ in grow_slugs(s_["name"]):
+                ok, n = probe(a, slug_)
+                if ok and n > 0 and board_name_matches(a, slug_, s_["name"]):
+                    return (a, slug_), ""
+        return None, "no board found"
+
+    found_by = {}
+    if to_probe:
+        with cf.ThreadPoolExecutor(max_workers=workers) as ex:
+            for item, res in zip(to_probe, ex.map(find, to_probe)):
+                found_by[item[1]] = res
     added, pending = [], []
-    for score, k, s_ in grow_candidates(sponsors, rows):
-        if len(added) >= limit:
-            break
-        found = None
-        if probe_boards:
-            for a in ("greenhouse", "ashby", "lever"):
-                for slug_ in slug_candidates(s_["name"]):
-                    ok, n = probe(a, slug_)
-                    if ok and n > 0:
-                        found = (a, slug_)
-                        break
-                if found:
-                    break
+    for score, k, s_ in cands:
+        found, why = found_by.get(k, (None, "not probed this run" if probe_boards else "no board found"))
         sector = CONFIG["sectors"].get("naics_hint", {}).get(s_.get("naics", ""), "")
         base = {k2: "" for k2 in CSV_FIELDS} | {"company": s_["name"].title(), "sector": sector or ("finance" if s_["groups"].get("finance_risk") else "tech"),
                                                   "startup": "no", "atlanta": "yes" if "GA" in s_["states"] else "no", "source": "dol",
                                                   "added": TODAY.isoformat(), "lca_target": str(sum(s_["groups"].values())), "lca_fy": s_["fy"]}
-        if found:
+        if found and len(added) < limit:
             base.update(ats=found[0], ats_slug=found[1], status="check",
-                        notes=f"check: added from DOL LCA data (FY{s_['fy']}: {sum(s_['groups'].values())} filings in her role codes; e.g. {', '.join(s_['titles'][:2])}); board guessed by name, confirm it is this employer")
+                        notes=f"check: added from DOL LCA data (FY{s_['fy']}: {sum(s_['groups'].values())} filings in her role codes; e.g. {', '.join(s_['titles'][:2])}); board found by full name, confirm it is this employer")
             added.append(base)
         else:
-            pending.append(base | {"notes": f"DOL sponsor, no board found yet; titles: {', '.join(s_['titles'][:3])}"})
+            pending.append(base | {"notes": f"DOL sponsor, {why}; titles: {', '.join(s_['titles'][:3])}"})
+    log(f"registry-grow: {len(cands)} candidates, probed {len(to_probe)} in {time.time() - t0:.0f}s, added {len(added)}")
     return added, pending
 
 
+def registry_names(rows):
+    """Normalized company names and aliases in a registry."""
+    return {norm_company(r["company"]) for r in rows} | {norm_company(a) for r in rows
+                                                         for a in (r.get("aliases") or "").split(";") if a.strip()}
+
+
 def registry_additions_from_rows(new_rows, rows):
-    """Companies of rows just added to a tracker that the registry doesn't know: discovered companies."""
-    have = {norm_company(r["company"]) for r in rows}
+    """Companies of rows just added to a tracker that the registry doesn't know (by name or alias)."""
+    have = registry_names(rows)
     out = {}
     for r in new_rows:
         k = norm_company(r.get("company"))
@@ -2793,6 +2995,35 @@ def probe(ats, slug_):
     return True, n
 
 
+def board_is_company(ats, slug_, company, aliases=""):
+    """Does this board belong to `company`? Greenhouse: the board's own name shares most name words. Otherwise
+    (and as a fallback): the company name, as written, appears in at least half of up to 25 postings' text.
+    -> (bool, reason). Guards against first-word guesses such as 'oliver' for Oliver Wyman."""
+    names = [company] + [a.strip() for a in (aliases or "").split(";") if a.strip()]
+    keys = [k for k in {norm_company(n) for n in names} if k]
+    if ats in ("greenhouse", "greenhouse_eu"):
+        host = "boards-api.eu.greenhouse.io" if ats == "greenhouse_eu" else "boards-api.greenhouse.io"
+        st, body, _ = http(f"https://{host}/v1/boards/{slug_}", retries=0, timeout=15)
+        if st == 200:
+            try:
+                bn = norm_company(json.loads(body).get("name", ""))
+            except Exception:
+                bn = ""
+            a = set(bn.split())
+            if a and any(len(a & set(k.split())) / len(a | set(k.split())) >= 0.5 for k in keys):
+                return True, f"board name '{bn}'"
+    try:
+        _, jobs = FETCHERS[ats]({"company": company, "ats": ats, "ats_slug": slug_})
+    except Exception as e:
+        return False, f"could not read the board ({type(e).__name__})"
+    texts = [j.get("description") or "" for j in jobs[:25] if (j.get("description") or "").strip()]
+    if not texts:
+        return False, "no posting text to check the name against"
+    rx = [re.compile(r"(?<![A-Za-z])" + re.escape(n) + r"(?![A-Za-z])") for n in names if len(n) >= 3]
+    hit = sum(1 for t in texts if any(r.search(t) for r in rx))
+    return hit * 2 >= len(texts), f"name in {hit}/{len(texts)} postings"
+
+
 def keep_note(c, notes):
     """Keep the human note (before ' | check: ') and any 'observed: …' boards; replace the rest."""
     human = (c.get("notes") or "").split(" | check: ")[0]
@@ -2808,6 +3039,9 @@ def check_company(c):
     c = dict(c)
     notes = []
     ats = (c.get("ats") or "").lower()
+    prior_status, prior_notes = c.get("status", ""), c.get("notes") or ""
+    guessed = prior_status == "guess" or "guessed " in prior_notes
+    had_board = bool(c.get("ats_slug") or c.get("workday_url") or ats == "amazon")
     if ats in ("greenhouse", "greenhouse_eu", "lever", "ashby", "smartrecruiters") and c.get("ats_slug"):
         good = []
         for s_ in [x.strip() for x in c["ats_slug"].split(";") if x.strip()]:
@@ -2817,12 +3051,19 @@ def check_company(c):
                 c.setdefault("_ok_slugs", []).append(s_)
         if good:
             c["ats_slug"] = ";".join(c.pop("_ok_slugs"))
+            if guessed:  # a board guessed from the name is harvested only once it is shown to be this company
+                yes, why = board_is_company(ats, c["ats_slug"].split(";")[0], c["company"], c.get("aliases", ""))
+                if not yes:
+                    c.update(status="guess", last_checked=TODAY.isoformat(),
+                             notes=keep_note(c, [f"guess: {ats}/{c['ats_slug']}", f"not confirmed: {why}"]))
+                    return c, None
+                good.append(f"verified: {why}")
             c.update(status="ok", last_checked=TODAY.isoformat(), notes=keep_note(c, good + notes))
             return c, None
     if ats == "workday" and c.get("workday_url"):
         good = []
         for u in [x.strip() for x in c["workday_url"].split(";") if x.strip()]:
-            st, jobs = fetch_workday({**c, "workday_url": u}, queries=["data"])
+            st, jobs = fetch_workday({**c, "workday_url": u}, queries=["data"], max_pages=1)
             if st == 200:
                 good.append(u)
             else:
@@ -2841,9 +3082,9 @@ def check_company(c):
         c.update(status="ok" if st == 200 else "broken", last_checked=TODAY.isoformat())
         return c, None
     found = None
-    for obs in re.findall(r"(?:observed|guess): ([^;\s]+)", c.get("notes") or ""):
+    for obs in re.findall(r"observed: ([^;\s]+)", c.get("notes") or ""):  # boards seen in real posting links; guesses go through board_is_company
         if "myworkdayjobs.com" in obs:
-            st, _ = fetch_workday({**c, "workday_url": obs}, queries=["data"])
+            st, _ = fetch_workday({**c, "workday_url": obs}, queries=["data"], max_pages=1)
             if st == 200:
                 found = ("workday", "", obs)
         else:
@@ -2887,7 +3128,15 @@ def check_company(c):
         c["ats"], c["ats_slug"] = a, s_
         if wurl:
             c["workday_url"] = wurl
-        c["status"] = "check" if any("guessed" in n for n in notes) else "ok"
+        c["status"] = "ok"
+        if any("guessed" in n for n in notes):
+            yes, why = board_is_company(a, s_, c["company"], c.get("aliases", ""))
+            c["status"] = "ok" if yes else "guess"
+            notes.append(("verified: " if yes else "not confirmed: ") + why)
+    elif had_board and prior_status in ("ok", "check") and "failed once" not in prior_notes:
+        # one bad Sunday (an outage, a 5xx) must not turn a working feed into a daily browser page
+        notes.append(f"failed once {TODAY.isoformat()}: marked broken if it fails again")
+        c["status"] = prior_status
     else:
         c["status"] = "no_feed" if c.get("_careers_http") == 200 else "broken"
     c.pop("_careers_http", None)
@@ -2967,6 +3216,7 @@ def main(argv=None):
     p = sub.add_parser("screen", help="gates + routing + pre-score -> screened.json")
     p.add_argument("inputs", nargs="+", help="raw.json and/or pool.jsonl"); p.add_argument("--hours", type=float)
     p.add_argument("--seen", help="state.json (first-seen memory; updated in place)"); p.add_argument("--h1b"); p.add_argument("--out", default="screened.json")
+    p.add_argument("--rebuild-jd", action="store_true", help="rebuild the JD-match statistics even if today's jd_stats.json exists")
     p = sub.add_parser("shortlist", help="dedupe vs trackers, resolve to employer postings -> shortlist.json")
     p.add_argument("screened"); p.add_argument("--tracker", action="append", default=[]); p.add_argument("--raw", help="raw.json (feed jobs for resolving)")
     p.add_argument("--threshold", type=float); p.add_argument("--out", default="shortlist.json"); p.add_argument("--print", type=int, default=60)
@@ -3104,10 +3354,18 @@ def main(argv=None):
             jobs += d.get("jobs", []) if isinstance(d, dict) else d
         state = load_json(a.seen, default={}) if a.seen else None
         seen = state.setdefault("seen", {}) if state is not None else None
-        out = do_screen(jobs, a.hours or CONFIG["window_hours"]["daily"], seen)
-        if get_matcher():
-            dump_json(get_matcher().stats(), str(Path(a.out).with_name("jd_stats.json")))
+        stats_p = Path(a.out).with_name("jd_stats.json")
+        old = load_json(stats_p, default={}) if stats_p.exists() else {}
+        res = load_resumes()
+        if res and not a.rebuild_jd and old.get("date") == TODAY.isoformat():
+            # same day: keep batch 1's statistics so a posting's pre-score does not move between batches
+            out = do_screen(jobs, a.hours or CONFIG["window_hours"]["daily"], seen, matcher=JDMatcher(res, stats=old))
+            print(f"JD match: reusing today's statistics ({stats_p})")
         else:
+            out = do_screen(jobs, a.hours or CONFIG["window_hours"]["daily"], seen)
+            if get_matcher():
+                dump_json(get_matcher().stats(), str(stats_p))
+        if not get_matcher():
             print("NOTE: no resumes found (resumes/*.md): skills use the keyword fallback")
         if a.seen:
             cutoff = (NOW - dt.timedelta(days=60)).isoformat()
@@ -3191,10 +3449,16 @@ def main(argv=None):
     elif a.cmd == "finalize":
         main_rows, ng_rows = load_rows(a.main), load_rows(a.newgrad)
         scored = load_json(a.scored)
+        unscored = []
         if a.scores:
-            scored, missing = merge_scores(scored, load_json(a.scores))
+            lines = load_json(a.scores)
+            unscored = unscored_fps(scored, lines)
+            scored, missing = merge_scores(scored, lines)
             if missing:
                 print(f"WARNING: {len(missing)} scores.jsonl lines match no shortlist fp: {missing[:5]}")
+            if unscored:
+                print(f"WARNING: {len(unscored)} shortlisted roles have no score line (rule 15): {unscored[:8]} — "
+                      f"score them or write a drop line, then finalize again")
         nm, nn, na, leads = do_finalize(scored, main_rows, ng_rows)
         handled = [j["fp"] for j in scored if j.get("score") or j.get("drop") or j.get("screen") == "excluded"]
         if a.done_fps and handled:
@@ -3212,7 +3476,8 @@ def main(argv=None):
                 w_.writeheader()
                 w_.writerows(old_rows + [r for r in adds if norm_company(r["company"]) not in seen_c])
             print(f"{len(adds)} discovered companies -> {ap} (push to the feed repo: references/automation.md)")
-        dump_json({"new_main": nm, "new_newgrad": nn, "not_added": dict(na), "leads": leads, "registry_additions": [r["company"] for r in adds]}, a.summary)
+        dump_json({"new_main": nm, "new_newgrad": nn, "not_added": dict(na), "leads": leads, "registry_additions": [r["company"] for r in adds],
+                   "unscored": unscored}, a.summary)
         print(f"main +{len(nm)} -> {a.out_main} ({len(main_rows) + len(nm)} rows); newgrad +{len(nn)} -> {a.out_newgrad} "
               f"({len(ng_rows) + len(nn)} rows); not added: {dict(na)}; leads not added: {len(leads)}")
         for p_ in (a.out_main, a.out_newgrad):
@@ -3235,7 +3500,7 @@ def main(argv=None):
         summ = load_json(a.summary, default={}) if a.summary else {}
         raw = load_json(a.raw, default={}) if a.raw else {}
         txt, ok = build_report(led, funnel(scr), summ.get("new_main", []), summ.get("new_newgrad", []),
-                               summ.get("not_added", {}), summ.get("leads", []), raw.get("meta"))
+                               summ.get("not_added", {}), summ.get("leads", []), raw.get("meta"), unscored=summ.get("unscored"))
         Path(a.out).write_text(txt, encoding="utf-8")
         print(txt)
     elif a.cmd == "tracker-docs":
@@ -3299,7 +3564,7 @@ def main(argv=None):
         print(f"added {len(added)} sponsors with a working board; {len(pending)} more without a board -> {a.candidates}" + (" [dry run]" if a.dry_run else ""))
     elif a.cmd == "registry-add":
         rows = read_companies_csv()
-        have = {norm_company(r["company"]) for r in rows}
+        have = registry_names(rows)
         with open(a.additions, newline="", encoding="utf-8") as f:
             new = [r for r in csv.DictReader(f) if norm_company(r.get("company")) not in have]
         if not a.dry_run and new:
