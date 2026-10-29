@@ -1,9 +1,9 @@
 {
  "status_counts": {
   "no_feed": 57,
-  "ok": 185,
+  "ok": 183,
   "broken": 19,
-  "guess": 3
+  "guess": 5
  },
  "changes": [
   {
@@ -15,6 +15,11 @@
    "company": "AppFolio",
    "old": "ashby/13a892fa-5b4f-4539-a264-3a0452bbead3",
    "new": "ashby/13a892fa-5b4f-4539-a264-3a0452bbead3"
+  },
+  {
+   "company": "Belvedere Trading",
+   "old": "lever/belvederetrading",
+   "new": "lever/belvederetrading"
   }
  ]
 }
