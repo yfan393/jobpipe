@@ -304,12 +304,29 @@ class Dedupe(unittest.TestCase):
         self.assertEqual(out[1]["screen"], "pass")
         self.assertEqual(out[0]["exclude_reasons"], ["stale (5.0 days)"])  # gate reason kept, nothing added
 
-    def test_duplicate_reports_the_real_status(self):  # audit Oct 28 2026 (H5: behaviour kept, status shown)
+    def test_new_req_id_is_a_new_role(self):  # Oct 28 2026, her rule: a new req ID under a known title is not a duplicate
         trk = [{"company": "Capital One", "title": "Senior Associate, Data Science", "location": "McLean, VA", "req_id": "R111", "status": "Skipped"}]
         c = {"company": "Capital One", "title": "Senior Associate, Data Science", "location": "Richmond, VA", "req_id": "R222", "screen": "pass"}
-        r = jp.do_dedupe([c], trk)[0]["exclude_reasons"][0]
+        out = jp.do_dedupe([c], trk)[0]
+        self.assertEqual(out["screen"], "pass")
+        self.assertTrue(any("new req ID R222" in f and "R111 Skipped" in f for f in out["flags"]), out.get("flags"))
+        same = dict(c, req_id="R111")
+        self.assertIn("req ID", jp.do_dedupe([same], trk)[0]["exclude_reasons"][0])  # same requisition: duplicate
+        no_req = dict(c, req_id="")
+        r = jp.do_dedupe([no_req], trk)[0]["exclude_reasons"][0]  # no req ID to tell them apart: duplicate, real status shown
         self.assertIn("company+title", r)
         self.assertIn("Skipped", r)
+        old_no_req = [dict(trk[0], req_id="")]
+        self.assertEqual(jp.do_dedupe([c], old_no_req)[0]["screen"], "excluded")  # tracker row has no req ID: can't tell
+
+    def test_two_reqs_same_title_in_one_run_are_two_rows(self):
+        a = dict(J(req_id="R1001"), screen="pass", fp="f9", pre_score=70)
+        b = dict(J(req_id="R1002"), screen="pass", fp="f9", pre_score=65)
+        lst = dict(J(source="SimplifyJobs GitHub", source_group="Simplify Jobs"), screen="pass", fp="f9", pre_score=60)
+        _, sl, _ = jp.build_shortlist([a, b, lst], [])
+        self.assertEqual(sorted(x["req_id"] for x in sl), ["R1001", "R1002"])
+        rows = [jp.to_row(dict(x, score={}), "main") for x in sl]
+        self.assertEqual(len({r["id"] for r in rows}), 2)  # distinct tracker doc ids
 
     def test_shortlist_keeps_the_employer_copy(self):  # H2 follow-up: same role from a list and from the feed
         lst = dict(J(source="SimplifyJobs GitHub", source_group="Simplify Jobs"), screen="pass", fp="f1", pre_score=60)
@@ -494,7 +511,7 @@ class JDMatch(unittest.TestCase):
             s = jp.screen_one(J(title="Portfolio Insights Associate", description=self.ODD), 30)
             self.assertEqual((s["screen"], s["family"]), ("pass", "other"))
             s2 = jp.screen_one(J(title="Account Executive", description=self.ODD), 30)
-            self.assertIn("off-target title", s2["exclude_reasons"])
+            self.assertTrue(any(r.startswith("off-target title") for r in s2["exclude_reasons"]), s2["exclude_reasons"])
         finally:
             jp.set_matcher(None)
 
@@ -814,6 +831,58 @@ class RegistryAudit(unittest.TestCase):  # audit Oct 28 2026: registry and feed 
     def test_eastern_time_follows_daylight_saving(self):
         t = dt.datetime(2026, 11, 15, 4, 30, tzinfo=dt.timezone.utc)  # 23:30 EST on Nov 14 (00:30 under a fixed EDT offset)
         self.assertEqual(t.astimezone(jp.ET).date(), dt.date(2026, 11, 14))
+
+
+    def test_boards_are_learned_from_posting_links(self):  # Oct 28 2026: learn slugs daily instead of guessing
+        items = [{"company": "Pageco", "url": "https://boards.greenhouse.io/pageco/jobs/4455667"},       # no feed: learn it
+                 {"company": "Feedco", "url": "https://boards.greenhouse.io/feedco/jobs/1"},             # has a feed already
+                 {"company": "Pageco", "url": "https://pageco.com/careers/123"},                        # not an ATS link
+                 {"company": "Unknown Inc", "url": "https://jobs.lever.co/unknown/abc"}]                # not in the registry
+        with mock.patch.object(jp, "company_index", self.idx), tempfile.TemporaryDirectory() as d:
+            self.assertEqual(jp.observed_boards(items), [{"company": "Pageco", "url": items[0]["url"]}])
+            f = os.path.join(d, "registry_observed.json")
+            self.assertEqual(jp.record_observed(items, f), 1)
+            self.assertEqual(jp.record_observed(items, f), 0)  # unique
+            links = jp.links_from_files([f])
+            rows = [dict(self.PAGE, ats_slug="", workday_url="", aliases="", notes="")]
+            ch = jp.do_backfill(links, rows=rows, write=False)
+        self.assertEqual((rows[0]["ats"], rows[0]["ats_slug"], rows[0]["status"]), ("greenhouse", "pageco", "check"))
+        self.assertTrue(jp.has_feed(rows[0]))
+        self.assertEqual(len(ch), 1)
+
+
+    def test_relative_thresholds_from_applied_roles(self):
+        rows = [{"status": "Applied", "score": 50 + i, "score_max": {"skills_pts": 30}} for i in range(40)]
+        sug = jp.suggest_thresholds(rows)
+        self.assertTrue(sug["ready"])
+        self.assertEqual((sug["add_threshold"], sug["high"]), (54, 70))
+        self.assertFalse(jp.suggest_thresholds(rows[:10])["ready"])
+        old = [{"status": "Applied", "score": 80} for _ in range(40)]  # old-rubric rows (no score_max) are ignored
+        self.assertFalse(jp.suggest_thresholds(old)["ready"])
+
+
+    def test_content_decides_and_professions_are_whole_words(self):  # Oct 28 2026: 'recruit' never matched 'recruiter'
+        neg = jp.wb(jp.JDM["other_title_negative"])
+        for title in ["Senior Recruiter, G&A", "Talent Sourcer, Tech", "Senior Total Rewards Partner", "Pharmacist", "Account Executive"]:
+            self.assertTrue(jp.rx_any(neg, " " + title.lower() + " "), title)
+        for title in ["Quantitative Researcher", "Internal Audit Analyst, Model Risk", "Middle Office Analyst", "Tax Data Analyst"]:
+            self.assertFalse(jp.rx_any(neg, " " + title.lower() + " "), title)
+        self.assertEqual(jp.JDM["keep_other_title_at"], 0.55)
+        class M:
+            def score(self, text):
+                if len(text or "") < 200:  # like JDMatcher: no posting text, no match
+                    return None
+                return {"match": 0.58, "coverage": 0.6, "similarity_pct": 0.5, "resume": "r.md", "asks": [], "has": [], "missing": []}
+        jp.set_matcher(M())
+        try:
+            s = jp.screen_one(J(title="Surveillance Analyst", description=DESC_OK), 30)
+            self.assertEqual((s["screen"], s["family"]), ("pass", "other"))   # off-target title, content matches: kept
+            r = jp.screen_one(J(title="Senior Technical Recruiter", description=DESC_OK), 30)
+            self.assertIn("off-target title (a different profession)", r["exclude_reasons"])
+            card = jp.screen_one(J(title="Surveillance Analyst", description=""), 30)
+            self.assertIn("off-target title (no posting text to match yet)", card["exclude_reasons"])
+        finally:
+            jp.set_matcher(None)
 
 
 if __name__ == "__main__":

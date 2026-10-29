@@ -52,11 +52,27 @@ jobs:
           git rm -q --cached registry_additions.csv || true
           rm -f registry_additions.csv
 
+      # Daily board learning: boards seen in real posting links by yesterday's run, then a re-check of the
+      # companies that still have no confirmed board. Each one found is harvested by feed from this collect on.
+      - name: Learn boards from yesterday's posting links
+        if: env.JOB == 'collect' && hashFiles('registry_observed.json') != ''
+        continue-on-error: true
+        run: |
+          python jobpipe.py registry-backfill registry_observed.json
+          git rm -q --cached registry_observed.json || true
+          rm -f registry_observed.json
+
+      - name: Re-check companies without a confirmed board
+        if: env.JOB == 'collect'
+        continue-on-error: true
+        timeout-minutes: 15
+        run: python jobpipe.py registry-check --status guess no_feed broken > /dev/null
+
       - name: Collect every machine-readable source
         if: env.JOB == 'collect'
         run: |
           mkdir -p data/latest
-          python jobpipe.py collect --hours 72 --out data/latest/raw.json
+          python jobpipe.py collect --hours 48 --out data/latest/raw.json
           python jobpipe.py doctor > data/latest/doctor.txt || true
 
       - name: Registry check

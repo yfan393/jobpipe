@@ -830,7 +830,7 @@ def in_window(j, window_h):
     return age is None or age <= window_for_job(j, window_h)
 
 
-def do_collect(window_h=72, workers=8, enrich=True, only=None, offline=None, prefilter=True):
+def do_collect(window_h=48, workers=8, enrich=True, only=None, offline=None, prefilter=True):
     """Fetch every machine-readable source. `offline` = {'simplify': path, 'speedyapply': [paths]} for tests.
     With `prefilter`, raw.json keeps only postings inside the time window (every board lists ALL open roles, so
     the unfiltered file is tens of thousands of postings and the repo history would grow every day)."""
@@ -848,7 +848,7 @@ def do_collect(window_h=72, workers=8, enrich=True, only=None, offline=None, pre
                                      "feeds_ok": ok, "jobs": sum(f["n"] for f in feeds)}
         if enrich:  # Workday detail pages, only for roles that pass the title / seniority / window screen
             todo = [j for j in jobs if j.get("ats") in ("workday", "oracle") and quick_title_ok(j)
-                    and (age_hours(j.get("posted_at")) or 0) <= max(window_h, 72)]
+                    and (age_hours(j.get("posted_at")) or 0) <= window_for_job(j, window_h)]
             with cf.ThreadPoolExecutor(max_workers=4) as ex:
                 list(ex.map(lambda x: enrich_workday(x) if x.get("ats") == "workday" else enrich_oracle(x), todo[:800]))
             sources["Employer feeds"]["detail_pages_read"] = len(todo[:800])
@@ -1291,7 +1291,12 @@ def screen_one(j, window_h, seen=None):
     j["tracker"] = "newgrad" if prog == "newgrad" else "main" if prog else ""
     j["title_group"] = fam
     if not prog:
-        reasons.append("off-target title")
+        if jm:  # content was read: it decides, the title only names the profession
+            reasons.append(f"resume match too low for this role ({jm['match']:.2f} < {JDM.get('keep_other_title_at', 0.55)})")
+        elif "off-target title" in cheap:
+            reasons.append("off-target title (a different profession)")
+        else:
+            reasons.append("off-target title (no posting text to match yet)")
     sr = seniority_reason(t, prog or "professional", text)
     if sr:
         reasons.append(sr)
@@ -1351,12 +1356,13 @@ def screen_one(j, window_h, seen=None):
         flags.append("sponsorship not mentioned")
     j["fp"] = j.get("fp") or fingerprint(j.get("company"), t, j.get("location"))
     if seen is not None and not reasons:
-        first = seen.get(j["fp"])
+        skey = j["fp"] + (("|" + norm_req(j.get("req_id"))) if norm_req(j.get("req_id")) else "")
+        first = seen.get(skey)
         if not first:
-            seen[j["fp"]] = NOW.isoformat()
+            seen[skey] = NOW.isoformat()
         elif (age_hours(first) or 0) > CONFIG["repost_after_hours"] and (j["age_hours"] or 0) < 48:
             reasons.append(f"reposted (first seen {first[:10]})")
-        j["first_seen"] = seen.get(j["fp"])
+        j["first_seen"] = seen.get(skey)
     j["exclude_reasons"] = list(dict.fromkeys(reasons))
     j["flags"] = list(dict.fromkeys(flags))
     j["screen"] = "pass" if not j["exclude_reasons"] else "excluded"
@@ -1653,7 +1659,9 @@ def linkedin_age_check(pool, max_days=3, ref_id=None):
 
 
 def tracker_index(rows):
-    reqs, fps, by_company = {}, {}, defaultdict(list)
+    """reqs: (company, req ID) and links -> status; fps: fingerprint (company+title+city, and company+title) ->
+    [(status, req ID)]; by_company: company -> [(title, status, req ID)]."""
+    reqs, fps, by_company = {}, defaultdict(list), defaultdict(list)
     for r in rows:
         title = r.get("title") or r.get("job_title") or ""
         rid = norm_req(r.get("req_id") or r.get("requisition_id") or "")
@@ -1662,23 +1670,32 @@ def tracker_index(rows):
         if rid:
             reqs[(nc, rid)] = status
         fresh = fingerprint(r.get("company"), title, r.get("location"))
-        for fp in {r.get("fp") or fresh, fresh}:  # stored fp may come from an older normalizer
-            fps[fp] = status
-        fps.setdefault(fingerprint(r.get("company"), title, ""), status)
+        raw = str(r.get("req_id") or r.get("requisition_id") or "").strip()
+        for fp in {r.get("fp") or fresh, fresh, fingerprint(r.get("company"), title, "")}:  # stored fp may be older
+            fps[fp].append((status, rid, raw))
         for link in (r.get("apply_link"), r.get("url")):
             if link:
                 reqs[("link", link.split("?")[0].rstrip("/").lower())] = status
-        by_company[nc].append((title, status))
+        by_company[nc].append((title, status, rid, raw))
     return reqs, fps, by_company
+
+
+def _new_requisition(rid, matched):
+    """A candidate with its own req ID is a new role when every row it matched by title has a different req ID
+    (SKILL.md rule 13: a new req ID under a title already in the tracker is not a duplicate). A matched row with
+    no req ID can't be told apart, so it still counts as the same role."""
+    return bool(rid) and bool(matched) and all(m[1] and m[1] != rid for m in matched)
 
 
 def do_dedupe(cands, tracker_rows, fuzzy=0.85, within_run_fp=True):
     """Exclude candidates already in a tracker (req ID, link, fingerprint, fuzzy title) or repeated in this run.
     Jobs already excluded by a gate are passed through untouched and never block a later copy of the same role.
+    Title-based matches (fingerprint, company + title, fuzzy) do not apply when the candidate's req ID differs
+    from every matched row's: that is a new requisition, flagged so she can see it.
     `within_run_fp=False` leaves same-fingerprint copies for the caller to merge (build_shortlist keeps the
     employer-feed copy)."""
     reqs, fps, by_company = tracker_index(tracker_rows)
-    seen_fp, seen_req, out = set(), set(), []
+    seen_fp, seen_req, out = defaultdict(set), set(), []
     for j in cands:
         if j.get("screen") == "excluded":
             out.append(j)
@@ -1687,30 +1704,39 @@ def do_dedupe(cands, tracker_rows, fuzzy=0.85, within_run_fp=True):
         nc = norm_company(j.get("company"))
         key = (nc, rid)
         fp = j.get("fp") or fingerprint(j.get("company"), j.get("title"), j.get("location"))
+        fp0 = fingerprint(j.get("company"), j.get("title"), "")
         link = (j.get("apply_url") or j.get("url") or "").split("?")[0].rstrip("/").lower()
-        dup = None
+        dup, newreq = None, None
         if rid and key in reqs:
             dup = f"duplicate (req ID, tracker status {reqs[key] or '?'})"
         elif link and ("link", link) in reqs:
             dup = f"duplicate (same posting link, tracker status {reqs[('link', link)] or '?'})"
-        elif fp in fps:
-            dup = f"duplicate (company+title+city, tracker status {fps[fp] or '?'})"
-        elif fingerprint(j.get("company"), j.get("title"), "") in fps:
-            dup = f"duplicate (company+title, tracker status {fps[fingerprint(j.get('company'), j.get('title'), '')] or '?'})"
-        elif (within_run_fp and fp in seen_fp) or (rid and key in seen_req):
-            dup = "duplicate (within this run)"
         else:
-            for t, stt in by_company.get(nc, []):
-                if title_sim(t, j.get("title", "")) >= fuzzy:
-                    dup = f"likely duplicate ('{short(t, 50)}', tracker status {stt or '?'})"
-                    break
-        seen_fp.add(fp)
+            for label, matched in (("company+title+city", fps.get(fp, [])), ("company+title", fps.get(fp0, [])),
+                                   ("title", [(st_, r_, w_) for t_, st_, r_, w_ in by_company.get(nc, []) if title_sim(t_, j.get("title", "")) >= fuzzy])):
+                if not matched:
+                    continue
+                if _new_requisition(rid, matched):
+                    newreq = newreq or matched
+                    continue
+                st_ = matched[0][0] or "?"
+                dup = (f"likely duplicate (similar title, tracker status {st_})" if label == "title"
+                       else f"duplicate ({label}, tracker status {st_})")
+                break
+            if not dup and ((within_run_fp and fp in seen_fp and not (rid and rid not in seen_fp[fp] and "" not in seen_fp[fp]))
+                            or (rid and key in seen_req)):
+                dup = "duplicate (within this run)"
+        seen_fp[fp].add(rid)
         if rid:
             seen_req.add(key)
         if dup:
             j = dict(j)
             j.setdefault("exclude_reasons", []).append(dup)
             j["screen"] = "excluded"
+        elif newreq:
+            j = dict(j)
+            old = ", ".join(dict.fromkeys(f"{w_ or r_} {st_ or '?'}" for st_, r_, w_ in newreq[:3]))
+            j.setdefault("flags", []).append(f"new req ID {j.get('req_id')} for a title already in the tracker ({old})")
         out.append(j)
     return out
 
@@ -2022,8 +2048,16 @@ def build_shortlist(screened, tracker_rows, feed_jobs=None, threshold=None):
     passed = [j for j in pool if j.get("screen") == "pass"]
     # one row per role: an employer-feed copy beats an aggregator copy of the same fingerprint
     best = {}
+    rids_by_fp = defaultdict(set)
     for j in passed:
-        k = j["fp"]
+        if norm_req(j.get("req_id")):
+            rids_by_fp[j["fp"]].add(norm_req(j.get("req_id")))
+    for j in passed:
+        rid = norm_req(j.get("req_id"))
+        # several req IDs under one fingerprint are several roles; a copy without a req ID joins the first of them
+        k = (j["fp"], rid if len(rids_by_fp[j["fp"]]) > 1 else "")
+        if len(rids_by_fp[j["fp"]]) > 1 and not rid:
+            k = (j["fp"], sorted(rids_by_fp[j["fp"]])[0])
         cur = best.get(k)
         rank = ({"Employer job board": 0, "Company website": 1}.get(j.get("source_group"), 2), -(j.get("pre_score") or 0))
         if not cur or rank < cur[0]:
@@ -2120,7 +2154,8 @@ def to_row(j, kind):
         pri = "Medium"  # High also needs the years to fit (find-jobs.md ranking rule)
     link = j.get("apply_url") or j.get("apply_link") or ""
     batch = j.get("batch") or f"Daily {TODAY.isoformat()}"
-    base = {"id": f"d{TODAY:%m%d}-{j['fp']}", "fp": j["fp"], "company": j.get("company", ""), "title": j.get("title", ""),
+    rid_ = norm_req(j.get("req_id"))
+    base = {"id": f"d{TODAY:%m%d}-{j['fp']}" + (f"-{rid_[:24]}" if rid_ else ""), "fp": j["fp"], "company": j.get("company", ""), "title": j.get("title", ""),
             "location": j.get("location", ""), "apply_link": link, "req_id": j.get("req_id", ""), "posted": j.get("posted") or posted_label(j),
             "source": j.get("source", ""), "date_checked": TODAY.isoformat(), "status": "Not applied", "batch": batch,
             "score": total, "priority": pri, "h1b_history": j.get("h1b_history", ""), "flags": "; ".join(j.get("flags", [])),
@@ -2499,6 +2534,20 @@ def do_stats(rows):
             "by_batch": {b: dict(c) for b, c in sorted(by_batch.items())}}
 
 
+def suggest_thresholds(rows, min_n=30):
+    """Cut-offs relative to what she applies to, from rows scored under the current rubric (they carry
+    score_max): add = the score 90% of her applied roles reach (so ~9 in 10 roles she would apply to are added),
+    High = the median applied score. Suggestions only; the numbers in config.json change when she agrees."""
+    applied_st = {"Applied", "Rejected", "Interview scheduled", "Interview completed", "Offer received", "Recruiter contacted"}
+    v = sorted(float(r["score"]) for r in rows if r.get("status") in applied_st and r.get("score_max") and r.get("score"))
+    if len(v) < min_n:
+        return {"ready": False, "applied_scored_with_current_rubric": len(v),
+                "note": f"needs {min_n} applied roles scored with the current rubric; until then keep add {RUBRIC['add_threshold']}, High {RUBRIC['bands']['High']}"}
+    pct = lambda q: v[min(len(v) - 1, int(q * (len(v) - 1) + 0.5))]
+    return {"ready": True, "applied_scored_with_current_rubric": len(v), "add_threshold": round(pct(0.10)),
+            "high": round(pct(0.50)), "current": {"add": RUBRIC["add_threshold"], "high": RUBRIC["bands"]["High"]}}
+
+
 def do_calibrate(rows):
     """Does the score predict what she does? Apply rate by band and by score bucket, and AUC of score vs applied."""
     acted = [r for r in rows if r.get("status") in ("Applied", "Rejected", "Interview scheduled", "Interview completed",
@@ -2540,6 +2589,7 @@ def do_calibrate(rows):
             "mean_score_applied": round(sum(pos) / max(1, len(pos)), 1), "mean_score_skipped": round(sum(neg) / max(1, len(neg)), 1),
             "by_band": {k: dict(v) for k, v in by_band.items()}, "by_score_bucket": {k: dict(v) for k, v in sorted(buckets.items())},
             "skip_reasons": dict(reasons.most_common()),
+            "suggested_thresholds": suggest_thresholds(rows),
             "reading": "AUC 0.5 = the score does not predict applying; 0.7+ = useful. Skip reasons that are gates "
                        "(reposted, too senior, sponsorship, closed) belong in screening, not in the score."}
 
@@ -2841,6 +2891,35 @@ def do_registry_grow(sponsors, rows, limit=None, probe_boards=True, max_probe=No
             pending.append(base | {"notes": f"DOL sponsor, {why}; titles: {', '.join(s_['titles'][:3])}"})
     log(f"registry-grow: {len(cands)} candidates, probed {len(to_probe)} in {time.time() - t0:.0f}s, added {len(added)}")
     return added, pending
+
+
+def observed_boards(items):
+    """[{company, url}] for postings at registry companies without a working feed whose link is on a known ATS
+    (Greenhouse, Lever, Ashby, SmartRecruiters, Workday, Oracle). These are boards seen in real posting links,
+    so registry-backfill can fill them without guessing; the next collect harvests the company by feed."""
+    out = []
+    for it in items:
+        url = it.get("apply_link") or it.get("apply_url") or it.get("url") or ""
+        cr = company_row(it.get("company") or it.get("registry_company") or "")
+        if not url or not cr or has_feed(cr):
+            continue
+        if any(rx_.search(url) for _, rx_ in LINK_ATS):
+            out.append({"company": cr["company"], "url": url})
+    return out
+
+
+def record_observed(items, path):
+    """Append newly observed boards to a JSON list file (unique by company + board)."""
+    new = observed_boards(items)
+    if not new:
+        return 0
+    p_ = Path(path)
+    have = load_json(p_, default=[]) if p_.exists() else []
+    keys = {(norm_company(h["company"]), h["url"].split("?")[0]) for h in have}
+    add = [n for n in new if (norm_company(n["company"]), n["url"].split("?")[0]) not in keys]
+    if add:
+        dump_json(have + add, p_)
+    return len(add)
 
 
 def registry_names(rows):
@@ -3153,9 +3232,11 @@ def check_company(c):
     return c, change
 
 
-def do_registry_check(sectors=None, workers=6, write=True):
+def do_registry_check(sectors=None, workers=6, write=True, statuses=None):
+    """Probe boards. `statuses` limits it to rows in those statuses (the daily lite check: guess / no_feed / broken)."""
     allrows = read_companies_csv()
-    target = [r for r in allrows if not sectors or company_sectors(r) & set(sectors)]
+    target = [r for r in allrows if (not sectors or company_sectors(r) & set(sectors))
+              and (not statuses or (r.get("status") or "") in set(statuses))]
     with cf.ThreadPoolExecutor(max_workers=workers) as ex:
         results = list(ex.map(check_company, target))
     upd = {r["company"]: r for r, _ in results}
@@ -3207,7 +3288,7 @@ def main(argv=None):
     p = sub.add_parser("domains", help="hosts to allow in claude.ai Settings > Capabilities (fetch option A)")
     p = sub.add_parser("companies"); p.add_argument("--sector"); p.add_argument("--fair", action="store_true"); p.add_argument("--no-feed", action="store_true")
     p = sub.add_parser("collect", help="every machine-readable source -> raw.json [network]")
-    p.add_argument("--out", default="raw.json"); p.add_argument("--hours", type=float, default=72); p.add_argument("--only", nargs="*")
+    p.add_argument("--out", default="raw.json"); p.add_argument("--hours", type=float, default=48); p.add_argument("--only", nargs="*")
     p.add_argument("--no-enrich", action="store_true"); p.add_argument("--simplify-file"); p.add_argument("--speedy-files", nargs="*")
     p = sub.add_parser("plan", help="build the ledger for today's run")
     p.add_argument("--out", default="ledger.json"); p.add_argument("--hours", type=float); p.add_argument("--sites", nargs="*")
@@ -3256,6 +3337,7 @@ def main(argv=None):
     p = sub.add_parser("calibrate", help="does the score predict what she applies to?"); p.add_argument("tracker")
     p = sub.add_parser("registry-backfill", help="fill missing boards from observed posting links"); p.add_argument("links", nargs="+"); p.add_argument("--dry-run", action="store_true")
     p = sub.add_parser("registry-check", help="verify boards, detect ATS from career pages [network]"); p.add_argument("--sector"); p.add_argument("--dry-run", action="store_true")
+    p.add_argument("--status", nargs="*", help="only rows in these statuses (daily: guess no_feed broken)")
     p = sub.add_parser("sponsors-build", help="DOL LCA disclosure file(s) -> sponsors.json [network with --download]")
     p.add_argument("files", nargs="*"); p.add_argument("--download", metavar="DIR"); p.add_argument("--out", default=str(HERE / "sponsors.json"))
     p = sub.add_parser("registry-grow", help="add top DOL sponsors whose job board answers [network unless --no-probe]")
@@ -3347,6 +3429,9 @@ def main(argv=None):
         text = sys.stdin.read() if a.cards == "-" else Path(a.cards).read_text(encoding="utf-8")
         rows = do_ingest(led, a.item, text, a.pool, extra={"company": a.company} if a.company else None)
         dump_json(led, a.file)
+        n_obs = record_observed(rows, Path(a.pool).with_name("registry_observed.json"))
+        if n_obs:
+            print(f"{n_obs} board(s) observed for registry companies without a feed -> registry_observed.json (commit it to the feed repo)")
         flagged = sum(1 for r in rows if r.get("reposted"))
         known = sum(1 for r in rows if r.get("known_company"))
         print(f"{len(rows)} cards from {a.item} -> {a.pool} ({known} at companies already harvested, dropped; {len(rows) - known} new-company leads; {flagged} reposted); "
@@ -3474,6 +3559,9 @@ def main(argv=None):
                 f.write("\n".join(handled) + "\n")
         dump_json(main_rows + nm, a.out_main)
         dump_json(ng_rows + nn, a.out_newgrad)
+        n_obs = record_observed(nm + nn + [j for j in scored if j.get("apply_url")], Path(a.summary).with_name("registry_observed.json"))
+        if n_obs:
+            print(f"{n_obs} board(s) observed for registry companies without a feed -> registry_observed.json (commit it to the feed repo)")
         adds = registry_additions_from_rows(nm + nn, read_companies_csv())
         if adds:
             ap = Path(a.summary).with_name("registry_additions.csv")
@@ -3550,7 +3638,7 @@ def main(argv=None):
             print(f"{c['company']}: {c['old']} -> {c['new']}")
         print(f"\n{len(ch)} companies updated (status 'check' until registry-check confirms)" + (" [dry run]" if a.dry_run else ""))
     elif a.cmd == "registry-check":
-        counts, changes = do_registry_check([a.sector] if a.sector else None, write=not a.dry_run)
+        counts, changes = do_registry_check([a.sector] if a.sector else None, write=not a.dry_run, statuses=a.status)
         print(json.dumps({"status_counts": dict(counts), "changes": changes}, indent=1))
     elif a.cmd == "sponsors-build":
         files = list(a.files) + (download_lca(a.download) if a.download else [])
