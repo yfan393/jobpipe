@@ -1,0 +1,747 @@
+company,sector,startup,atlanta,careers_url,ats,ats_slug,workday_url,search_url,aliases,status,last_checked,notes,gt_fair,fair_opt,fair_sponsor,source,added,lca_target,lca_fy
+Ernst & Young U.S. Llp,finance,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Financial And Investment Analysts - Kbgfjg97500-15, Financial And Investment Analysts - Kboeytest2315-26, Management Analysts - Kbgfjg270644-3",,,,dol,2026-10-28,895,2026
+Cognizant Technology Solutions Us Corp,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Manager Jc50 - Computer Systems Engineers/Architects, Senior Manager Jc45 - Computer Systems Engineers/Architects, Senior Associate Jc60 -Computer Systems Engineers/Architects",,,,dol,2026-10-28,1298,2026
+Apple Inc.,finance,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Software Development Engineering, Software Engineering Applications, Software Engineering Systems",,,,dol,2026-10-28,927,2026
+Deloitte Consulting Llp,consulting,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Manager, Specialist Master, Project Delivery Specialist",,,,dol,2026-10-28,670,2026
+Jpmorgan Chase & Co.,finance,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Vice President, Lead Software Engineer, Associate, Software Engineer Iii, Vice President, Sr Lead Software Engineer",,,,dol,2026-10-28,491,2026
+Infosys Limited,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Technology Consultant 2, Technology Project Lead 1, Package Consultant 2",,,,dol,2026-10-28,664,2026
+"Fidelity Technology Group, Llc D/B/A Fidelity Investments",quant,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Senior Software Engineer/Developer, Senior Full Stack Engineer, Principal Software Engineer/Developer",,,,dol,2026-10-28,509,2026
+"Wal-Mart Associates, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Senior Software Engineer, Software Engineer Iii, Staff Software Engineer",,,,dol,2026-10-28,295,2026
+"Citibank, N.A.",finance,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Applications Development Tech Lead Analyst, Applications Development Senior Programmer Analyst, Digital Software Engineer Lead Analyst",,,,dol,2026-10-28,258,2026
+"Compunnel Software Group, Inc",tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Software Developer, Systems Analyst, Systems Engineer",,,,dol,2026-10-28,391,2026
+Capgemini America Inc,tech,no,yes,,,,,,,,,"DOL sponsor, no board found; titles: Applications Consultant 3, Applications Consultant 2, Test Consultant 3",,,,dol,2026-10-28,420,2026
+"Salesforce, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Software Engineering Smts, Software Engineering Lmts, Software Engineering Pmts",,,,dol,2026-10-28,284,2026
+"Amazon Development Center U.S., Inc.",tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Software Dev Engineer Ii, Software Development Engineer Ii, Software Development Engineer I",,,,dol,2026-10-28,243,2026
+Ibm Corporation,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Application Developer, Application Architect, Software Developer",,,,dol,2026-10-28,234,2026
+Barclays Services Llc,quant,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Software Engineer - Avp, Java Developer, Full Stack Developer",,,,dol,2026-10-28,171,2026
+"Capital One, National Association",finance,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Business Manager, Senior Business Analyst, Senior Data Analyst",,,,dol,2026-10-28,64,2026
+Accenture Llp,consulting,no,yes,,,,,,,,,"DOL sponsor, no board found; titles: Packaged App Development Assoc Manager, Packaged App Development Manager, Custom Software Engineering Manager",,,,dol,2026-10-28,235,2026
+Deloitte Tax Llp,finance,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Tax Senior, Tax Manager, Tax Senior Manager",,,,dol,2026-10-28,66,2026
+"Charter Communications, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Software Engineer Iv, Software Engineer V, Software Engineer Vi",,,,dol,2026-10-28,150,2026
+Adobe Inc.,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Software Development Engineer, Machine Learning Engineer, Product Manager",,,,dol,2026-10-28,105,2026
+Deloitte & Touche Llp,finance,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Manager, Audit & Assurance Manager, Audit & Assurance In-Charge",,,,dol,2026-10-28,56,2026
+"Uber Technologies, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Software Engineer, Sr Software Engineer, Senior Software Engineer",,,,dol,2026-10-28,103,2026
+"Elevance Health, Inc.",finance,no,yes,,,,,,,,,"DOL sponsor, no board found; titles: Engineer Lead, Engineer Senior, Engineer Iii",,,,dol,2026-10-28,123,2026
+"Wells Fargo Bank, N.A.",quant,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Lead Software Engineer, Senior Software Engineer, Lead Securities Quantitative Analytics Specialist (001722)",,,,dol,2026-10-28,100,2026
+U.S. Bank National Association,finance,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Senior Software Engineer, Software Engineer, Lead Software Engineer",,,,dol,2026-10-28,128,2026
+Goldman Sachs & Co. Llc,quant,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Vice President, Business Audit, Vice President, Marketing, Vice President, Business Unit Compliance",,,,dol,2026-10-28,42,2026
+"Tiger Analytics, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Data Engineering Analyst, Lead Analytics Consultant, Lead Data Engineering Analyst",,,,dol,2026-10-28,33,2026
+Mphasis Corporation,tech,no,yes,,,,,,,,,"DOL sponsor, no board found; titles: Software Engineer, Test Engineer, Software Architect",,,,dol,2026-10-28,128,2026
+"Servicenow, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Senior Software Engineer, Staff Software Engineer, Software Engineer",,,,dol,2026-10-28,99,2026
+"At&T Services, Inc.",tech,no,yes,,,,,,,,,"DOL sponsor, no board found; titles: Lead Software Engineering, Lead System Engineering, Lead Member Of Technical Staff",,,,dol,2026-10-28,110,2026
+"Amazon Data Services, Inc",tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Software Development Engineer Ii, Software Dev Engineer Ii, System Development Engineer Ii",,,,dol,2026-10-28,73,2026
+Ebay Inc.,finance,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Mts 1, Software Engineer, Software Engineer 3, Mts 2, Software Engineer",,,,dol,2026-10-28,94,2026
+Government Employee Insurance Company (Geico),finance,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Senior Engineer - .Net, Senior Engineer - Java, Staff Engineer - .Net",,,,dol,2026-10-28,97,2026
+Pricewaterhousecoopers Advisory Services Llc,consulting,no,yes,,,,,,,,,"DOL sponsor, no board found; titles: Senior Associate, Manager, Senior Manager",,,,dol,2026-10-28,48,2026
+Ford Motor Company,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Software Engineer, Senior Software Engineer, Data Scientist",,,,dol,2026-10-28,92,2026
+First Citizens Bank And Trust Co.,finance,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Lead Software Engineer, Senior Business Systems Analyst, Software Engineer Consultant",,,,dol,2026-10-28,90,2026
+Cgi Technologies And Solutions Inc.,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Software Developer, Business Systems Analyst, Software Engineer",,,,dol,2026-10-28,116,2026
+"Doordash, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Software Engineer, Product Manager, Software Engineer, Machine Learning",,,,dol,2026-10-28,63,2026
+Humana Inc.,finance,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Senior Software Engineer, Senior Full Stack Engineer, Senior Application Architect",,,,dol,2026-10-28,77,2026
+"Netflix, Inc.",finance,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Software Engineer, Data Engineer, Analytics Engineer",,,,dol,2026-10-28,59,2026
+Ubs Business Solutions Us Llc,quant,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Associate Director, Software Engineer, Associate Director, Tech Support Specialist, Executive Director, Finance Product Controller",,,,dol,2026-10-28,67,2026
+"Qualcomm Technologies, Inc.",finance,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Senior Software Engineer, Staff Cellular System Test Engineer, Staff Software Engineer",,,,dol,2026-10-28,109,2026
+"American Airlines, Inc.",finance,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Sr. Developer, It Applications, Sr. Engineer, It Software, Engineer/Sr. Engineer, It Software",,,,dol,2026-10-28,82,2026
+"Oracle America, Inc.",tech,no,yes,,,,,,,,,"DOL sponsor, no board found; titles: Software Developer, Technical Analyst, Consulting Technical Manager",,,,dol,2026-10-28,98,2026
+"Tesla, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Sr Software Development Engineer, Staff Software Development Engineer, Software Development Engineer",,,,dol,2026-10-28,70,2026
+Bank Of America N.A.,finance,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Vice President; Software Engineer Iii, Senior Vice President; Senior Technology Manager, Vice President; Feature Lead - Technology",,,,dol,2026-10-28,67,2026
+Federal Express Corporation,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Software Engineer Iii, Full Stack Developer Iii, Full Stack Developer Advisor",,,,dol,2026-10-28,60,2026
+"T-Mobile Usa, Inc.",tech,no,yes,,,,,,,,,"DOL sponsor, no board found; titles: Sr Engineer, Software, Sr Engineer, Data, Principal Engineer, Software",,,,dol,2026-10-28,69,2026
+"Cisco Systems, Inc.",finance,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Software Engineer, Engineering Product Manager, Software Engineering Technical Leader",,,,dol,2026-10-28,88,2026
+Virtusa Corporation,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: It Project Manager 3, Java Analyst 3, Java Engineer 2",,,,dol,2026-10-28,102,2026
+Tiktok Inc.,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Software Engineer, Senior Data Scientist, Creator Network Growth Manager, Tiktok Live",,,,dol,2026-10-28,53,2026
+Bytedance Inc.,finance,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Software Engineer, Solutions Engineer, Ads, Site Reliability Engineer - Data Infrastructure",,,,dol,2026-10-28,53,2026
+"Moody'S Analytics, Inc.",finance,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Senior Software Engineer, Staff Software Engineer, Asst Dir-Qa Engineer",,,,dol,2026-10-28,47,2026
+"Atlassian Us, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Software Engineer, Senior Software Engineer, Senior Machine Learning Engineer",,,,dol,2026-10-28,50,2026
+Intel Corporation,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Software Engineer, Graphics Software Engineer, Data Scientist",,,,dol,2026-10-28,76,2026
+"J.B. Hunt Transport, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Software Engineer Iii, Senior Software Engineer, Senior Quality Engineer",,,,dol,2026-10-28,94,2026
+Barclays Capital Inc.,quant,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Vice President - Global Markets, Avp, Global Markets, Assistant Vp - Global Markets",,,,dol,2026-10-28,27,2026
+"Lowe'S Companies, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Senior Software Engineer, Software Engineer, Lead Software Engineer",,,,dol,2026-10-28,71,2026
+"Relx, Inc.",tech,no,yes,,,,,,,,,"DOL sponsor, no board found; titles: Senior Data Scientist Ii, Software Engineering Lead, Software Engineer Iii",,,,dol,2026-10-28,52,2026
+"Charles Schwab & Company, Inc.",quant,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Manager, Software Development & Engineering, Sr. Manager, Software Development & Engineering Sr., Sr. Specialist - Software Development & Engineering",,,,dol,2026-10-28,83,2026
+Dfs Corporate Services Llc,fintech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Application Engineer, Principal Application Engineer, Data Engineer",,,,dol,2026-10-28,74,2026
+"Innova Solutions, Inc.",consulting,no,yes,,,,,,,,,"DOL sponsor, no board found; titles: Application Architect/Programmer (Software Developer), Application Architect/ Programmer (Software Developer), Software Developer",,,,dol,2026-10-28,86,2026
+Cigna-Evernorth Services Inc.,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Software Engineering Senior Advisor, Software Engineering Advisor, Application Development Senior Advisor",,,,dol,2026-10-28,77,2026
+General Motors,finance,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Senior Software Engineer, Staff Software Engineer, Software Engineer",,,,dol,2026-10-28,82,2026
+Cvs Shared Services Resources Llc,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Staff Software Development Engineer, Senior Software Development Engineer, Sr Software Development Engineer",,,,dol,2026-10-28,67,2026
+Home Depot Management Company Llc,tech,no,yes,,,,,,,,,"DOL sponsor, no board found; titles: Sr. Software Engineer, Staff Software Engineer, Software Engineer Sr. Principal",,,,dol,2026-10-28,46,2026
+"Chewy, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Software Engineer Ii, Staff Software Engineer, Software Engineer Iii",,,,dol,2026-10-28,40,2026
+Pwc Us Tax Llp,consulting,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Senior Associate, Manager, Senior Manager",,,,dol,2026-10-28,21,2026
+"Indeed, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Software Engineer, Staff Software Engineer, Senior Software Engineer",,,,dol,2026-10-28,57,2026
+Caremark Llc,finance,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Sr Data Engineer, Software Development Engineer, Sr Mgr, Software Development Engineering",,,,dol,2026-10-28,48,2026
+Citadel Securities Americas Services Llc,quant,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Quantitative Researcher, Software Engineer, Quantitative Research Lead",,,,dol,2026-10-28,23,2026
+"Medline Industries, Lp.",tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Sr Analyst Business Systems It, Sr Developer Analyst It, Developer Analyst It",,,,dol,2026-10-28,62,2026
+"Openai Opco, Llc",tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Member Of Technical Staff (Software Engineer), Member Of Technical Staff (Data Science), Member Of Go To Market Staff",,,,dol,2026-10-28,41,2026
+"Exlservice.Com, Llc",consulting,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Senior Consultant, Engagement Manager, Project Manager",,,,dol,2026-10-28,43,2026
+"Hexaware Technologies, Inc.",tech,no,yes,,,,,,,,,"DOL sponsor, no board found; titles: Technical Architect, Tech Architect, It Project Manager",,,,dol,2026-10-28,72,2026
+Populus Group Llc,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Technical Analyst, Quality Engineer, Business Analyst",,,,dol,2026-10-28,41,2026
+"Optum Services, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Senior Software Engineer, Software Engineer, Lead Software Engineer",,,,dol,2026-10-28,61,2026
+Snap Inc.,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Software Engineer (4), Machine Learning Engineer (4), Software Engineer (5)",,,,dol,2026-10-28,58,2026
+Amgen Inc.,finance,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Specialist Software Engineer, Senior Associate Software Engineer, Data Management Mgr",,,,dol,2026-10-28,27,2026
+Citadel Americas Services Llc,quant,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Senior Associate, Associate Portfolio Manager, Quantitative Research Associate",,,,dol,2026-10-28,21,2026
+Mpg Operations Llc,quant,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Quantitative Developer, Software Engineer, Research Analyst",,,,dol,2026-10-28,24,2026
+Iqvia Inc.,consulting,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Staff Architect, Senior Consultant, Engagement Manager",,,,dol,2026-10-28,35,2026
+Citiustech Inc.,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Software Developer, Technical Specialist, Senior Solution Architect",,,,dol,2026-10-28,49,2026
+Truist Bank,finance,no,yes,,,,,,,,,"DOL sponsor, no board found; titles: Software Engineer Iii, Software Engineer Ii, Software Engineer Iv",,,,dol,2026-10-28,58,2026
+"Fis Management Services, Llc",tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Software Engineer Specialist, Software Engineer Ii, Programmer Analyst Senior",,,,dol,2026-10-28,66,2026
+"The Mathworks, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Senior Software Engineer, Principal Software Engineer, Senior Quality Engineer",,,,dol,2026-10-28,72,2026
+"Synechron, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Sr. Specialist - Technology, Lead - Technology, Associate Principal “ Technology",,,,dol,2026-10-28,66,2026
+"Deutsche Bank Securities, Inc.",quant,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Vice President, Associate, Director",,,,dol,2026-10-28,18,2026
+Tiktok U.S. Data Security Inc.,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Software Engineer, Ads Ml Infrastructure - Usds, Site Reliability Engineer - Aml Global Recommendation, Senior Software Engineer, Ads Serving And Foundation - Usds",,,,dol,2026-10-28,36,2026
+Discover Products Inc.,fintech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Principal Data Science, Senior Data Science Analyst, Lead Data Science Analyst",,,,dol,2026-10-28,20,2026
+"Mastech Digital Technologies, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Software Developer, Senior Software Developer, Senior Data Engineer",,,,dol,2026-10-28,46,2026
+Visa Technology & Operations Llc,fintech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Staff Sw Engineer, Software Engineer - Sr. Consultant Level, Director",,,,dol,2026-10-28,60,2026
+Yahoo Holdings Inc.,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Sr Software Dev Engineer, Software Dev Engineer Ii, Princ Software Dev Engineer",,,,dol,2026-10-28,48,2026
+Kpmg Llp,finance,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Manager, Senior Associate, Senior Manager",,,,dol,2026-10-28,31,2026
+"Morgan Stanley & Co., Llc",quant,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Associate, Vice President, Analyst",,,,dol,2026-10-28,19,2026
+Genpact Llc,tech,no,yes,,,,,,,,,"DOL sponsor, no board found; titles: Senior Principal Consultant, Principal Consultant, Assistant Vice President",,,,dol,2026-10-28,36,2026
+"Palo Alto Networks, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Principal Engineer Software, Senior Staff It Software Engineer, Senior Staff Engineer Software",,,,dol,2026-10-28,57,2026
+"System Soft Technologies, Llc",tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Software Developer, Data Engineer, Software Development Engineer In Test (Sdet)",,,,dol,2026-10-28,48,2026
+Docusign Inc.,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Senior Software Engineer, Software Engineer, Sr. Software Engineer",,,,dol,2026-10-28,60,2026
+Cvs Pharmacy Inc.,finance,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Sr Software Development Engineer, Staff Software Development Engineer, Software Development Engineer",,,,dol,2026-10-28,57,2026
+"Boston Consulting Group, Inc.",consulting,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Project Leader, Principal, Consultant",,,,dol,2026-10-28,56,2026
+Bloomberg L.P.,finance,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Senior Software Engineer, Machine Learning Engineer, Product Delivery Manager",,,,dol,2026-10-28,41,2026
+"Sap America, Inc.",tech,no,yes,,,,,,,,,"DOL sponsor, no board found; titles: It Technology Services Senior Specialist, Business Processes Principal Consultant, Developer",,,,dol,2026-10-28,65,2026
+"V-Soft Consulting Group, Inc",tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Data Engineer, Software Developer, Ui React Developer",,,,dol,2026-10-28,52,2026
+"Tech Mahindra (Americas), Inc",tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Systems Analyst, Software Developer, Systems Software, Software Engineer",,,,dol,2026-10-28,64,2026
+Visa U.S.A. Inc.,fintech,no,yes,,,,,,,,,"DOL sponsor, no board found; titles: Sr. Sw Engineer, Software Engineer - Sr. Consultant Level, Director",,,,dol,2026-10-28,43,2026
+"Infinite Computer Solutions, Inc.",tech,no,yes,,,,,,,,,"DOL sponsor, no board found; titles: Senior Technical Lead, Program Manager, Senior Software Developer",,,,dol,2026-10-28,57,2026
+Rsm Us Llp,finance,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Tas Senior Associate “ Financial Due Diligence, Financial Due Diligence & Advisory Manager, Tas Manager “ Financial Due Diligence",,,,dol,2026-10-28,18,2026
+State Street Bank And Trust Company,finance,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Business Analysis [00083114], Database Engineer [00097061], Artificial Intelligence & Machine Learning [00095079]",,,,dol,2026-10-28,42,2026
+Msr Technology Group Llc,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Software Engineer, Software Development Engineer In Test, Software Developer",,,,dol,2026-10-28,62,2026
+"Comcast Cable Communications, Llc",tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Engineer 3, Software Development & Engineering, Engineer 4, Software Development & Engineering, Engineer 5, Software Development & Engineering",,,,dol,2026-10-28,53,2026
+Robotics Technologies Llc,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Sr Data Analyst, Software Programming And Quality Assurance, Reporting Business Analyst",,,,dol,2026-10-28,20,2026
+"Fiserv Solutions, Llc",tech,no,yes,,,,,,,,,"DOL sponsor, no board found; titles: Software Development Engineering - Advisor I, Software Development Engineering - Advisor Ii, Software Development Engineering - Sr Professional Ii",,,,dol,2026-10-28,58,2026
+Bristol-Myers Squibb Company,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Associate Director - Us Predictive Customer Engagement, Senior Manager, Statistical Programming, Senior Manager - Statistical Programming",,,,dol,2026-10-28,22,2026
+Majestic It Services Inc,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Software Developer, Data Engineer, Systems Engineer",,,,dol,2026-10-28,57,2026
+Cummins Inc.,finance,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Software Engineer Iii, Hr Process And Technology Solutions Manager, Financial Analyst “ Senior",,,,dol,2026-10-28,32,2026
+Rj Systems Inc,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Data Engineer, Software Developer, Software Engineer",,,,dol,2026-10-28,47,2026
+"American Express Travel Related Services Company, Inc.",fintech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Software Engineer, Senior Software Engineer, Senior Data Engineer",,,,dol,2026-10-28,53,2026
+Eli Lilly And Company,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Sr. Computational Statistician, Principal Scientist - Scientific Data, Principal Computational Statistician",,,,dol,2026-10-28,22,2026
+"Brillio, Llc",tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Software Development Lead, Senior Architect, Architect",,,,dol,2026-10-28,48,2026
+The Bank Of New York Mellon,quant,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Vice President, Full-Stack Engineer, Senior Vice President, Full-Stack Engineer, Vice President, Model Risk Management",,,,dol,2026-10-28,27,2026
+Ace American Insurance Company,finance,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Senior Data Analyst, Sr. Infrastructure Engineer, Avp, Analytics Program Manager",,,,dol,2026-10-28,20,2026
+"Workday, Inc.",tech,no,yes,,,,,,,,,"DOL sponsor, no board found; titles: Sr Software Development Engineer, Software Development Engineer, Sr Machine Learning Engineer",,,,dol,2026-10-28,41,2026
+"Citizens Financial Group, Inc.",finance,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Principal Software Engineer, Senior Software Engineer, Sr Data Engineer",,,,dol,2026-10-28,35,2026
+Safeway Inc.,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Staff Engineer Software, Sr. Engineer Software, Senior Software Engineer",,,,dol,2026-10-28,43,2026
+Onemain General Services Corporation,finance,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Lead Analyst “ Originations Strategy And Analytics, Associate Director, Analytics-Credit Cards, Quantitative Analytics Lead",,,,dol,2026-10-28,18,2026
+Citigroup Global Markets Inc.,quant,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Quantitative Analyst, Credit Portfolio Senior Analyst, Business Analytics Lead Analyst",,,,dol,2026-10-28,15,2026
+"Fedex Freight, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Advisor-Full Stack Developer, Full Stack Developer Iii, Solutions Architect",,,,dol,2026-10-28,44,2026
+Latentview Analytics Corporation,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Associate, Consultant, Data Scientist",,,,dol,2026-10-28,14,2026
+Pricewaterhousecoopers Llp,consulting,no,yes,,,,,,,,,"DOL sponsor, no board found; titles: Senior Associate, Manager, Senior Manager",,,,dol,2026-10-28,14,2026
+Coforge Limited,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Technical Lead, Technical Architect, Qa Analyst",,,,dol,2026-10-28,52,2026
+Wayfair Llc,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Software Engineer Iii, Machine Learning Scientist Ii, Senior Analyst, Commercial Business Analytics",,,,dol,2026-10-28,22,2026
+"Ntt Data Americas, Inc.",tech,no,yes,,,,,,,,,"DOL sponsor, no board found; titles: Software Development Specialist, Digital Engineering Lead Engineer, Software Development Senior Specialist",,,,dol,2026-10-28,37,2026
+Pjt Partners Holdings Lp,quant,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Analyst, Associate",,,,dol,2026-10-28,13,2026
+"Pyramid Consulting, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Application Programmer Iii, Bi Engineer, Data Analyst",,,,dol,2026-10-28,21,2026
+Sage It Inc,tech,no,yes,,,,,,,,,"DOL sponsor, no board found; titles: Software Developer, Data Engineer, Software Engineer",,,,dol,2026-10-28,30,2026
+"The Pnc Financial Services Group, Inc.",finance,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Software Engineer Principal, Software Engineer Lead, Software Engineer Senior",,,,dol,2026-10-28,27,2026
+Aetna Resources Llc,finance,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Sr Software Development Engineer, Lead Data Scientist, Staff Software Development Engineer",,,,dol,2026-10-28,30,2026
+Iqvia Rds Inc.,finance,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Principal Statistical Programmer, Senior Statistical Programmer, Engagement Manager",,,,dol,2026-10-28,15,2026
+"Blackrock Financial Management, Inc.",quant,no,yes,,,,,,,,,"DOL sponsor, no board found; titles: Vice President, Associate, Analyst",,,,dol,2026-10-28,26,2026
+Corporate Solutions General Inc,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Software Developer, Software Engineer, Data Engineer",,,,dol,2026-10-28,44,2026
+Concentrix Cvg Customer Management Group Inc.,tech,no,yes,,,,,,,,,"DOL sponsor, no board found; titles: Sr. Software Engineer, Sr. Lead Software Engineer, Software Engineer",,,,dol,2026-10-28,41,2026
+Sumitomo Mitsui Banking Corporation,finance,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Vice President, Finance Change Management, Vice President, Finance Technology Strategy, Associate, Senior Risk Analyst I",,,,dol,2026-10-28,15,2026
+Evercore Partners Services East Llc,quant,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Associate, Analyst, Vice President - Research",,,,dol,2026-10-28,12,2026
+"Zoox, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Senior Software Engineer, Software Engineer, Senior Data Engineer",,,,dol,2026-10-28,38,2026
+Fidelity Brokerage Services Llc D/B/A Fidelity Investments,quant,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Director, Advanced Data Analytics And Insights, Senior Manager, Advanced Data Analytics And Insights, Senior Manager, Data Science",,,,dol,2026-10-28,14,2026
+Slk America Inc,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Data Engineer, Software Engineer, Technical Leader",,,,dol,2026-10-28,43,2026
+"Synopsys, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Validation/Verification Engineering, Engineer, R&D Engineering, Engineer, Validation/Verification Engineering, Sr. Engineer",,,,dol,2026-10-28,28,2026
+"Balyasny Asset Management, L.P.",quant,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Quantitative Researcher, Engineer, Multi-Asset Arbitrage Technology, Engineer, Muti-Asset Arbitrage Quantitative Research",,,,dol,2026-10-28,15,2026
+"Squad Software Inc.,",tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Business Analyst, Python Developer, Data Scientist",,,,dol,2026-10-28,24,2026
+Vertex Pharmaceuticals Incorporated,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Business Engagement & Technology Senior Principal Analyst, Business Engagement & Technology Principal Engineer, Business Engagement & Technology Principal Analyst",,,,dol,2026-10-28,17,2026
+Quadrant Technologies Llc,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Computer Systems Analyst, Software Engineer",,,,dol,2026-10-28,44,2026
+"Erp Analysts, Inc.",tech,no,yes,,,,,,,,,"DOL sponsor, no board found; titles: Peoplesoft Developer, Resiliency Test Engineer, Workday Hcm Consultant",,,,dol,2026-10-28,34,2026
+"Intraedge, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Software Engineer, Technical Project Manager, Sr. Software Engineer",,,,dol,2026-10-28,43,2026
+"Blackstone, Inc.",quant,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Associate, Blackstone Credit & Insurance, Senior Associate, Blackstone Credit & Insurance, Avp, Hr-People Analytics Group",,,,dol,2026-10-28,13,2026
+Rbc Capital Markets Llc,finance,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Associate - Kbgfjg397972-1, Senior Sdet “ Quality Engineer - Kbgfjg395242-1, Associate Director, Senior Software Developer",,,,dol,2026-10-28,16,2026
+Globallogic Inc.,tech,no,yes,,,,,,,,,"DOL sponsor, no board found; titles: Lead Software Engineer, Senior Software Engineer, Specialist Engineer",,,,dol,2026-10-28,43,2026
+Navy Federal Credit Union,finance,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Application Engineer, Sr Systems Engineer, Sr Application Engineer",,,,dol,2026-10-28,27,2026
+Atos Syntel Inc,tech,no,yes,,,,,,,,,"DOL sponsor, no board found; titles: Software Engineer, Mobile Developer, Java Developer",,,,dol,2026-10-28,36,2026
+Rockwell Collins Inc.,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Senior Engineer, Software Engineering, Principal Engineer, Software Engineering, Engineer Ii, Software Engineering",,,,dol,2026-10-28,39,2026
+Sony Interactive Entertainment Llc,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Software Engineer Ii, Senior Software Engineer, Senior Business Analyst",,,,dol,2026-10-28,32,2026
+"Digipulse Technologies, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Software Developer, Software Developer (Full Stack Engineer), Qa Automation Tester (Software Engineer In Test)",,,,dol,2026-10-28,32,2026
+"Target Enterprise, Inc.",tech,no,yes,,,,,,,,,"DOL sponsor, no board found; titles: Lead Engineer, Senior Engineer, Sr Engineer",,,,dol,2026-10-28,26,2026
+"Cardinal Health, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Engineer, Application Development & Maintenance, Sr. Engineer, Application Development And Maintenance, Sr. Data Engineer, Data Engineering",,,,dol,2026-10-28,32,2026
+"Avco Consulting, Inc.",tech,no,yes,,,,,,,,,"DOL sponsor, no board found; titles: Software Developer, Application Developer, Devops Engineer",,,,dol,2026-10-28,38,2026
+"Experian Information Solutions, Inc.",tech,no,yes,,,,,,,,,"DOL sponsor, no board found; titles: Senior Software Engineer, Technical Program Manager, Software Development Staff Engineer",,,,dol,2026-10-28,26,2026
+Federal Home Loan Mortgage Corporation,fintech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Quantitative Analytics Senior, Agile Development Senior, Quantitative Analytics Tech Lead",,,,dol,2026-10-28,20,2026
+Dish Wireless Llc,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Staff Engineer - Software, Data Engineer Ii, Senior Engineer - Software",,,,dol,2026-10-28,22,2026
+Maplebear Inc.,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Senior Software Engineer, Senior Software Support Engineer, Revenue Accountant, End-User",,,,dol,2026-10-28,16,2026
+"Robinhood Markets, Inc.",quant,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Software Engineer, Fincrimes, Engineering Manager, Data Scientist, Product",,,,dol,2026-10-28,19,2026
+"Hubspot, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Senior Software Engineer I, Senior Software Engineer Ii, Technical Lead Ii",,,,dol,2026-10-28,34,2026
+Merck Sharp & Dohme Llc,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Senior Scientist, Statistical Programming, Scientist, Statistical Programming, Senior Specialist, Data Science",,,,dol,2026-10-28,13,2026
+"Denken Solutions, Inc.",tech,no,yes,,,,,,,,,"DOL sponsor, no board found; titles: Data Engineer, Sap Consultant, Workday Consultant",,,,dol,2026-10-28,27,2026
+Db Usa Core Corporation,quant,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Assistant Vice President, Assistant Vice President, Senior Engineer, Vice President",,,,dol,2026-10-28,18,2026
+Amazon Advertising Llc,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Business Intelligence Engineer Ii, Applied Scientist Iii, Data Scientist Ii",,,,dol,2026-10-28,11,2026
+"Bofa Securities, Inc.",finance,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Associate - Gib, Vice President; Quantitative Services Professional, Vice President; Trading Strategist Ii",,,,dol,2026-10-28,11,2026
+"Motorola Solutions, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Sr Software Engineer, Sr. Software Engineer, Prof It Software-Aar",,,,dol,2026-10-28,26,2026
+"Trinity Partners, Llc",consulting,no,yes,,,,,,,,,"DOL sponsor, no board found; titles: Senior Consultant, Pmr, Consultant, Consultant, Strategic Advisory",,,,dol,2026-10-28,11,2026
+Artificial Intelligence Llc,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Data Analyst, .Net Developer, Staff Accountant",,,,dol,2026-10-28,22,2026
+"Advanced Micro Devices, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Mts Software Development Eng., Pmts Software Development Eng., Smts Software Development Eng.",,,,dol,2026-10-28,31,2026
+Itek Info Inc,tech,no,yes,,,,,,,,,"DOL sponsor, no board found; titles: Application Developer, Software Automation Tester, Software Engineer",,,,dol,2026-10-28,37,2026
+Abbvie Inc.,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Program Lead Ii, Clinical Data Strategy And Operations, Associate Business Systems Consultant, Associate Director,Global Procurement Process Lead",,,,dol,2026-10-28,21,2026
+Shopify (Usa) Inc.,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Staff Engineer, Senior Data Scientist, Manager, Engineering",,,,dol,2026-10-28,12,2026
+Verizon Data Services Llc,tech,no,yes,,,,,,,,,"DOL sponsor, no board found; titles: Princ Engr-Software Devt, Dist Engr-Software Development, Princ Engr-Emerging Commercial Platforms",,,,dol,2026-10-28,33,2026
+"Nomura Securities International, Inc.",quant,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Associate, Associate, Investment Banking, Vice President, Trader",,,,dol,2026-10-28,9,2026
+"Db Global Technology, Inc.",quant,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Assistant Vice President, Assistant Vice President, Senior Engineer, Assistant Vice President - Senior Engineer",,,,dol,2026-10-28,33,2026
+Deloitte Services Lp,finance,no,yes,,,,,,,,,"DOL sponsor, no board found; titles: Manager, Application Architecture, Lead Application Developer, Manager, Solution Architecture",,,,dol,2026-10-28,29,2026
+"Mckinsey & Company, Inc. United States",consulting,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Associate (Management Consultant), Engagement Manager (Management Consultant), Senior Business Analyst (Management Consultant)",,,,dol,2026-10-28,20,2026
+"Kpit Technologies, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Associate Technical Specialist, Senior Technical Lead, Senior Technical Leader",,,,dol,2026-10-28,35,2026
+Jefferies Llc,quant,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Vice President, Analyst, Assistant Vice President, Information Technology",,,,dol,2026-10-28,17,2026
+"Point72, L.P.",quant,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Cloud Operations Engineer, Quantitative Strategist, Macro Technology, Quantitative Strategist, Treasury Quant Strategy",,,,dol,2026-10-28,19,2026
+Zappos.Com Llc,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Software Development Engineer Ii, Business Intelligence Engineer Ii, Business Analyst Ii",,,,dol,2026-10-28,16,2026
+"Audible, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Software Development Engineer Ii, Software Development Engineer Iii, Software Development Engineer I",,,,dol,2026-10-28,25,2026
+"Caresource Management Services, Llc",finance,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Application Developer Ii, Facets Application Architect Ii, Operations Data Reporting Analyst Iii",,,,dol,2026-10-28,16,2026
+"Lucid Usa, Inc.",finance,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Sr. Technical Program Manager, Sr. Manager, Revenue Accounting Processes And Systems, Sr. Software Engineer, Functional Safety",,,,dol,2026-10-28,25,2026
+Birlasoft Inc,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Architect, Technical Specialist, Technical Lead",,,,dol,2026-10-28,34,2026
+"Asta Crs, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Business Analyst, Data Analyst, Software Developer",,,,dol,2026-10-28,10,2026
+Cloud Analytics Technologies Llc,tech,no,yes,,,,,,,,,"DOL sponsor, no board found; titles: Software Developer, Data Analyst, Data Engineer",,,,dol,2026-10-28,24,2026
+Intelent Inc (F.K.A. Tesi Inc),tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Clinical Sas / Statistical Programmer, Senior Clinical Sas / Statistical Programmer, Senior Statistical Sas Programmer",,,,dol,2026-10-28,9,2026
+"Samsung Electronics America, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Professional Ii, Software Quality Assurance, Associate, Software Quality Assurance, Engineer Iii, Software Analysis Engineering",,,,dol,2026-10-28,14,2026
+Dell Usa L.P.,finance,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Senior Principal Software Engineer - It, Principal Software Engineer - It, Senior Advisor, E-Business",,,,dol,2026-10-28,23,2026
+City National Bank,finance,no,yes,,,,,,,,,"DOL sponsor, no board found; titles: Quality Senior Engineer, Data Senior Engineer, Platform Senior Developer",,,,dol,2026-10-28,20,2026
+Health Care Service Corporation,finance,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Application Architect, Sr Systems Analyst, Senior Application Architect",,,,dol,2026-10-28,23,2026
+"Insight Direct Usa, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Senior Software Engineer, Senior Cloud Platform Engineer, Senior Project Manager - Application Development",,,,dol,2026-10-28,23,2026
+Dana-Farber Cancer Institute,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Statistician, Statistician I, Sr. Advanced Analytics Engineer",,,,dol,2026-10-28,8,2026
+"Gilead Sciences, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Sr Manager, Statistical Programming, Manager, Statistical Programming, Director, Marketing Sciences",,,,dol,2026-10-28,8,2026
+Techdata Service Company Llc,consulting,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Statistician, Statistical  Analyst, Sr.  Biostatistician",,,,dol,2026-10-28,8,2026
+Pwc Us Business Advisory Llp,consulting,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Manager, Senior Associate, Senior Manager",,,,dol,2026-10-28,8,2026
+Moelis & Company Group Lp,quant,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Associate, Analyst",,,,dol,2026-10-28,8,2026
+"Medtronic, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Sr. Software Engineer, Ai/Data Science Engineer, Senior Software Engineer",,,,dol,2026-10-28,20,2026
+"Goin Technology, Llc",consulting,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Java Developer, Qa Automation Engineer, Technical Project Manager",,,,dol,2026-10-28,32,2026
+M&T Bank,finance,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Software Engineer Iii, Senior Software Engineer, Software Engineer Ii",,,,dol,2026-10-28,16,2026
+Artifint Technologies Llc,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Data Engineer, Superset Bi Developer, Cloud Engineer",,,,dol,2026-10-28,13,2026
+Goldman Sachs Services Llc,quant,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Vice President, Software Engineering, Associate, Software Engineering, Vice President, Systems Engineering",,,,dol,2026-10-28,25,2026
+"Perficient, Inc.",tech,no,yes,,,,,,,,,"DOL sponsor, no board found; titles: Lead Technical Consultant, Senior Technical Consultant, Technical Architect",,,,dol,2026-10-28,31,2026
+Infogain Corporation,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Technology Lead, Engineering Manager, Associate Architect",,,,dol,2026-10-28,25,2026
+Epsilon Data Management Llc,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Staff, Software Engineer, Senior Software Engineer, Principal, Application Security",,,,dol,2026-10-28,16,2026
+"Moody'S Investors Service, Inc.",finance,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Staff Software Engineer, Senior Software Engineer, Assistant Vice President - Product Manager",,,,dol,2026-10-28,16,2026
+Kla Corporation,finance,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Software Engineer, Business Process Analyst, Technical Program Project Manager",,,,dol,2026-10-28,16,2026
+Nokia Of America Corporation,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Sr. Software Quality Assurance Engineer, Backend Software Engineer, Software Quality Engineer",,,,dol,2026-10-28,25,2026
+Ai Technologies Llc,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Software Engineer, Data Engineer, Devops Engineer",,,,dol,2026-10-28,24,2026
+Dish Network Llc,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Staff Engineer “ Software, Senior Software Test Engineer, Data Engineer Ii",,,,dol,2026-10-28,24,2026
+Tiktok Usds Joint Venture Llc,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Software Engineer, Ads Ml Infrastructure - Usds, Machine Learning Engineer - Usds, Backend Software Engineer - Usds",,,,dol,2026-10-28,15,2026
+"Photon Infotech, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Full Stack Engineer, Developer I, Product Manager",,,,dol,2026-10-28,30,2026
+Schrill Technologies Inc,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Software Engineer, Software Developer, Data Engineer",,,,dol,2026-10-28,30,2026
+Tredence Inc.,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Associate Manager, Senior Manager, Senior Manager (Global Data Engineering & Ai Solutions)",,,,dol,2026-10-28,12,2026
+Tanisha Systems Inc,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Software Engineer, Data Engineer, Software Architect",,,,dol,2026-10-28,18,2026
+Mckesson Corporation,tech,no,yes,,,,,,,,,"DOL sponsor, no board found; titles: Sr. Data Engineer, Sr. Systems Integration Consultant, Sr. Software Engineer",,,,dol,2026-10-28,15,2026
+"Insurance Services Office, Inc",finance,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Developer Ii, Technical Consultant I, Qa Analyst Ii",,,,dol,2026-10-28,21,2026
+Rpa Technologies Llc,tech,no,yes,,,,,,,,,"DOL sponsor, no board found; titles: Software Engineer, Java Developer, Senior Software Engineer",,,,dol,2026-10-28,23,2026
+"Staples, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Software Engineer Iii, Manager, Analytics-Ai Performance, Senior Manager Software Engineering",,,,dol,2026-10-28,20,2026
+"Best Buy Co., Inc.",tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Software Engineer Ii, Qe Automation Architect - Retail Media Network, Software Engineer",,,,dol,2026-10-28,29,2026
+Costco Wholesale Corporation,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Software Engineer, Data Engineer, Platform Engineer",,,,dol,2026-10-28,29,2026
+United Services Automobile Association,finance,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Software Engineer Lead, Data Engineer I, Software Engineer I",,,,dol,2026-10-28,17,2026
+"Backoffice Associates, Llc D/B/A Syniti",tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Lead Data Migration Consultant, Senior Consultant, Lead Migration Consultant",,,,dol,2026-10-28,11,2026
+Sirius Xm Radio Llc,tech,no,yes,,,,,,,,,"DOL sponsor, no board found; titles: Senior Engineer, Devsecops, Lead Analyst, Business Intelligence, Staff Software Engineer",,,,dol,2026-10-28,17,2026
+New York Life Insurance Company,finance,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Senior Associate, Corporate Vice President, Cvp - Data Governance Process Lead",,,,dol,2026-10-28,19,2026
+"Virtusa Consulting Services Pvt., Ltd",tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: It Project Manager 3, Java Analyst 2, Business Analyst 3",,,,dol,2026-10-28,28,2026
+"Asml Us, Llc",tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Senior Software Engineer 1, Software Engineer 3, Senior Software Engineer 2",,,,dol,2026-10-28,25,2026
+"Adp Technology Services, Inc.",tech,no,yes,,,,,,,,,"DOL sponsor, no board found; titles: Lead Application Developer, Principal Application Developer, Lead Software Engineer",,,,dol,2026-10-28,28,2026
+Mayo Clinic,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Associate Data Science Analyst, Principal Data Science Analyst, Senior Data Science Analyst",,,,dol,2026-10-28,7,2026
+Grant Thornton Advisors Llc,finance,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Audit Senior Associate, Controls Advisory - Process Senior Manager, Audit Associate Ii",,,,dol,2026-10-28,7,2026
+"Hsbc Bank Usa, N.A",finance,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Investment Counselor - Kbgfjg68085-6, Equity Derivatives Trader - Kbgfjg183950-4, Senior Corporate Relationship Manager - Kbgfjg102725-8",,,,dol,2026-10-28,7,2026
+Pwc Us Consulting Llp,consulting,no,yes,,,,,,,,,"DOL sponsor, no board found; titles: Senior Associate, Manager, Senior Manager",,,,dol,2026-10-28,10,2026
+Natsoft Corporation,tech,no,yes,,,,,,,,,"DOL sponsor, no board found; titles: Software Engineer, Systems Analyst",,,,dol,2026-10-28,28,2026
+Novartis Pharmaceuticals Corporation,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Director, Ai Use Case Lead, Bpo Order Management & Finance, C&G, Senior Principal Biostatistician",,,,dol,2026-10-28,7,2026
+"Nutanix, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Member Of Technical Staff, Senior Member Of Technical Staff, Staff Engineer",,,,dol,2026-10-28,25,2026
+Pacific Investment Management Company Llc,quant,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Vice President, Quantitative Research Analyst, Senior Associate, Alternative Credit And Private Strategies, Devops Engineer",,,,dol,2026-10-28,10,2026
+"Techpro Solutions, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Data Engineer, Software Test Engineer, Python Data Engineer",,,,dol,2026-10-28,12,2026
+"Sapphire Software Solutions, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Software Engineer, Software Developer, Data Engineer",,,,dol,2026-10-28,27,2026
+"F5, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Sr Software Development Engineer, Software Development Engineer Iii, Business Systems Analyst Iii",,,,dol,2026-10-28,27,2026
+Zeus Solutions Inc,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Software Engineer, Data Engineer, Senior Software Engineer & Technical Architect",,,,dol,2026-10-28,12,2026
+Machine Intelligence Llc,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Sr. Data Analyst, Software Developer, Sr. Software Engineer",,,,dol,2026-10-28,11,2026
+"Anthropic, Pbc",tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Member Of Technical Staff, Compute Capacity, Product Operations",,,,dol,2026-10-28,20,2026
+"Autozone, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Sr. Systems Engineer, Sr. Systems Specialist, Data Scientist Merchandising",,,,dol,2026-10-28,17,2026
+"Autodesk, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Software Development Engineer, Senior Cloud (Aws) Platform Software Engineer, Principal Software Engineer",,,,dol,2026-10-28,23,2026
+Incyte Corporation,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Principal Biostatistician, Senior Biostatistical Programmer, Salesforce Technical Architect",,,,dol,2026-10-28,8,2026
+"7-Eleven, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Software Engineer Ii, Sr Software Engineer, Senior Software Engineer",,,,dol,2026-10-28,20,2026
+"Epitec, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Software Engineer, Business Analyst, Full Stack Software Engineer",,,,dol,2026-10-28,14,2026
+Alliancebernstein L.P.,quant,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Vp/Senior Research Analyst, Avp/Microstrategy Developer, Avp/Quantitative Developer",,,,dol,2026-10-28,8,2026
+Data Strategies Interchange Llc,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Software Engineer, Sap Associate, Data Scientist",,,,dol,2026-10-28,11,2026
+Sri Tech Solutions Inc.,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Software Developer, Test Engineer, Software Engineer",,,,dol,2026-10-28,26,2026
+"New Era Technology, Llc",tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Software Developer, Sharepoint Consultant, Sharepoint Developer",,,,dol,2026-10-28,22,2026
+"Nordstrom, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Engineer 2, Engineer Sr, Data Analyst 2",,,,dol,2026-10-28,19,2026
+Elite It Technologies Llc,tech,no,yes,,,,,,,,,"DOL sponsor, no board found; titles: Software Engineer, Software Developer, It Project Manager",,,,dol,2026-10-28,25,2026
+"Nike, Inc.",tech,no,yes,,,,,,,,,"DOL sponsor, no board found; titles: Software Engineer, Software Engineer Iii, Senior Data Engineer",,,,dol,2026-10-28,19,2026
+Pioneer Consulting Services Llc,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Java Developer, Software Engineer, Software Developer",,,,dol,2026-10-28,25,2026
+Verition Group Llc,quant,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Cloud Engineer, Quantitative Strategist (Quant Strat), Senior Associate (Equity Long/Short Business)",,,,dol,2026-10-28,7,2026
+"Eliassen Group, Llc",tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Java Developer, Quality Assurance Test Lead, Full Stack Engineer",,,,dol,2026-10-28,22,2026
+"Fortinet, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Software Development Engineer, Staff Software Development Engineer, Staff Software Development Qa Engineer",,,,dol,2026-10-28,22,2026
+Honeywell International Inc.,finance,no,yes,,,,,,,,,"DOL sponsor, no board found; titles: Advanced Data Engineer, Tech Product Owner Manager, It Lead Technical Product Owner Ecommerce/ Sap Commerce",,,,dol,2026-10-28,16,2026
+Ally Bank,finance,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Sr. Analyst “ Data Management, Dir - Software Eng Lead, Sr. Analyst “ Advanced Business Analytics",,,,dol,2026-10-28,13,2026
+L&T Technology Services Limited,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Software Engineer & Tester, Test Engineer, Software Developer",,,,dol,2026-10-28,25,2026
+Exzac,finance,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Manager, Director, Consultant",,,,dol,2026-10-28,10,2026
+Zurich American Insurance Company,finance,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Business Systems Analyst, Application Subject Matter Expert, Application Delivery Manager",,,,dol,2026-10-28,16,2026
+Abbvie Us Llc,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Market Access Insights “ Manager Ii, Market Access Analytics, Senior Analyst, Field Tools & Analytics, Senior Data Scientist",,,,dol,2026-10-28,7,2026
+Virtual Reality Technologies Llc,tech,no,yes,,,,,,,,,"DOL sponsor, no board found; titles: Java Developer, Software Developer, Senior Java Developer",,,,dol,2026-10-28,21,2026
+Hewlett Packard Enterprise Company,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Senior Systems/Software Engineer, Cloud Developer Iii, Senior It Developer/Engineer",,,,dol,2026-10-28,21,2026
+It Division Inc.,tech,no,yes,,,,,,,,,"DOL sponsor, no board found; titles: Power Bi Architect, Sap Ptd Consultant, Clinical Business/ Data Analyst",,,,dol,2026-10-28,12,2026
+Starbucks Coffee Company,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Engineer Sr - St - Kbgfjg28074-6, Engineer Lead - St - Kbgfjg244372-3, Application Developer Sr - Kbgfjg105705-6",,,,dol,2026-10-28,21,2026
+"Valuemomentum, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Sr. Lead “ Programmer Analyst, Sr. Lead “ Quality Assurance Analyst, Lead “ Programmer Analyst",,,,dol,2026-10-28,21,2026
+"Qualcomm Innovation Center, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Staff Software Engineer, Senior Staff Software Engineer, Senior Camera Software Engineer",,,,dol,2026-10-28,24,2026
+"Sg Americas Securities, Llc",quant,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Ib Analyst, Quantitative Advisor, Junior Quantitative Specialist",,,,dol,2026-10-28,6,2026
+"Rivian Automotive, Llc",tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Sr. End User Computing Engineer, Senior Staff Security Firmware Engineer, Sr. Staff, Erp Platform Architect",,,,dol,2026-10-28,12,2026
+Savvy Info Systems Inc,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Software Developer, Software Engineer, Business Analyst",,,,dol,2026-10-28,18,2026
+"Arm, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Staff Engineer, Engineer, Staff Systems Enablement Engineer",,,,dol,2026-10-28,18,2026
+"Bayview Asset Management, Llc",quant,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Vp, Securities Pm, Vice President, Mortgage Modeling, Associate, Mortgage Modeling",,,,dol,2026-10-28,6,2026
+"Point72 Asset Management, L.P.",quant,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Research Analyst, Ai Engineer, Ls Equity, L/S/ Data Analyst",,,,dol,2026-10-28,6,2026
+Cytel Inc.,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Principal Statistical Programmer, Principal Statistical Programmer - Fsp, Customer Success Manager",,,,dol,2026-10-28,6,2026
+"Farmers Group, Inc.",finance,no,yes,,,,,,,,,"DOL sponsor, no board found; titles: Agile Developer Team Member, Solution Engineer, Application Subject Matter Expert",,,,dol,2026-10-28,21,2026
+Goldman Sachs Bank Usa,quant,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Vice President, Software Engineering, Associate, Software Engineering, Vice President, Systems Engineering",,,,dol,2026-10-28,12,2026
+"Integrity, Llc",finance,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Senior Software Engineering Manager, Lead Data Engineer, Senior Data Engineer",,,,dol,2026-10-28,9,2026
+Tcw Llc,quant,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Credit Analyst, Avp, Investment Risk Analyst, Senior Vice President, Alternatives Portfolio Specialist",,,,dol,2026-10-28,6,2026
+Deloitte Transactions And Business Analytics Llp,consulting,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Manager, Senior Consultant",,,,dol,2026-10-28,6,2026
+Squarepoint Services Us Llc,quant,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Quantitative Researcher",,,,dol,2026-10-28,6,2026
+Wellington Management Company Llp,quant,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Lead Software Engineer, Senior Systems Analyst, Senior Software Engineer",,,,dol,2026-10-28,11,2026
+"Zoom Communications, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Software Engineer, Machine Learning Engineer, Business Systems Analyst (Channel Incentives)",,,,dol,2026-10-28,14,2026
+Career Soft Solutions Inc,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Aws Python Developer, Aws Devops Developer, Software Developer",,,,dol,2026-10-28,17,2026
+Fidelity Management & Research Company Llc D/B/A Fidelity Investments,quant,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Director, Data Analytics & Insights, Fixed Income Portfolio Analyst Ii, Am Quantitative Analyst Ii",,,,dol,2026-10-28,8,2026
+The Prudential Insurance Company Of America,finance,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Lead, Software Engineer - Kbgfjg219057-5, Lead Data Engineer - Kbgfjg227345-4, Software Engineer - Kbgfjg392047-1",,,,dol,2026-10-28,14,2026
+"Faire Wholesale, Inc.",finance,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Ai Platform Engineer, Senior Product Manager, Senior Machine Learning Engineer - Search",,,,dol,2026-10-28,8,2026
+Presbyterian Healthcare Services,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Business Analytics Consultant-Abq, Business Systems Analyst-Intmd, Scrum Master-Expert-Abq",,,,dol,2026-10-28,8,2026
+Global Payment Holding Company,fintech,no,yes,,,,,,,,,"DOL sponsor, no board found; titles: Data Science Analyst Senior, Senior Director, Application Systems Development, It Architect Specialist",,,,dol,2026-10-28,20,2026
+"Paycom Payroll, Llc",tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Sr. Software Developer, Software Developer, Devops Software Engineer",,,,dol,2026-10-28,20,2026
+Archer Daniels Midland Company,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Madjv Application Lead, Analytics Functional Lead I, Gt Salesforce Development Manager",,,,dol,2026-10-28,17,2026
+Corewell Health,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Data Engineer, Senior Data Engineer, Technical Analyst",,,,dol,2026-10-28,14,2026
+Lendingclub Bank National Association,fintech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Associate Data Modeler, Senior Software Engineer, Senior Model Risk Manager",,,,dol,2026-10-28,8,2026
+"Td Bank, National Association",finance,no,no,,,,,,,,,"DOL sponsor, no board found; titles: It Solutions Design Specialist, Senior Quantitative Analyst, Applied Machine Learning Scientist",,,,dol,2026-10-28,8,2026
+Artificial Intelligence Staffing Llc,tech,no,yes,,,,,,,,,"DOL sponsor, no board found; titles: Software Developer, Performance Test Engineer, Java Developer",,,,dol,2026-10-28,16,2026
+Unity Technologies Sf,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Senior Software Engineer, Senior Machine Learning Engineer, Staff Machine Learning Engineer",,,,dol,2026-10-28,10,2026
+American General Life Insurance Company,finance,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Adp Actuarial Assistant, Sap Reporting Lead, Application Owner Lead Engineer",,,,dol,2026-10-28,7,2026
+Livemindz Services Inc,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Data Engineer, Software Developer, Business Analyst",,,,dol,2026-10-28,10,2026
+Laboratory Corporation Of America Holdings,tech,no,yes,,,,,,,,,"DOL sponsor, no board found; titles: Senior Qa Analyst, Sr. Programmer/Analyst, Senior Ui Developer/Web Analyst",,,,dol,2026-10-28,16,2026
+"Dgn Technologies, Inc",tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Salesforce Consultant, Sap Fico Consultant, Software Developer",,,,dol,2026-10-28,19,2026
+Applab Systems Inc,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Software Engineer, Microsoft Dot Net Developer, Sap Security Engineer",,,,dol,2026-10-28,22,2026
+"Raymond James & Associates, Inc.",quant,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Lead Engineer, Applications Development, Senior Engineer, Applications Development, Principal Engineer, Applications Development",,,,dol,2026-10-28,22,2026
+"Ameriprise Financial, Inc.",quant,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Systems Engineer, Senior Software Engineer, Software Engineer",,,,dol,2026-10-28,19,2026
+Orpine Inc,tech,no,yes,,,,,,,,,"DOL sponsor, no board found; titles: Software Developer, Lead Sfdc Techno Functional, Quality Analyst - Engineer",,,,dol,2026-10-28,22,2026
+"Regeneron Pharmaceuticals, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Associate Manager, Cdm Study Lead, Product Manager, Sr Mgr Clinical Database Development",,,,dol,2026-10-28,7,2026
+"Deloitte Touche Tohmatsu Services, Llc",tech,no,yes,,,,,,,,,"DOL sponsor, no board found; titles: Senior Business Systems Analyst, Dsa Sql And Etl Developer, Manager, Devops Engineering",,,,dol,2026-10-28,16,2026
+"H-E-B, Lp",tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Senior Software Engineer, Staff Data Engineer, Engineer Manager",,,,dol,2026-10-28,13,2026
+"Dataeconomy, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Full-Stack Software Engineer, Data Engineer, Senior Data Visualization Specialist",,,,dol,2026-10-28,22,2026
+The Northern Trust Company,quant,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Software Developer, Information Security Engineer, Database Architect",,,,dol,2026-10-28,18,2026
+Robotics Staffing Llc,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Devops Engineer, Etl Developer, Python Developer",,,,dol,2026-10-28,15,2026
+Lenovo (United States) Inc,finance,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Fp&A Specialist, Sr. Specialist, Marketing Strategy & Planning, Solution Product Manager",,,,dol,2026-10-28,9,2026
+"Marriott International, Inc.",tech,no,yes,,,,,,,,,"DOL sponsor, no board found; titles: Senior Software Engineer, Principal Engineer, Senior Software Engineer - Loyalty",,,,dol,2026-10-28,15,2026
+Eversoft Technologies Llc,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Software Engineer, Aws Developer, Bi Analyst",,,,dol,2026-10-28,15,2026
+"Artech, Llc",tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Application Programmer Iii, Application Architect Iii, Data Engineer Ii",,,,dol,2026-10-28,15,2026
+Christus Health,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Data Scientist Ii, Information Services Developer Sr., Information Services Application Developer",,,,dol,2026-10-28,9,2026
+Deere & Company,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Senior Software Engineer, Software Engineer, Senior Cloud Software Engineer",,,,dol,2026-10-28,21,2026
+"Arthur J. Gallagher Service Company, Llc",finance,no,yes,,,,,,,,,"DOL sponsor, no board found; titles: Data Analyst, Sr. Business Intelligence Engineer, Lead Data Solutions Engineer",,,,dol,2026-10-28,9,2026
+"Baker Tilly Advisory Group, Lp",finance,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Sr Tax Associate, Sr Audit Associate, Senior Manager, It Consulting",,,,dol,2026-10-28,6,2026
+"Sap Labs, Llc",tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Developer, Senior Developer, Senior Services Engagement Engineer",,,,dol,2026-10-28,15,2026
+Hp Inc.,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Software Applications Engineer, Senior Computer Vision Engineer, Software Applications Engineer 4",,,,dol,2026-10-28,18,2026
+Rga Enterprise Services Company,finance,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Senior Qa Automation Engineer, Senior Assistant Actuary, Lead Software Engineer",,,,dol,2026-10-28,9,2026
+Optiver Services Us Llc,quant,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Institutional Trader, Quantitative Researcher, Machine Learning Research Engineer",,,,dol,2026-10-28,6,2026
+East West Bank,finance,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Credit Analyst, Senior Applications Developer, Application Development",,,,dol,2026-10-28,9,2026
+Nitya Software Solutions Inc,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Data Engineer, Frontend Engineer",,,,dol,2026-10-28,6,2026
+Ochsner Clinic Foundation,finance,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Is Business Intelligence Developer, Is Application Developer, Is Data Consultant",,,,dol,2026-10-28,6,2026
+"Genentech Usa, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Therapeutics Area Analytics & Insights Specialist, Therapeutic Area Analytics & Insights Senior Manager, Therapeutic Area Analytics & Insights Manager",,,,dol,2026-10-28,9,2026
+Headstrong Services Llc,consulting,no,yes,,,,,,,,,"DOL sponsor, no board found; titles: Senior Principal Consultant, Principal Consultant, Assistant Vice President",,,,dol,2026-10-28,17,2026
+Augmented Reality Technologies Llc,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Software Engineer, Data Analyst, Sourcing Analyst",,,,dol,2026-10-28,11,2026
+Emc Corporation,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Software Principal Engineer, Software Senior Engineer, Software Senior Principal Engineer",,,,dol,2026-10-28,20,2026
+"Ventois, Inc",tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Database Engineer, Data Engineer, Data Modeler",,,,dol,2026-10-28,20,2026
+Collaborate Solutions Inc.,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Java Developer, Qa Analyst, Full Stack Developer",,,,dol,2026-10-28,20,2026
+"Centene Management Company, Llc",finance,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Senior Application Development Engineer, Lead Application Development Engineer, Lead Data Engineer",,,,dol,2026-10-28,17,2026
+Cleveland Clinic Foundation,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Biostatistician, Senior Biostatistician",,,,dol,2026-10-28,5,2026
+"Cariad, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Software Engineer Iii, Principal Software Engineer, Software Developer Sr.",,,,dol,2026-10-28,20,2026
+Caterpillar Inc.,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Software Engineer, Senior Autonomy Engineer, Senior It Analyst Applications",,,,dol,2026-10-28,17,2026
+"Chan Zuckerberg Biohub, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Member Of Technical Staff, Research Engineer, Senior Software Engineer, Hpc, Staff Software Engineer, Data Infrastructure, Central",,,,dol,2026-10-28,11,2026
+Htc Global Services Inc.,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Software Developer, Senior Software Developer, Senior Software Quality Assurance Analyst And Tester",,,,dol,2026-10-28,20,2026
+"Sg Americas Operational Services, Llc",finance,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Junior Data Scientist, Senior Auditor, Capital & Liquidity Management Specialist",,,,dol,2026-10-28,8,2026
+"Iris Software, Inc",tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Software Developer, Aws Data Engineer, Senior Business Intelligence Analyst",,,,dol,2026-10-28,17,2026
+Eclinicalworks Llc,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Staff Engineer, Sr. Application Security Engineer, Product Analyst - Healow Insights",,,,dol,2026-10-28,11,2026
+Kgate Technologies Inc,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Software Engineer, Data Engineer, Software Developer",,,,dol,2026-10-28,11,2026
+Capital Research And Management Company,quant,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Risk And Quantitative Solutions Analyst, Investment Analyst, Associate, Fundamental Research Group",,,,dol,2026-10-28,5,2026
+Federal Soft Systems Inc.,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Software Developer, Web Developer, Analyst",,,,dol,2026-10-28,20,2026
+Mizuho Americas Services Llc,quant,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Assistant Vice President, Vice President, Director (Head Of Risk Engineering)",,,,dol,2026-10-28,8,2026
+"Samsung Research America, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Senior Staff Engineer, Software, Senior Manager, Product Management, Senior Engineer, Software",,,,dol,2026-10-28,11,2026
+Memorial Sloan Kettering Cancer Center,tech,no,yes,,,,,,,,,"DOL sponsor, no board found; titles: Software Engineer Ii, Senior Principal Enterprise & Solution Architect, Senior Cloud Engineer",,,,dol,2026-10-28,11,2026
+"Qualcomm Atheros, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Senior Staff Software Engineer, Senior Systems Test Engineer, Staff Systems Test Engineer",,,,dol,2026-10-28,20,2026
+"Themathcompany, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Associate Principal, Senior Associate",,,,dol,2026-10-28,5,2026
+"Thermo Fisher Scientific, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Staff Engineer, Software, Developer Iii, Sr Systems Analyst",,,,dol,2026-10-28,17,2026
+"Uchicago Argonne, Llc",tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Assistant Computer Scientist, Specialist, Research Software Engineering, Predoctoral Appointee",,,,dol,2026-10-28,5,2026
+"General Motors Financial Company, Inc.",fintech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Software Development Engineer Iii, Software Development Engineer Ii, Data Engineer Ii",,,,dol,2026-10-28,11,2026
+"Etsy, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Senior Machine Learning Engineer Ii, Senior Data Scientist, Senior Applied Scientist I",,,,dol,2026-10-28,8,2026
+"Bizcloud Analytics, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Business Intelligence Analyst, Data Scientist, Business Intelligence/Etl Report Analyst",,,,dol,2026-10-28,5,2026
+Tigermed-Bdm Inc,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Statistical Analyst",,,,dol,2026-10-28,5,2026
+Western Alliance Bank,finance,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Engineer Ii, Staff Engineer Ii, Principal Engineer Iii",,,,dol,2026-10-28,11,2026
+Ralph Lauren Corporation,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Production Operations Analyst - Ecommerce, Erp Product Master Data Sme, Ngt, Senior Applications Analyst, Ibp",,,,dol,2026-10-28,14,2026
+The Siegfried Group Llp,finance,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Associate Director, Senior Manager, Senior Director",,,,dol,2026-10-28,5,2026
+Newton Consulting Inc.,consulting,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Consultant",,,,dol,2026-10-28,8,2026
+Cybersource Corporation,fintech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Staff Sw Engineer, Software Engineer - Sr. Consultant Level, Software Engineer",,,,dol,2026-10-28,19,2026
+Mastercard International Incorporated,fintech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Lead Software Engineer, Manager, Product Development, Senior Software Engineer",,,,dol,2026-10-28,13,2026
+Northwestern Mutual Life Insurance Company,finance,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Software Engineer, Senior Systems Software Engineer, Lead Data Engineer",,,,dol,2026-10-28,19,2026
+"Dexian, Llc",consulting,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Automation Engineer, Mainframe Developer, Data Analyst Iii",,,,dol,2026-10-28,13,2026
+"Strategic Staffing Solutions, L.C.",tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Software Engineer, Programmer Analyst, Developer",,,,dol,2026-10-28,16,2026
+Toyota Material Handling Inc.,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Firmware Engineer Ii, Applications Engineer Ii, It Business Analyst",,,,dol,2026-10-28,16,2026
+"Pure Storage, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Member Of Technical Staff (Software Engineer), Member Of Technical Staff, Sku Lifecycle Project Manager",,,,dol,2026-10-28,19,2026
+Indus Group Inc.,tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Data Engineer, Business Analyst, Salesforce Technical Lead",,,,dol,2026-10-28,7,2026
+"Intellectt, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Full Stack Engineer, Software Engineer, Project Manager I",,,,dol,2026-10-28,13,2026
+"Aqr Capital Management, Llc",quant,no,no,,,,,,,,,"DOL sponsor, no board found; titles: Vice President, Portfolio Finance Associate, Research Associate",,,,dol,2026-10-28,7,2026
+Verton Solutions Inc,tech,no,yes,,,,,,,,,"DOL sponsor, no board found; titles: It Consultant (Software Engineer), Programmer Analyst, Software Developer",,,,dol,2026-10-28,19,2026
+"Intuitive Surgical Operations, Inc.",finance,no,yes,,,,,,,,,"DOL sponsor, no board found; titles: Financial Analyst Ion, Senior Site Reliability Engineer, Staff Software Engineer -  Data",,,,dol,2026-10-28,10,2026
+"Move Sales, Inc",proptech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Data Scientist, Sr, Data Engineer, Staff, Software Engineer",,,,dol,2026-10-28,7,2026
+Gsk Solutions Inc,tech,no,yes,,,,,,,,,"DOL sponsor, not probed this run; titles: Software Engineer, Data Engineer, Data Manager",,,,dol,2026-10-28,10,2026
+"Upstart Network, Inc.",fintech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Senior Software Engineer, Software Engineer, Staff Machine Learning Engineer",,,,dol,2026-10-28,13,2026
+"Vistex, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Consulting Manager, Director Solution Delivery, Consultant",,,,dol,2026-10-28,10,2026
+Sigma Software Llc,tech,no,yes,,,,,,,,,"DOL sponsor, not probed this run; titles: Software Engineer, Software Developer, Architect",,,,dol,2026-10-28,16,2026
+"Grid Dynamics Holdings, Inc.",tech,no,yes,,,,,,,,,"DOL sponsor, not probed this run; titles: Senior Data Scientist, Delivery Director, Senior Staff Big Data Engineer",,,,dol,2026-10-28,10,2026
+Idexcel Inc,tech,no,yes,,,,,,,,,"DOL sponsor, not probed this run; titles: Full Stack Developer, Software Developer - .Net, Senior Cognos Developer",,,,dol,2026-10-28,19,2026
+Blue Cross Blue Shield Of Michigan,finance,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Technology Consultant I, Application Dev. Technical Lead, Application Developer Ii",,,,dol,2026-10-28,10,2026
+"Team Belvedere, Llc",quant,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Software Engineer, Quantitative Trader, Financial Quantitative Analyst",,,,dol,2026-10-28,7,2026
+Hca Management Services Lp,finance,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Consulting Application Engineer, Senior Application Engineer, Sr. Sdet (Software Development Engineer In Test)",,,,dol,2026-10-28,18,2026
+"Akamai Technologies, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Software Engineer Ii, Senior Ii Site Reliability Engineer, Senior Software Development Engineer In Test",,,,dol,2026-10-28,18,2026
+Lam Research Corporation,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Data Scientist, Business Operations Analyst, Operations Business Analyst",,,,dol,2026-10-28,6,2026
+Logitech Inc.,finance,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Senior Software Quality Assurance Engineer, Senior Software Engineer, Senior Manager, It Development",,,,dol,2026-10-28,12,2026
+"Environmental Systems Research Institute, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Sr. Software Development Engineer, Product Engineer, Senior Software Development Engineer",,,,dol,2026-10-28,15,2026
+Keybank National Association,finance,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Quantitative Analytics Senior Associate, Senior Software Engineer, Quantitative Analytics, Sr. Associate",,,,dol,2026-10-28,6,2026
+Ancestry.Com Operations Inc.,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Software Engineer, Associate Data Engineer, Senior Marketing Analyst",,,,dol,2026-10-28,9,2026
+"Millennium Software, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Software Developer, Business Analyst, Software Engineer",,,,dol,2026-10-28,15,2026
+Aptiv Us Services General Partnership,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Embedded Software Engineer, Products Owner - Data Mining And Analytics, Senior Embedded Software Engineer",,,,dol,2026-10-28,15,2026
+"Ntt Data Services, Llc",tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Software Development Specialist Advisor, Software Development Senior Specialist, Software Development Senior Analyst",,,,dol,2026-10-28,15,2026
+Massachusetts Mutual Life Insurance Company,finance,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Business Systems Analyst (Data Strategy), Etl Developer, Full Stack Developer",,,,dol,2026-10-28,12,2026
+"Qualtrics, Llc",tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Software Engineer, Product Manager, Software Test Engineer",,,,dol,2026-10-28,15,2026
+Softworld Technologies Llc,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Software Engineer, Software Developer, Software Development Engineer In Test",,,,dol,2026-10-28,15,2026
+"Medidata Solutions, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Senior Business Analyst, Senior Sdet, Senior Software Delivery Engineer",,,,dol,2026-10-28,9,2026
+"Ice Mortgage Technology, Inc.",tech,no,yes,,,,,,,,,"DOL sponsor, not probed this run; titles: Lead Qa Engineer, Devops Engineer, Lead Software Engineer",,,,dol,2026-10-28,15,2026
+The Options Clearing Corporation,quant,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Associate Principal, Software Engineering, Lead Associate Principal, Software Engineering: Middleware, Associate Principal, Software Engineering: Devops",,,,dol,2026-10-28,15,2026
+Hsbc Technology & Services (Usa) Inc.,finance,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Full Stack Engineer - Kbgfjg234124-4, Senior Intelligence Visualization Lead - Kbgfjg201717-3, Business Management Analyst I - Kbgfjg231801-3",,,,dol,2026-10-28,9,2026
+Hartford Fire Insurance Company,finance,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Manager Software Engineering, Sr Staff Data Engineer, Senior Staff Software Engineer",,,,dol,2026-10-28,18,2026
+"Bj'S Wholesale Club, Inc.",tech,no,yes,,,,,,,,,"DOL sponsor, not probed this run; titles: Lead Digital Engineer, Sr Application Dev Analyst, Sr Machine Learning Ops Specialist",,,,dol,2026-10-28,15,2026
+"Spotify Usa, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Engineer Ii, Senior Analytics Engineer, Data Engineer Ii",,,,dol,2026-10-28,9,2026
+"Worldpay, Llc",tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Development Manager, It Architect Senior, Quality Assurance Manager",,,,dol,2026-10-28,18,2026
+"Crusoe Energy Systems, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Staff Software Engineer, Senior Software Engineer, Software Engineer Ii",,,,dol,2026-10-28,18,2026
+"Sephora Usa, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Lead Engineer, Integrations, Senior Devops Engineer, Lead Automation Engineer",,,,dol,2026-10-28,12,2026
+"Mitchell/Martin, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Software Engineer, Software Engineer (.Net Developer), Software Developer",,,,dol,2026-10-28,18,2026
+"Ppd Development, L.P.",tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Sr Business Analytics Specialist, Sr Data Scientist, Clinical Data Team Lead",,,,dol,2026-10-28,6,2026
+"Vistra Retail Operations Company, Llc",tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Developer  V, Technology Services, Analytics Specialist, Inactive Collections, Specialist I, Bi & Analytics",,,,dol,2026-10-28,6,2026
+"Santander Bank, N.A.",finance,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Senior Associate, Risk Modeling, Senior Advisor, Compliance, Associate, Business Control & Risk Management",,,,dol,2026-10-28,6,2026
+"Zendesk, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Financial Analysis & Strategy Manager - Marketing, Senior Solutions Consultant, Staff Machine Learning Engineer",,,,dol,2026-10-28,6,2026
+Progressive Casualty Insurance Company,finance,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: It Applications Programmer, It Systems Test Engineer, Data Science Manager",,,,dol,2026-10-28,12,2026
+Rokt Us Corp.,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Senior Software Engineer (Data Platform), Senior Security Engineer, Senior Software Engineer",,,,dol,2026-10-28,12,2026
+Sanofi Us Services Inc.,finance,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Data Engineering Expert - Snowflake, Associate Director Clinical Statistical Modeling, Case Management And Process Expert",,,,dol,2026-10-28,6,2026
+"Home Depot Usa, Inc.",tech,no,yes,,,,,,,,,"DOL sponsor, not probed this run; titles: Home Services Analytics Manager, Gc Lead It Quality Analyst, Senior Manager, Data Science",,,,dol,2026-10-28,6,2026
+"Fox Cable Network Services, Llc",tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Senior Salesforce Developer, Senior Software Engineer, Platform, Senior Software Engineer, Ads Engineering",,,,dol,2026-10-28,12,2026
+"Ss&C Technologies, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Manager, Software Qa Engineering [00097246], Consulting Software Engineer [00093963], Senior Data Engineer [00096700]",,,,dol,2026-10-28,9,2026
+"Adalitek Group, Llc",tech,no,yes,,,,,,,,,"DOL sponsor, not probed this run; titles: Data Analyst, Devops Engineer, Senior Data Modeler",,,,dol,2026-10-28,9,2026
+Svt It Infotech Inc,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Data Engineer, Oracle Techno Functional Analyst, Servicenow Power Bi Analyst",,,,dol,2026-10-28,9,2026
+Allagi Technologies Inc,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Business Intelligence Analyst, Clinical Data Manager, Sr. Clinical Data Manager",,,,dol,2026-10-28,6,2026
+"Crowdstrike, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Engineer Iii - Log Platform, Identity Engineer, Senior Engineer Ii",,,,dol,2026-10-28,17,2026
+"Istream Solutions, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Software Engineer, Business Intelligence Analyst, Senior Quality Assurance Analyst/Test Lead",,,,dol,2026-10-28,11,2026
+"Avani Technology Solutions, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Software Developer, Data Engineer, Senior Software Developer (Sap Btp Bsa / Cpi)",,,,dol,2026-10-28,17,2026
+Ubs Securities Llc,quant,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Employee, Regulatory Reporting Analyst, Director, Software Engineer, Employee, Junior Rates Trader",,,,dol,2026-10-28,5,2026
+Citadel Enterprise Americas Services Llc,quant,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Software Engineer, Trading Systems Engineer, Funding Control Manager",,,,dol,2026-10-28,11,2026
+"Birlasoft Solutions, Inc.",tech,no,yes,,,,,,,,,"DOL sponsor, not probed this run; titles: Senior Technical Lead, Architect, Principal Consultant",,,,dol,2026-10-28,17,2026
+"Tpg Global, Llc",quant,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Associate (Financial Analyst), Financial Analyst, Tech Adjacencies Group (Vice President), Reporting Developer - Operations (Associate)",,,,dol,2026-10-28,5,2026
+Pantar Solutions Inc,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Full Stack Engineer, Bi Analyst, Data Analyst",,,,dol,2026-10-28,8,2026
+"Evicore Healthcare Msi, Llc",finance,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Software Engineering Advisor, Business Analytics Lead Analyst, Software Engineering Senior Advisor",,,,dol,2026-10-28,11,2026
+"United Wholesale Mortgage, Llc",fintech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Software Developer, Senior Software Developer, Salesforce Marketing Cloud Specialist",,,,dol,2026-10-28,14,2026
+Td Securities (Usa) Llc,quant,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: It Senior Developer, Vice President, Credit Management, Director, Sales & Trading",,,,dol,2026-10-28,5,2026
+Dell Products L.P.,finance,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Software Principal Engineer, Consultant, Product Management, Software Senior Engineer",,,,dol,2026-10-28,14,2026
+"Brains Technology Solutions, Inc",tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Software Engineer, Qa Engineer, Full Stack Java Developer",,,,dol,2026-10-28,17,2026
+Lenovo Global Technology (United States) Inc,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Staff Engineer, Data Analytics, Staff Data Scientist, Platform Development Data Analyst",,,,dol,2026-10-28,5,2026
+Minisoft Technologies Llc,tech,no,yes,,,,,,,,,"DOL sponsor, not probed this run; titles: Data Analytics Analyst, Senior Data Engineer, Architect",,,,dol,2026-10-28,8,2026
+"Cubist Systematic Strategies, Llc",quant,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Research Analyst, Quantitative Software Developer, Senior Research Analyst",,,,dol,2026-10-28,5,2026
+Synchrony Bank,finance,no,yes,,,,,,,,,"DOL sponsor, not probed this run; titles: Manager, Credit Operations Modeling, Avp, Technology Project Manager, Vp, Solution Architecture Manager",,,,dol,2026-10-28,11,2026
+"Mufg Bank, Ltd.",finance,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Software Engineering, Security Engineering, Systems Engineering",,,,dol,2026-10-28,11,2026
+Prn It Corp,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Data Scientist, Terraform Engineer, It Engineer",,,,dol,2026-10-28,8,2026
+"Discord, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Senior Software Engineer, Senior Data Scientist, Staff Data Scientist",,,,dol,2026-10-28,8,2026
+Lpl Financial Llc,quant,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Avp Tech, Software Dev Test Qe, Principal Architect, Senior Engineer, Software Developer",,,,dol,2026-10-28,17,2026
+Wgu Corporation,tech,no,yes,,,,,,,,,"DOL sponsor, not probed this run; titles: Senior Software Engineer, Staff Software Engineer, Principal It Security Architect",,,,dol,2026-10-28,11,2026
+Okbl Usa Technology Inc.,fintech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Senior Engineer, Senior Pm Ii, Senior Compliance Analyst",,,,dol,2026-10-28,8,2026
+"Covant Solutions, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Data Engineer, Java Developer, Java Full Stack Developer",,,,dol,2026-10-28,14,2026
+Fortrea Inc.,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Senior Statistical Programmer, Statistical Programmer Ii, Principal Statistical Programmer",,,,dol,2026-10-28,5,2026
+"Ice Data Analytics, Llc",tech,no,yes,,,,,,,,,"DOL sponsor, not probed this run; titles: Senior Developer, Product Manager, Director, Business Analysis",,,,dol,2026-10-28,5,2026
+Abercrombie & Fitch Management Co.,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Lead Data Scientist, Sr. Engineer 2 “ Search Engineer, Sr. Engineer 2 “ Software Engineering",,,,dol,2026-10-28,11,2026
+"Charles River Laboratories, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Principal Specialist Sap Analytics, Principal Specialist, Sap Analytics And Planning, Sr. Integration Dev Ops Engineer",,,,dol,2026-10-28,5,2026
+Sicl America Inc,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Aem Product Owner, Senior Data Analyst",,,,dol,2026-10-28,5,2026
+"Elevate Credit Service, Llc",fintech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Data Engineer Ii, Senior System Analyst, Sr. Analyst, Erm",,,,dol,2026-10-28,5,2026
+Alpha Net Consulting Llc,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Data Engineer, Systems Analyst, Software Engineer",,,,dol,2026-10-28,8,2026
+"Inovalon, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Senior Software Development Engineer L4, Senior Healthcare Data Analytics Specialist, Staff Software Development Engineer L5",,,,dol,2026-10-28,13,2026
+Brevan Howard Us Investment Management Lp,quant,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Deal Partner, Principal, Quantitative Researcher",,,,dol,2026-10-28,4,2026
+"Asurion, Llc",finance,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Software Engineer 3, Software Engineer 4, Principal Software Engineer",,,,dol,2026-10-28,16,2026
+Deloitte Llp,finance,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Senior Consultant, Strategic Services",,,,dol,2026-10-28,4,2026
+"Manhattan Associates, Inc.",tech,no,yes,,,,,,,,,"DOL sponsor, not probed this run; titles: Senior Principal Support Consultant, Senior Principal, Technology Services, Principal, Technology Services",,,,dol,2026-10-28,16,2026
+"American Family Mutual Insurance Company, S.I.",finance,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Lead Application Development Engineer, Senior Engineer, Lead Data Engineer",,,,dol,2026-10-28,13,2026
+"Axon Enterprise, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Senior Software Engineer I, Software Engineer Ii, Senior Software Engineer",,,,dol,2026-10-28,16,2026
+Tempus Ai,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Associate Director, Clinical Data Management, Clinical Data Training Manager, Biostatistician Ii",,,,dol,2026-10-28,4,2026
+"Applied Materials, Inc",finance,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Software Engineer, Business Intelligence Analyst, Financial Analyst",,,,dol,2026-10-28,7,2026
+National Charitable Services Llc D/B/A Fidelity Investments,quant,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Senior Full Stack Engineer, Principal Software Engineer/Developer, Principal Full Stack Engineer",,,,dol,2026-10-28,13,2026
+Penske Truck Leasing Co Lp,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Software Engineer I, Software Engineer Ii, Senior Software Engineer",,,,dol,2026-10-28,16,2026
+Rjt Compuquest Inc. Dba Apolis,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Software Developer, Oracle Business Systems Analyst, Business Intelligence Analyst",,,,dol,2026-10-28,10,2026
+Carnival Corporation,tech,no,yes,,,,,,,,,"DOL sponsor, not probed this run; titles: Senior Software Engineer, Manager, Site Reliability Engineering, Principal Engineer, Quality Functional & Data",,,,dol,2026-10-28,13,2026
+"Accelyst, Llc",tech,no,yes,,,,,,,,,"DOL sponsor, not probed this run; titles: Systems Consultant, Itx/Wtx Consultant, Technical Project Manager",,,,dol,2026-10-28,16,2026
+"Zions Bancorporation, N.A.",finance,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Data Engineer, Software Engineer, Systems Engineer",,,,dol,2026-10-28,16,2026
+Computer Sciences Corporation,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Associate Manager Software Engineering, Sr Analyst I Software Engineering, Manager Software Engineering",,,,dol,2026-10-28,13,2026
+Grubhub Holdings Inc.,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Sr Data Scientist, Logistics Manager, Machine Learning Engineer Ii",,,,dol,2026-10-28,4,2026
+The Depository Trust & Clearing Corporation,fintech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Lead Software Engineer, Principal Software Engineer, Lead Software Development Engineer In Test",,,,dol,2026-10-28,16,2026
+"Guidewire Software, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Senior Software Engineer, Software Engineer, Lead Engineer, Enterprise Data",,,,dol,2026-10-28,16,2026
+Standard & Poor'S Financial Services Llc,quant,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Software Engineer, Lead Software Engineer, Data Scientist",,,,dol,2026-10-28,7,2026
+Annapurna Labs (U.S.) Inc.,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Software Development Engineer Ii, Software Development Engineer I, Software Development Engineer Iii",,,,dol,2026-10-28,16,2026
+"Vsion Technologies, Inc.",tech,no,yes,,,,,,,,,"DOL sponsor, not probed this run; titles: Data Engineer, Python Developer, Software Test Engineer",,,,dol,2026-10-28,13,2026
+"Carilion Services, Inc.",tech,no,yes,,,,,,,,,"DOL sponsor, not probed this run; titles: Bi Developer Iii, Bi Developer I, Tsg Data Analyst",,,,dol,2026-10-28,4,2026
+Specs Inc.,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Software Engineer (4), Software Engineer (5), Design Engineer (5)",,,,dol,2026-10-28,16,2026
+"Nomura Holding America, Inc.",quant,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Analyst, Analyst, Credit Risk, Analyst, Sr. Software Engineer",,,,dol,2026-10-28,10,2026
+Walgreen Co.,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Senior Data Scientist, Senior Software Engineer, Software Engineer",,,,dol,2026-10-28,7,2026
+Merrill Lynch,quant,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Vice President; Technology Services Lead, Vice President; Feature Lead - Technology, Vice President; Technology Manager",,,,dol,2026-10-28,13,2026
+Morgan Stanley Fund Services Inc.,quant,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Director, Associate",,,,dol,2026-10-28,4,2026
+"Scotia Capital (Usa), Inc.",quant,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Associate Director, Exotic Equity Derivatives Trader, Associate Director, Investment Banking",,,,dol,2026-10-28,4,2026
+International Federation Of Accountants,finance,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Principal, Iesba, Head Of Education, Member Monitoring & Development",,,,dol,2026-10-28,4,2026
+"Aurora Operations, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Senior Software Engineer, Software Engineer Ii, Staff Tlm, Behavior Simulation",,,,dol,2026-10-28,13,2026
+"Cbre, Inc.",proptech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Senior Software Engineer, Principal Software Engineer, Senior Principal Software Engineer",,,,dol,2026-10-28,13,2026
+Healthtech Solutions Llc,consulting,no,yes,,,,,,,,,"DOL sponsor, not probed this run; titles: Senior Data Analyst, Software Developer, Developer",,,,dol,2026-10-28,7,2026
+"Susquehanna International Group, Llp",quant,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Software Developer - Mid, Software Developer, Quantitative Research Trading Associate",,,,dol,2026-10-28,10,2026
+"Ares Operations, Llc",quant,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Managing Director, Head Of Construction, Self-Storage, Associate, Vice President, Credit",,,,dol,2026-10-28,4,2026
+"Apollo Management Holdings, L.P.",quant,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Associate, Principal - Opportunistic Credit - Technology",,,,dol,2026-10-28,4,2026
+Comerica Management Company,finance,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Sr. Staff Engineer, Principal Engineer, Model Development Officer Sr.",,,,dol,2026-10-28,10,2026
+"Cohesity, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Staff Software Engineer, Staff Applied Scientist, Software Engineer Iv (Mts Iv)",,,,dol,2026-10-28,10,2026
+"Aiva Global, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Research Engineer",,,,dol,2026-10-28,4,2026
+Ciena Corporation,finance,no,yes,,,,,,,,,"DOL sponsor, not probed this run; titles: Routing/Ip Software Engineer 5, Leader, Enterprise Data Management, Senior Cloud Operations Engineer",,,,dol,2026-10-28,7,2026
+Barclays Bank Delaware,quant,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Deposits Marketing Analytics & Targeting, Vp - Acquisition Analytics-Dm48, Uscb Controller",,,,dol,2026-10-28,4,2026
+Lex Nimble Solutions Inc.,tech,no,yes,,,,,,,,,"DOL sponsor, not probed this run; titles: Dot Net Developer, Fse (Java Angular), Data Engineer",,,,dol,2026-10-28,7,2026
+"Penumbra, Inc.",finance,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Product Marketing Manager, Mes Functional Analyst, Senior Statistical Programmer Analyst",,,,dol,2026-10-28,4,2026
+Groksys Llc,tech,no,yes,,,,,,,,,"DOL sponsor, not probed this run; titles: Project Manager, Data Scientist",,,,dol,2026-10-28,7,2026
+"Cambridge Mobile Telematics, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Senior Data Scientist, Principal Data Scientist I, Senior Data Analyst",,,,dol,2026-10-28,4,2026
+Massachusetts Institute Of Technology,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Research Scientist, Postdoctoral Associate",,,,dol,2026-10-28,4,2026
+Nexturn Inc,tech,no,yes,,,,,,,,,"DOL sponsor, not probed this run; titles: Business Analyst, Software Developer, Software Engineer",,,,dol,2026-10-28,7,2026
+Bill Operations Llc,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Senior Aws Cloud Infrastructure Engineer, Software Development Engineer In Test (Sdet), Staff, Senior Data Analyst - Customer Experience (Cx)",,,,dol,2026-10-28,7,2026
+Mizuho Securities Usa Llc,quant,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Analyst, Research Associate, Vice President",,,,dol,2026-10-28,4,2026
+"Acmesoft Global, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Data Engineer",,,,dol,2026-10-28,4,2026
+N2Force Technologies Inc,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Data Scientist",,,,dol,2026-10-28,4,2026
+International Foundation For Ethics And Audit,finance,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Principal, Iesba, Senior Manager, Iaasb",,,,dol,2026-10-28,4,2026
+Ernst & Young Llp (Ey Guam),finance,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Audit Senior - Kbgfjg376434-1, Audit Senior - Kbgfjg376446-1",,,,dol,2026-10-28,4,2026
+Siemens Industry Software Inc.,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Software Engineer Senior, Software Quality Assurance Engineer, Senior Software Engineer",,,,dol,2026-10-28,12,2026
+Upwork Inc.,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Lead Machine Learning Engineer, Senior Machine Learning Engineer, Senior Software Engineer",,,,dol,2026-10-28,6,2026
+"Datadog, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Senior Software Engineer, Staff Applied Scientist, Senior Technical Program Manager",,,,dol,2026-10-28,6,2026
+"Credit One Bank, N.A.",fintech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Digital Bank Development - Avp Iii, Software Engineering -O1, Platform Engineer Iv (I) - P4, Avp I, Software Engineering - O1",,,,dol,2026-10-28,6,2026
+Etouch Systems Corporation,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Quality Assurance Analyst 2, Qa Project Manager 3, Quality Assurance Engineer 3",,,,dol,2026-10-28,15,2026
+Gainwell Technologies Llc,tech,no,yes,,,,,,,,,"DOL sponsor, not probed this run; titles: Senior Professional Application Designer, Ai Engineer, Principal, Advisor Application Designer",,,,dol,2026-10-28,12,2026
+"Resolve Ai, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Software Engineer, Research Engineer, Softare Engineer",,,,dol,2026-10-28,15,2026
+Noblesoft Solutions Inc,tech,no,yes,,,,,,,,,"DOL sponsor, not probed this run; titles: Software Engineer, Senior Software Developer, .Net Developer",,,,dol,2026-10-28,12,2026
+Circle Internet Management Services Llc,finance,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Third Party Risk Manager, Manager, Treasury Risk, Staff Site Reliability Engineer",,,,dol,2026-10-28,6,2026
+Econtenti Inc,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: It Project Manager, Backend Engineer, Backend Developer",,,,dol,2026-10-28,15,2026
+Auger Inc.,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Software Development Engineer, Sr. Software Development Engineer, Sr. Applied Scientist - Ai Engineering",,,,dol,2026-10-28,12,2026
+Hyatt Corporation,finance,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Sr. Software Developer In Test, Manager Marketing & Partnership Finance, Sr. Data Product Manager",,,,dol,2026-10-28,6,2026
+"Rivian And Volkswagen Group Technologies, Llc",tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Sr. Technical Program Manager, Sr. Software Engineer, Sr. Technical Program Manager (Vehicle Access Systems)",,,,dol,2026-10-28,12,2026
+Innovative Consulting Solutions Llc,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Software Engineer, Software Developer, Application Architect",,,,dol,2026-10-28,15,2026
+Appridat Solutions Llc,tech,no,yes,,,,,,,,,"DOL sponsor, not probed this run; titles: Software Developer, Software Engineer, Senior Data Engineer (Ai & Machine Learning)",,,,dol,2026-10-28,12,2026
+"Antra, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Data Engineer, Software Engineer, Software Developer",,,,dol,2026-10-28,6,2026
+Teladoc Health Inc.,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Staff Software Engineer, Senior Software Engineer, Staff Software Engineer, Corp Apps",,,,dol,2026-10-28,12,2026
+Parexel International Llc,tech,no,yes,,,,,,,,,"DOL sponsor, not probed this run; titles: Principal Statistical Programmer, Software Engineer, Biostatistician",,,,dol,2026-10-28,6,2026
+Camelot Integrated Solutions Inc,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Software Developer, Gis Software Developer, It Quality Assurance Analyst",,,,dol,2026-10-28,15,2026
+"Consumerinfo.Com, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Software Engineer I, Data Scientist I, Site Reliability Engineer Senior",,,,dol,2026-10-28,6,2026
+"Ecclesiastes, Inc.",tech,no,yes,,,,,,,,,"DOL sponsor, not probed this run; titles: Java Developer, Azure Cloud Administrator, Software Engineer",,,,dol,2026-10-28,12,2026
+Ipolarity Llc,tech,no,yes,,,,,,,,,"DOL sponsor, not probed this run; titles: Software Developer, Systems Engineer, Sr. Engineer, Sdet",,,,dol,2026-10-28,15,2026
+"Technumen, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Java Developer, Devops Engineer, Software Engineer",,,,dol,2026-10-28,15,2026
+Acetech Group Corporation,tech,no,yes,,,,,,,,,"DOL sponsor, not probed this run; titles: Data Engineer, Software Developer, Full Stack Developer",,,,dol,2026-10-28,15,2026
+Info Keys Inc,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Data Science Engineer, Mulesoft Developer, Tririga Systems Architect",,,,dol,2026-10-28,6,2026
+Bnsf Railway Company,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Senior Staff Engineer, Staff Cybersecurity Engineer, Senior Data Engineer",,,,dol,2026-10-28,6,2026
+"Tech Tammina, Llc",tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Appian Developer, Pega Lead Developer, Salesforce Developer",,,,dol,2026-10-28,15,2026
+"Dolby Laboratories, Inc.",tech,no,yes,,,,,,,,,"DOL sponsor, not probed this run; titles: Senior Researcher, Senior Big Data Research Scientist, Engineer",,,,dol,2026-10-28,6,2026
+"Infinitus Systems, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Technical Staff, Backend Engineer, Business Analyst - Operations, Member Of Technical Team - Data Scientist",,,,dol,2026-10-28,6,2026
+Cloud Social Technologies Llc,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Software Developer, Sr. Software Developer, Software Engineer",,,,dol,2026-10-28,11,2026
+Southwest Airlines Co.,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Sr. Software Engineer, Tech Lead Cybersecurity Engineer, Sr Cloud Devops Engineer",,,,dol,2026-10-28,14,2026
+"Jazz Pharmaceuticals, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Senior Manager “ People Technology Partner, Manager, Safety System Management, Senior Manager, Field Market Access Operations Analytics",,,,dol,2026-10-28,5,2026
+"Dataedge, Inc",tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Software Developer",,,,dol,2026-10-28,14,2026
+Schonfeld Strategic Advisors Llc,quant,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Software Engineer, Analyst, Fund Accountant",,,,dol,2026-10-28,5,2026
+Adroix Corp,tech,no,yes,,,,,,,,,"DOL sponsor, not probed this run; titles: Software Developer, Java Developer, Salesforce Architect",,,,dol,2026-10-28,14,2026
+"Munich Re America Services, Inc.",finance,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Application Developer, Project Manager, Actuary Sr.",,,,dol,2026-10-28,11,2026
+Selsoft Inc,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Business Analyst, Quality Engineer, Lead Oracle Cloud Product Lifecycle Management",,,,dol,2026-10-28,5,2026
+"It Resources, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Java Developer, Ab Initio Developer, Java Software Engineer",,,,dol,2026-10-28,11,2026
+E-Giants Technologies Llc,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: .Net Developer, Java Full Stack Developer, It Project Manager",,,,dol,2026-10-28,14,2026
+"Equinix, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Staff Engineer, Product Software, Senior Business Systems Analyst, Noc Service Engineer Iii",,,,dol,2026-10-28,11,2026
+The Travelers Indemnity Company,finance,no,yes,,,,,,,,,"DOL sponsor, not probed this run; titles: Data Engineer Ii, Software Engineer Ii, Lead Software Engineer",,,,dol,2026-10-28,11,2026
+"Yotta Systems, Inc.",tech,no,yes,,,,,,,,,"DOL sponsor, not probed this run; titles: Software Developer, Senior Cloud Architect, Technical Product Manager",,,,dol,2026-10-28,14,2026
+Orion Systems Integrators Llc,tech,no,yes,,,,,,,,,"DOL sponsor, not probed this run; titles: Gen Ai Lead, Ai Engineer, Program Manager",,,,dol,2026-10-28,14,2026
+Vmware Llc,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: R&D Engineer Software, Technical Support Engineer",,,,dol,2026-10-28,14,2026
+"Athenahealth, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Senior Cloud Engineer- Aws, Product Analytics, Senior Associate, Principal Member Of Technical Staff - Software Development",,,,dol,2026-10-28,11,2026
+Cibc Bank Usa,quant,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Manager, Data Operations, Sr. Analyst Ii, Automation And Applied Ai, Compliance Reporting And Analytics Manager",,,,dol,2026-10-28,5,2026
+Boston Scientific Corporation,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Senior Systems Test Engineer, It Associate Director, Senior Software Engineer",,,,dol,2026-10-28,11,2026
+Qualcomm Incorporated,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Staff Systems Analyst, Senior Staff It Programmer Analyst, Principal Data Scientist",,,,dol,2026-10-28,11,2026
+Meijer Great Lakes Limited Partnership,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Senior Software Engineer, Quality Engineering Lead, Senior Software Development Engineer",,,,dol,2026-10-28,14,2026
+Mahaugha Llc,tech,no,yes,,,,,,,,,"DOL sponsor, not probed this run; titles: Software Developer, Data Architect, Software Engineer",,,,dol,2026-10-28,14,2026
+"Institutional Capital Network, Inc.",finance,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Avp, Wealth Managers, Vice President, Servicenow Architect, Vp, Software Engineering",,,,dol,2026-10-28,5,2026
+Genuine Parts Company,tech,no,yes,,,,,,,,,"DOL sponsor, not probed this run; titles: Data Engineer, Lead Engineer, Sre, Lead Software Engineer, Customer Domain",,,,dol,2026-10-28,14,2026
+"Jump Operations, Llc",quant,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Software Engineer 1, Senior Accounting Analyst, Quantitative Researcher",,,,dol,2026-10-28,5,2026
+"Ness Usa, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Data Engineer, Data Architect, Principal Architect",,,,dol,2026-10-28,5,2026
+"Blackrock Investment Management, Llc",quant,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Vice President, Associate",,,,dol,2026-10-28,5,2026
+Epam Systems Inc.,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Senior Software Engineer, Lead Software Engineer, Lead Business Analyst",,,,dol,2026-10-28,11,2026
+"Pitchbook Data, Inc.",quant,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Senior Content Specialist, Product Manager Ii, Senior Site Reliability Engineer",,,,dol,2026-10-28,5,2026
+Venturesoft Global Inc,tech,no,yes,,,,,,,,,"DOL sponsor, not probed this run; titles: Computer Systems Analyst, Software Engineer, Computer Systems Analysts",,,,dol,2026-10-28,14,2026
+"White Collar Technologies, Inc",tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Analytics Analyst, Java Developer, Operation Research Manager",,,,dol,2026-10-28,5,2026
+"Ramsai Software Solutions, Inc",tech,no,yes,,,,,,,,,"DOL sponsor, not probed this run; titles: Software Consultant, Software Developer, Salesforce Technical Product Owner",,,,dol,2026-10-28,14,2026
+Invisible Technologies Inc.,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Enterprise Solutions Analyst, Staff Software Engineer, Senior Software Engineer",,,,dol,2026-10-28,5,2026
+"Astir It Solutions, Inc",tech,no,yes,,,,,,,,,"DOL sponsor, not probed this run; titles: Application Developer, Technical Consultant, Test Automation Engineer",,,,dol,2026-10-28,14,2026
+Bayer Cropscience Llc,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Senior Data Analyst, Processing Digital Analyst, Staff Engineer",,,,dol,2026-10-28,5,2026
+Glaxosmithkline Llc,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Senior Data Engineer, Software Engineer - Ai/Ml Services, Data Platform Engineer, Devops",,,,dol,2026-10-28,5,2026
+"Megan Soft, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Software Developer, Information Technology Project Manager, Quality Reliability Engineer",,,,dol,2026-10-28,14,2026
+"Payroc Worldaccess, Llc",fintech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Senior Software Developer, Implementation Engineer, Data Engineer",,,,dol,2026-10-28,5,2026
+Saransh Inc,tech,no,yes,,,,,,,,,"DOL sponsor, not probed this run; titles: Data Analyst, Project Manager",,,,dol,2026-10-28,5,2026
+"Triveni Group, Llp",tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Business Intelligence Analyst, Software Developer",,,,dol,2026-10-28,5,2026
+Edwards Lifesciences Llc,finance,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Principal, Statistical Programming, Sr Analyst, Finance (Corp Accounting), Sr Architect It Solutions, Contract Lifecycle Management Clm",,,,dol,2026-10-28,5,2026
+"Fifth Third Bank, National Association",finance,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Quantitative Analyst Ii (Credit Risk), Senior Quantitative Analyst -Model Risk Management (Mrm), Principal Software Engineer",,,,dol,2026-10-28,5,2026
+"Fetch Rewards, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Analytics Engineer, Senior Software Engineer, Head Of Core Ml Products",,,,dol,2026-10-28,4,2026
+"Cargill, Incorporated",tech,no,yes,,,,,,,,,"DOL sponsor, not probed this run; titles: Senior Business Intelligence Analyst, Senior Pricing Operations Analyst-Kbgfjg358677-1, Senior Application Developer-Erp - Kbgfjg387206-2",,,,dol,2026-10-28,4,2026
+"Cigniti Technologies, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Software Performance Test Engineer, Test Engineer, Test Leader",,,,dol,2026-10-28,13,2026
+Axtria Inc,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Associate Director (Manager Band), Director (Director Band), Sr. Manager (Manager Band)",,,,dol,2026-10-28,10,2026
+"F & W Plastics, Llc",tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Data Analyst, Jr. Machine Learning Engineer, Software Developer",,,,dol,2026-10-28,4,2026
+"Macy'S Systems & Technology, Inc.",tech,no,yes,,,,,,,,,"DOL sponsor, not probed this run; titles: Lead, Software Engineer, Senior, Software Engineer, Staff, Software Engineer",,,,dol,2026-10-28,13,2026
+"Ana-Data Consulting, Inc.",consulting,no,yes,,,,,,,,,"DOL sponsor, not probed this run; titles: Software Developer, Software Engineer, Calypso Developer",,,,dol,2026-10-28,13,2026
+"E2Open, Llc",tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Senior Business Analyst, Senior Solution Architect, Sr Customer Insight Analyst",,,,dol,2026-10-28,4,2026
+"Bdo Usa, P.C.",finance,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Experienced Manager, Forensics, Tax Manager, Private Client Services, Assurance Manager, Accounting Advisory & Outsourcing",,,,dol,2026-10-28,4,2026
+S&P Global Market Intelligence Inc.,finance,no,yes,,,,,,,,,"DOL sponsor, not probed this run; titles: Lead Software Engineer, Lead Application Developer, Lead Search Engineer",,,,dol,2026-10-28,10,2026
+"Harman Becker Automotive Systems, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Sr. Technical Program Manager, Sr. Sw Project Manager, Delivery, Sr. Software Engineer",,,,dol,2026-10-28,10,2026
+Tardus Inc,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Software Developer, Java Developer, Azure Data Engineer",,,,dol,2026-10-28,10,2026
+Zeta Global Corp.,consulting,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Senior Analyst, Senior Software Engineer, Senior Analyst, Data Services",,,,dol,2026-10-28,4,2026
+Technosoft Corporation,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Software Application Developer, Software Qa Analyst And Tester, Sr. Quality Assurance Analyst",,,,dol,2026-10-28,13,2026
+"Cloud Bc Labs, Inc",tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Senior Technical Consultant, Senior Principal Consultant, Azure Data Architect",,,,dol,2026-10-28,10,2026
+Meghaz Inc.,tech,no,yes,,,,,,,,,"DOL sponsor, not probed this run; titles: Software Engineer, Java Developer, Data Engineer",,,,dol,2026-10-28,10,2026
+"Cox Automotive Corporate Services, Llc",tech,no,yes,,,,,,,,,"DOL sponsor, not probed this run; titles: Senior Lead Software Engineer, Senior Software Engineer, Lead Software Engineer",,,,dol,2026-10-28,10,2026
+Cigna Health And Life Insurance Company,finance,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Data Measurement & Reporting Senior Manager, Architecture Senior Advisor, Actuarial Director",,,,dol,2026-10-28,4,2026
+"Rackspace Us, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Software Developer Iii, Senior Cloud Software Architect, Technical Product Manager Iii",,,,dol,2026-10-28,10,2026
+Kian Corp,tech,no,yes,,,,,,,,,"DOL sponsor, not probed this run; titles: Computer Systems Analyst, Computer And Information Systems Manager",,,,dol,2026-10-28,13,2026
+Emonics Llc,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Ssis Developer, Ruby On Rails Developer, Java Developer",,,,dol,2026-10-28,13,2026
+Tinder Llc,consulting,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Senior Software Engineer, Machine Learning, Software Engineer, Backend, Staff Software Engineer, Machine Learning",,,,dol,2026-10-28,13,2026
+Adaequare Inc,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Software Engineer, Software Developer",,,,dol,2026-10-28,13,2026
+"Pyramid Technology Solutions, Inc",tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Project Manager, 3Dx Consultant, Lead Qa Automation Engineer",,,,dol,2026-10-28,13,2026
+"Red Hat, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Senior Software Engineer, Software Engineer, Openshift, Principal Data Scientist",,,,dol,2026-10-28,10,2026
+"Relevantz Technology Services, Inc.",tech,no,yes,,,,,,,,,"DOL sponsor, not probed this run; titles: Solution Engineer, Software Development Engineer, Senior Solution Engineer",,,,dol,2026-10-28,13,2026
+"David Ai Labs, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Data Product Operations Lead, General Manager, Data Operations, Product Engineer",,,,dol,2026-10-28,4,2026
+Involgixs Inc,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Devops Engineer, Sr. Servicenow Developer, Rpa Developer",,,,dol,2026-10-28,10,2026
+Evenup Inc.,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Director, Product Management, Software Engineer, Senior Machine Learning Engineer",,,,dol,2026-10-28,4,2026
+"Petco Animal Supplies Stores, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Data Scientist, Manager, Data Science And Analytics, Manager, Software Engineering",,,,dol,2026-10-28,4,2026
+"Tavant Technologies, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Technical Architect, Technical Analyst, Associate Technical Architect",,,,dol,2026-10-28,13,2026
+Albatross America Inc.,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Operations Research Analyst, Business Development, Business Intelligence Analyst",,,,dol,2026-10-28,4,2026
+Infylogy Corp.,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Software Developer, Application Developer, Business Systems Analyst",,,,dol,2026-10-28,10,2026
+"Menusifu, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Accounting And Financial Planning Specialist, Emerging Markets Account Executive",,,,dol,2026-10-28,4,2026
+"Smbc Capital Markets, Inc.",finance,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Associate, Software Engineer, Executive Director, Options Trading, Vice President, Systematic Trading Strategist",,,,dol,2026-10-28,4,2026
+I3 Verticals Llc,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Software Architect, Software Engineer, Principal Solution Consultant",,,,dol,2026-10-28,10,2026
+Finco Services Inc,fintech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Lead Data Scientist, Senior Analytics Engineer, Senior Software Engineer, Mobile",,,,dol,2026-10-28,4,2026
+Webster Bank,finance,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Director, Ai Engineer, Ai/Ml Engineer, Business Systems Analyst",,,,dol,2026-10-28,4,2026
+Sesco Pjm Strategy Llc,quant,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Portfolio Manager,  Quantitative Strategies, Quantitative Associate,  Quantitative Strategies, Quantitative Analyst, Simulation Modeling",,,,dol,2026-10-28,4,2026
+"Strategic Systems, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Software Developer, Software Engineer, Qa Engineer",,,,dol,2026-10-28,12,2026
+The Sherwin-Williams Company,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Senior It Web Developer, Senior Developer, Senior Back End Application Developer",,,,dol,2026-10-28,12,2026
+Harman Connected Services Inc,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Senior Engineer, Sw, Associate Director, Technical Lead - Product Development",,,,dol,2026-10-28,12,2026
+"United Parcel Service General Services, Co.",tech,no,yes,,,,,,,,,"DOL sponsor, not probed this run; titles: Senior Software Development Engineer, Lead Software Development Engineer, Lead Info Security Analyst",,,,dol,2026-10-28,12,2026
+"Firefly Pros, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Business Analyst",,,,dol,2026-10-28,3,2026
+The Guardian Life Insurance Company Of America,finance,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Senior Software Engineer, Senior Engineer, Technology Lead",,,,dol,2026-10-28,12,2026
+Isolve Technology Inc,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Workday Consultant, Software Developer, Software Test Analyst 5",,,,dol,2026-10-28,12,2026
+"Mobicloud, Llc.",tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Java Developer, Incident Analyst, Project Manager",,,,dol,2026-10-28,12,2026
+"Manning & Napier Advisors, Llc",quant,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Associate, Quantitative Strategies Analyst",,,,dol,2026-10-28,3,2026
+3I Infotech Inc.,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Full Stack Developer, Software Engineer, Salesforce Developer",,,,dol,2026-10-28,12,2026
+Tek Leaders Inc,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Data Warehouse Architect-Etl Developer, Java Technical Lead, Data Engineer",,,,dol,2026-10-28,12,2026
+Rochester Institute Of Technology,finance,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Senior Staff Accountant, Data Analyst Ii, Postdoctoral Fellow",,,,dol,2026-10-28,3,2026
+"Novo Nordisk, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Sr Mgr - Forecasting, Mgr - Forecasting & Planning, Sr Assoc - Sample Operations Support",,,,dol,2026-10-28,3,2026
+Tt Technologies Inc,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Data Architect, Senior Software Development Engineer, Software Developer “ Ai/Ml",,,,dol,2026-10-28,12,2026
+"Lexisnexis Risk Solutions Fl, Inc.",tech,no,yes,,,,,,,,,"DOL sponsor, not probed this run; titles: Quality Test Engineer Iii, Manager Software Engineering, Software Engineering Lead",,,,dol,2026-10-28,12,2026
+"Apex Logistics International, Inc.",consulting,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Operations Research Analyst, Accountant",,,,dol,2026-10-28,3,2026
+"Bioinfo Systems, Llc",tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Grafana Automation Engineer, Sr Devops Engineer, Software Engineer",,,,dol,2026-10-28,12,2026
+Uniuni Logistics Inc.,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Operations Research Analyst, Operation Analysis Manager",,,,dol,2026-10-28,3,2026
+Advantage It Inc,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Web Analytics Developer, Adobe Engineer/Analyst, Oracle Hcm Consultant",,,,dol,2026-10-28,12,2026
+Ascend Accounting & Tax Advisors Llc,finance,no,yes,,,,,,,,,"DOL sponsor, not probed this run; titles: Staff Accountant",,,,dol,2026-10-28,3,2026
+"Sai Technologies, Llc.",tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Snowflake Etl Data Engineer, Salesforce Consultant, Software Quality Analyst",,,,dol,2026-10-28,12,2026
+"Zensar Technologies, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Computer Systems Analyst (Lead), Software Developer, Computer Systems Analyst",,,,dol,2026-10-28,12,2026
+"Cohen & Company, Llc",quant,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Analyst, Investment Banking, Vice President, Investment Banking, Associate, Investment Banking",,,,dol,2026-10-28,3,2026
+Imr Soft Llc,tech,no,yes,,,,,,,,,"DOL sponsor, not probed this run; titles: Devops Engineer, Java Developer, Sr Qa Performance Engineer",,,,dol,2026-10-28,12,2026
+Hitachi Digital Services Llc,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Software Engineer, Aws Consulting Engineer, Technical Project Manager",,,,dol,2026-10-28,12,2026
+National Railroad Passenger Corporation,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Lead Software Engineer, Senior Principal Systems Engineer, Principal Technologist",,,,dol,2026-10-28,12,2026
+Circle K Stores Inc.,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Sr. Data Scientist - Kbgfjg169605-3, Analytics Analyst - Kbgfjg277124-3, Data Scientist - Kbgfjg189985-4",,,,dol,2026-10-28,3,2026
+Lead It Corporation,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Software Engineer, .Net Developer, Etl Qe(Quality Engineer)",,,,dol,2026-10-28,12,2026
+"Affinity Solutions, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Senior Data Scientist, Senior Data And Software Engineer I, Senior Data And Software Engineer",,,,dol,2026-10-28,3,2026
+"Netapp, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Software Engineer, Systems Architect (F/K/A Business Systems Analyst), Programmer/Analyst",,,,dol,2026-10-28,12,2026
+Vitosha Inc,tech,no,yes,,,,,,,,,"DOL sponsor, not probed this run; titles: Software Engineer, Test Automation Engineer, Software Developer",,,,dol,2026-10-28,12,2026
+Nova Biomedical,finance,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Senior Staff Accountant",,,,dol,2026-10-28,3,2026
+Tulasea Inc,consulting,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Data Science Engineer, Tulasea Inc",,,,dol,2026-10-28,3,2026
+Capital Rx,finance,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Senior Analyst, Analytics-Business Reporting, Senior Machine Learning Engineer Ii, Manager Analytics",,,,dol,2026-10-28,3,2026
+Bnp Paribas Securities Corp.,quant,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Vice President, Associate",,,,dol,2026-10-28,3,2026
+Trebecon Llc,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Software Engineer, Software Developer, Sr Software Engineer",,,,dol,2026-10-28,12,2026
+Highbrow Llc,tech,no,yes,,,,,,,,,"DOL sponsor, not probed this run; titles: Sr. Systems Analyst, Sdet Lead, Systems Analyst",,,,dol,2026-10-28,12,2026
+Isoft Llc,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Business Analyst, Data Engineer, Data Science Engineer",,,,dol,2026-10-28,3,2026
+Flawless Ai Inc,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Senior Applied Scientist, Director Of Applied Science, Research Engineer",,,,dol,2026-10-28,3,2026
+Merrick Bank Corporation,finance,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Manager, Card Business Analytics, Director, Data Science, Manager Of Lending Analytics",,,,dol,2026-10-28,3,2026
+Metrix It Solutions Inc,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Software Developer, Sr.Software Developer",,,,dol,2026-10-28,12,2026
+Bayer Healthcare Pharmaceuticals Inc.,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Sr. Manager Principal Clinical Data Management, Associate Director Lead Statistician, Sr. Clinical Quantitative Scientist",,,,dol,2026-10-28,3,2026
+Marcum Asia Cpas Llp,finance,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Senior Manager, Partner (Accountant)",,,,dol,2026-10-28,3,2026
+"Woven By Toyota, U.S., Inc.",tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Senior Project Manager, Quality, Software Quality And Compliance Engineer, Software Engineer Ii",,,,dol,2026-10-28,12,2026
+Molson Coors Beverage Company Usa Llc,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Associate Analytics Manager, Sr. Business Intelligence & Analytics Designer, Data Science Manager",,,,dol,2026-10-28,3,2026
+Apex-2000 Inc,tech,no,yes,,,,,,,,,"DOL sponsor, not probed this run; titles: Software Engineer, Software Developer, Project Manager",,,,dol,2026-10-28,12,2026
+Transamerica Life Insurance Company,finance,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Associate Actuary, Lead Modeler",,,,dol,2026-10-28,3,2026
+"Hanwha Q Cells Georgia, Inc.",finance,no,yes,,,,,,,,,"DOL sponsor, not probed this run; titles: Accounts Payable Specialist I, Treasury Specialist I (Accounting), Accounting Specialist I",,,,dol,2026-10-28,3,2026
+Marketech International Corporation Usa,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Statistical Analyst, Data Analyst, Hr Specialist",,,,dol,2026-10-28,3,2026
+"King Street Capital Management, L.P.",quant,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Capital Markets Analyst, Research Analyst, Risk Analyst",,,,dol,2026-10-28,3,2026
+Bp America Inc.,finance,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Advisor- Power Market Analyst, Structurer, Core Strategist",,,,dol,2026-10-28,3,2026
+Orsted North America Inc.,finance,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Lead Performance Analyst, Senior Power Market Analyst, Senior Financial Accountant",,,,dol,2026-10-28,3,2026
+"Neptune Medical, Inc.",finance,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Accountant",,,,dol,2026-10-28,3,2026
+"Ashley Global Retail, Llc",tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Director Business Intelligence, Senior Bi Analyst, Senior Analyst, It Data Analytics",,,,dol,2026-10-28,3,2026
+Ericsson Smart Factory Inc.,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Business Analytics Specialist (Data Analyst)  9939897, Data Scientist 9819155, Business Analytics Specialist (Data Analyst)",,,,dol,2026-10-28,3,2026
+Azur Im Lp,quant,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Quantitative Researcher, Quantitative Analyst",,,,dol,2026-10-28,3,2026
+"The Lotus Group, Llc",tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Rwe Quantitative Methodologist, Sr. Statistician, Clinical Data Engineer Consultant",,,,dol,2026-10-28,3,2026
+"Cra International, Inc.",consulting,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Consulting Associate - Competition, Associate Principal - Competition",,,,dol,2026-10-28,3,2026
+"Invesco Group Services, Inc.",quant,no,yes,,,,,,,,,"DOL sponsor, not probed this run; titles: Associate Director, Transactions, Senior Internal Auditor, Portfolio Manager",,,,dol,2026-10-28,3,2026
+Hrt Research Llc,finance,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Algorithm Developer, Algorithm Engineer",,,,dol,2026-10-28,3,2026
+A2-Ai Llc,consulting,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Optimization Modeler, Senior Statistician",,,,dol,2026-10-28,3,2026
+"Augment Computing, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Research Engineer, Senior Fraud Data Analyst, Senior Growth Manager",,,,dol,2026-10-28,3,2026
+"Anchin, Block And Anchin Llp",finance,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Audit Manager",,,,dol,2026-10-28,3,2026
+Amtech Analytics Llc,tech,no,yes,,,,,,,,,"DOL sponsor, not probed this run; titles: Data Engineer, Lead Data Analyst",,,,dol,2026-10-28,3,2026
+Morgan Stanley Investment Management Inc.,quant,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Vice President, Executive Director",,,,dol,2026-10-28,3,2026
+"Mistral Ai, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Research Engineer, Applied Ai Engineer",,,,dol,2026-10-28,3,2026
+"Healthmap Solutions, Inc.",consulting,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Product Manager",,,,dol,2026-10-28,3,2026
+Bernstein Institutional Services Llc,quant,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Senior Research Associate, Research Associate",,,,dol,2026-10-28,3,2026
+"Kyyba, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Propulsion System Diagnostic Validation Engineer, Senior Director “ Solutions, Software Engineer",,,,dol,2026-10-28,11,2026
+Total System Services Llc,fintech,no,yes,,,,,,,,,"DOL sponsor, not probed this run; titles: Associate Director, Applications System Development, Software Engineer Specialist, Software Engineer Ii",,,,dol,2026-10-28,11,2026
+"L Brands Service Company, Llc",tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Senior Applications Developer, Senior Test Analyst, Applications Tech Lead",,,,dol,2026-10-28,11,2026
+"Kastech Solutions, Llc",tech,no,yes,,,,,,,,,"DOL sponsor, not probed this run; titles: Software Developer, Oracle Integration Cloud Developer, Oracle Hcm Lead Consultant",,,,dol,2026-10-28,11,2026
+Dk Crown Holdings Inc.,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Senior Software Engineer, Lead Software Engineer, Software Engineer",,,,dol,2026-10-28,11,2026
+"S.W.I.F.T., Inc.",tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Senior Developer / Systems Engineer, Lead Developer / Systems Engineer, Lead Test Engineer",,,,dol,2026-10-28,11,2026
+Abbott Laboratories,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Staff Software Engineer, Integration Solutions Architect, Senior Software Engineer",,,,dol,2026-10-28,11,2026
+"Servicetitan, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Staff Site Reliability Engineer, Senior Software Engineer, Test, Staff Software Engineer, Data Platform",,,,dol,2026-10-28,11,2026
+"Wolters Kluwer Dxg U.S., Inc.",tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Product Software Engineer Iii, Product Software Engineer Iv, Software Test Automation Engineer Iii",,,,dol,2026-10-28,11,2026
+Dassault Systemes Americas Corp,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Simulia R&D Software Engineering Manager, Senior Solution Architect, T&M Sr Solution Architect",,,,dol,2026-10-28,11,2026
+"Humac, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Software Engineer, Sr. Systems Engineer, Software Developer",,,,dol,2026-10-28,11,2026
+"Saipsit, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Software Engineer, Software Qa/Test, Software Developer/Engineer",,,,dol,2026-10-28,11,2026
+Tekaccel Inc,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Sr. Data Engineer, Software Engineer, Technical Architect",,,,dol,2026-10-28,11,2026
+Comtec Consultants Inc,tech,no,yes,,,,,,,,,"DOL sponsor, not probed this run; titles: Software Engineer, It Project Manager (Data Analyst), Information Technology Project Manager",,,,dol,2026-10-28,11,2026
+Xoriant Corporation,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Quality Assurance Tester, Abinitio Developer, Sr. Software Engineer",,,,dol,2026-10-28,11,2026
+P2P Softtek Llc,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Software Developer, Software Engineer, Devops Engineer",,,,dol,2026-10-28,11,2026
+Invincible Tech Systems Inc.,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Software Developer, Programmer Analyst",,,,dol,2026-10-28,11,2026
+"Couloir Technology Group, Inc",tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: It Consultant (Software Systems Engineer), It Consultant ( Software Developer), It Consultant (Software Developer)",,,,dol,2026-10-28,11,2026
+Swanktek Inc,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Oracle Applications Developer, Technical Project Manager, Oracle Soa Developer",,,,dol,2026-10-28,11,2026
+"Conflux Systems, Inc.",tech,no,yes,,,,,,,,,"DOL sponsor, not probed this run; titles: Quality Assurance Tester Iii, Software Developer, Tableau Developer",,,,dol,2026-10-28,11,2026
+Jean Martin Inc,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Software Developer, Project Manager",,,,dol,2026-10-28,11,2026
+Eia Technologies Inc.,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Sap Consultant, Qa Analyst, Ml Ai Developer",,,,dol,2026-10-28,11,2026
+Branta Group Inc,tech,no,yes,,,,,,,,,"DOL sponsor, not probed this run; titles: Computer Systems Analyst, Software Engineer, Computer Systems Analysts",,,,dol,2026-10-28,11,2026
+Walbrydge Technologies Inc,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Blockchain Full-Stack Developer, Senior Systems Engineer, Java Full-Stack Developer",,,,dol,2026-10-28,11,2026
+"Netskope, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Software Engineer Iv, Security Engineer Iv, Software Engineer, Qa Ii",,,,dol,2026-10-28,10,2026
+"Hm Health Solutions, Inc.",finance,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Software Engineer, Associate Software Engineer, Architect",,,,dol,2026-10-28,10,2026
+Prophecy Consulting Inc,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Software Developer, Senior Software Developer, Senior Quality Engineer",,,,dol,2026-10-28,10,2026
+Aanvi Cloud Technologies Inc,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Software Developer, Senior Business Analyst, Senior Java Full Stack Developer",,,,dol,2026-10-28,10,2026
+"S R International, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Senior .Net Developer, Aws Ai Engineer, Data Scientist",,,,dol,2026-10-28,10,2026
+Donato Technologies Inc,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Software Engineer, Software Developer, Software Development Engineer In Test (Sdet)",,,,dol,2026-10-28,10,2026
+Data S Solutions Llc,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Software Developer, Software Engineer, Sr. Software Engineer",,,,dol,2026-10-28,10,2026
+"Okta, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Senior Software Engineer, Staff Software Engineer, Staff Technical Program Manager",,,,dol,2026-10-28,10,2026
+"Apptrics, Llc",tech,no,yes,,,,,,,,,"DOL sponsor, not probed this run; titles: Software Developer",,,,dol,2026-10-28,10,2026
+"Astir Technologies, Llc",tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Test Automation Engineer, Technical Consultant, Application Developer",,,,dol,2026-10-28,10,2026
+Robert Bosch  Llc,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Sr. Software Engineer, Technical Project Manager, Sr Engineering Product Quality",,,,dol,2026-10-28,10,2026
+Vistaltech Inc,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Software Quality Assurance Analyst, Software Engineer, Project Manager",,,,dol,2026-10-28,10,2026
+"Illumina, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Principal, Salesforce Architecture, Staff Software Quality Engineer, Software Quality Engineer 2",,,,dol,2026-10-28,10,2026
+Gen Digital Inc.,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Senior Software Engineer, Sr. Manager, User Experience, Senior Principal Software Engineer",,,,dol,2026-10-28,10,2026
+"Vyzer Solutions, Inc",tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Software Developer, Systems Analyst, Senior Software Developer",,,,dol,2026-10-28,10,2026
+"Keysight Technologies, Inc.",tech,no,yes,,,,,,,,,"DOL sponsor, not probed this run; titles: R&D Engineer 5, Software, R&D Engineer 3, Software, R&D Engineer 4, Software",,,,dol,2026-10-28,10,2026
+"Publix Super Markets, Inc.",tech,no,yes,,,,,,,,,"DOL sponsor, not probed this run; titles: Senior Software Engineer, Lead Software Engineer, Is Engineer 2",,,,dol,2026-10-28,10,2026
+Ibase Operations Corp.,tech,no,yes,,,,,,,,,"DOL sponsor, not probed this run; titles: Team Lead, Senior Engineer, Senior Manager",,,,dol,2026-10-28,10,2026
+Cyma Systems Inc,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Software Developer, Lead Workday Developer, Business Intelligence Developer",,,,dol,2026-10-28,10,2026
+Adroit Associates Inc,tech,no,yes,,,,,,,,,"DOL sponsor, not probed this run; titles: Salesforce Marketing Cloud Developer, Technical Product Manager, Technical Business Analyst",,,,dol,2026-10-28,10,2026
+Source Infotech Inc.,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Data Engineer, Software Developer, Developer Level 3",,,,dol,2026-10-28,10,2026
+"Persistent Systems, Inc.",tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: It Project Manager, Software Developer Ii, Sr. Delivery Manager",,,,dol,2026-10-28,10,2026
+Caprus It Inc,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Sr. Software Engineer, Sr. Systems Engineer, Sr. Business Analyst",,,,dol,2026-10-28,10,2026
+Nisum Technologies Inc.,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Senior Software Engineer I, Technical Lead Iii, Technical Lead Ii",,,,dol,2026-10-28,10,2026
+Infostretch Corporation,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Test Lead - Software Engineering, Software Automation Lead, Business Systems Analyst",,,,dol,2026-10-28,10,2026
+Kalpra Tech Solutions Llc,tech,no,yes,,,,,,,,,"DOL sponsor, not probed this run; titles: Software Developer, Software Engineer, Technical Project Manager",,,,dol,2026-10-28,10,2026
+The Kroger Company,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Senior Software Engineer, Senior Quality Engineer, Advanced Software Engineer",,,,dol,2026-10-28,10,2026
+Softrams Llc,tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Devops Engineer, Lead Full Stack Developer, Product Manager",,,,dol,2026-10-28,10,2026
+Hadiamondstar Software Solutions Llc,tech,no,yes,,,,,,,,,"DOL sponsor, not probed this run; titles: Software Consultant, Software Developer",,,,dol,2026-10-28,10,2026
+"Hire It People, Inc",tech,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: Sap Consultant, Sap Abap Programmer, Senior Programmer",,,,dol,2026-10-28,10,2026
+Willsfly Technologies Inc,consulting,no,no,,,,,,,,,"DOL sponsor, not probed this run; titles: .Net Full-Stack Developer, Java Full-Stack Developer, Java Technical Lead",,,,dol,2026-10-28,10,2026

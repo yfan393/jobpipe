@@ -1,0 +1,1 @@
+added 16 sponsors with a working board; 746 more without a board -> data/registry_candidates.csv
