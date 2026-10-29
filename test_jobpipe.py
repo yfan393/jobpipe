@@ -761,6 +761,13 @@ class RegistryAudit(unittest.TestCase):  # audit Oct 28 2026: registry and feed 
             out, _ = jp.check_company(c)
         self.assertEqual(out["status"], "ok")
         self.assertIn("verified", out["notes"])
+        # a board whose name is only the first word is not the company (Oct 29: 'Oliver' was taken for Oliver Wyman)
+        with mock.patch.object(jp, "http", side_effect=fake("Oliver")):
+            out, _ = jp.check_company(c)
+        self.assertEqual(out["status"], "guess")
+        self.assertTrue(jp.names_match("IMC Trading", "IMC Trading"))
+        self.assertTrue(jp.names_match("hive", "Hive AI"))
+        self.assertFalse(jp.names_match("insight", "Insight Global"))
 
     def test_one_failure_keeps_the_feed(self):
         c = {"company": "Feedco", "ats": "greenhouse", "ats_slug": "feedco", "status": "ok", "notes": ""}

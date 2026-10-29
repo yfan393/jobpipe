@@ -2769,6 +2769,17 @@ def grow_slugs(name):
     return list(dict.fromkeys([joined, "-".join(words)]))
 
 
+GENERIC_NAME_WORDS = {"ai", "labs", "lab", "inc", "co", "company", "group", "technologies", "technology", "hq", "the", "and", "of"}
+
+
+def names_match(board_name, company):
+    """A board's name belongs to `company` when it contains every distinctive word of the company's name
+    ('IMC Trading' ~ 'imc trading', 'Hive AI' ~ 'hive'), so 'Oliver' is not Oliver Wyman."""
+    b = set(norm_company(board_name).split())
+    want = set(norm_company(company).split()) - GENERIC_NAME_WORDS
+    return bool(b and want) and want <= b
+
+
 def board_name_matches(ats, slug_, employer):
     """Greenhouse returns the board's company name: it must share most of the employer's name words.
     Lever and Ashby expose no name, so only a full-name slug of 5+ characters is trusted there."""
@@ -2778,11 +2789,9 @@ def board_name_matches(ats, slug_, employer):
     if st != 200:
         return False
     try:
-        board = norm_company(json.loads(body).get("name", ""))
+        return names_match(json.loads(body).get("name", ""), employer)
     except Exception:
         return False
-    a, b = set(board.split()), set(norm_company(employer).split())
-    return bool(a and b) and len(a & b) / len(a | b) >= 0.5
 
 
 def do_registry_grow(sponsors, rows, limit=None, probe_boards=True, max_probe=None, budget_s=None, workers=16):
@@ -3009,8 +3018,7 @@ def board_is_company(ats, slug_, company, aliases=""):
                 bn = norm_company(json.loads(body).get("name", ""))
             except Exception:
                 bn = ""
-            a = set(bn.split())
-            if a and any(len(a & set(k.split())) / len(a | set(k.split())) >= 0.5 for k in keys):
+            if bn and any(names_match(bn, n) for n in names):
                 return True, f"board name '{bn}'"
     try:
         _, jobs = FETCHERS[ats]({"company": company, "ats": ats, "ats_slug": slug_})
